@@ -6,7 +6,6 @@
 package br.cefetmf.implicare.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +16,16 @@ import javax.xml.registry.InvalidRequestException;
 /**
  *
  * @author Gabriel
+ * 
  */
+
 public class ImplicareServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, InvalidRequestException {
 
         request.setCharacterEncoding("UTF-8");
 
-        String jsp;
+        String jsp = null;
         String action = request.getParameter("action");
 
         if(action == null || action.isEmpty()) { 
@@ -32,12 +33,123 @@ public class ImplicareServlet extends HttpServlet {
         }
 
         switch (action) {
-            
+            case "AlterarCandidatoVaga":
+                jsp = AlterarCandidatoVaga.execute(request);
+                break;
+            case "AlterarExperienciaProfissional":
+                jsp = AlterarExperienciaProfissional.execute(request);
+                break;
+            case "AlterarFormacaoAcademica":
+                jsp = AlterarFormacaoAcademica.execute(request);
+                break;
+            case "AlterarTelefone":
+                jsp = AlterarTelefone.execute(request);
+                break;
+            case "AlterarUsuarioCandidato":
+                jsp = AlterarUsuarioCandidato.execute(request);
+                break;
+            case "AlterarUsuarioEmpresa":
+                jsp = AlterarUsuarioEmpresa.execute(request);
+                break;
+            case "AlterarVaga":
+                jsp = AlterarVaga.execute(request);
+                break;
+            case "ExcluirCargoInteresse":
+                jsp = ExcluirCargoInteresse.execute(request);
+                break;
+            case "ExcluirExperienciaProfissional":
+                jsp = ExcluirExperienciaProfissional.execute(request);
+                break;
+            case "ExcluirFormacaoAcademica":
+                jsp = ExcluirFormacaoAcademica.execute(request);
+                break;
+            case "ExcluirTelefone":
+                jsp = ExcluirTelefone.execute(request);
+                break;
+            case "ExcluirUsuarioCandidato":
+                jsp = ExcluirUsuarioCandidato.execute(request);
+                break;
+            case "ExcluirUsuarioEmpresa":
+                jsp = ExcluirUsuarioEmpresa.execute(request);
+                break;
+            case "ExcluirVaga":
+                jsp = ExcluirVaga.execute(request);
+                break;
+            case "InserirCandidatoVaga":
+                jsp = InserirCandidatoVaga.execute(request);
+                break;
+            case "InserirCargoInteresse":
+                jsp = InserirCargoInteresse.execute(request);
+                break;
+            case "InserirExperienciaProfissional":
+                jsp = InserirExperienciaProfissional.execute(request);
+                break;
+            case "InserirFormacaoAcademica":
+                jsp = InserirFormacaoAcademica.execute(request);
+                break;
+            case "InserirTelefone":
+                jsp = InserirTelefone.execute(request);
+                break;
+            case "InserirUsuarioCandidato":
+                jsp = InserirUsuarioCandidato.execute(request);
+                break;
+            case "InserirUsuarioEmpresa":
+                jsp = InserirUsuarioEmpresa.execute(request);
+                break;
+            case "InserirVaga":
+                jsp = InserirVaga.execute(request);
+                break;
+            case "ListarAreaEstudo":
+                jsp = ListarAreaEstudo.execute(request);
+                break;
+            case "ListarCandidatoVaga":
+                jsp = ListarCandidatoVaga.execute(request);
+                break;
+            case "ListarCargo":
+                jsp = ListarCargo.execute(request);
+                break;
+            case "ListarCargoAreaEstudo":
+                jsp = ListarCargoAreaEstudo.execute(request);
+                break;
+            case "ListarCargoInteresse":
+                jsp = ListarCargoInteresse.execute(request);
+                break;
+            case "ListarExperienciaProfissional":
+                jsp = ListarExperienciaProfissional.execute(request);
+                break;
+            case "ListarFormacaoAcademica":
+                jsp = ListarFormacaoAcademica.execute(request);
+                break;
+            case "ListarTelefone":
+                jsp = ListarTelefone.execute(request);
+                break;
+            case "ListarVagaCandidato":
+                jsp = ListarVagaCandidato.execute(request);
+                break;
+            case "ListarVagaEmpresa":
+                jsp = ListarVagaEmpresa.execute(request);
+                break;
+            case "Login":
+                jsp = Login.execute(request);
+                break;
+            case "PesquisarAreaEstudo":
+                jsp = PesquisarAreaEstudo.execute(request);
+                break;
+            case "PesquisarCargo":
+                jsp = PesquisarCargo.execute(request);
+                break;
+            case "PesquisarUsuarioCandidato":
+                jsp = PesquisarUsuarioCandidato.execute(request);
+                break;
+            case "PesquisarUsuarioEmpresa":
+                jsp = PesquisarUsuarioEmpresa.execute(request);
+                break;
+            default:
+                jsp = "/WEB-Pages/Erro.jsp";
+                request.setAttribute("Erro", "A solicitação feita ao servlet é inválida.");
         }
-        
-        //Cria um dispatcher da solicita,c~ao.
+
         RequestDispatcher dispatcher = request.getRequestDispatcher(jsp);
-        //Redireciona a p´agina.
         dispatcher.forward(request, response);
     }
     
