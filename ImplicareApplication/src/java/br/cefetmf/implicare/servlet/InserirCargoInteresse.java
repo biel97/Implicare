@@ -5,6 +5,9 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.CargoInteresse;
+import br.cefetmg.implicare.model.service.CargoInteresseManagement;
+import br.cefetmg.implicare.model.serviceImpl.CargoInteresseManagementImpl;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,7 +19,33 @@ import javax.servlet.http.HttpServletRequest;
 class InserirCargoInteresse {
 
     static String execute(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String jsp="";
+        try{
+
+            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
+            
+            CargoInteresseManagement CargoManagement = new CargoInteresseManagementImpl(); 
+            CargoInteresse CargoInteresse = new CargoInteresse();
+            
+            CargoInteresse.setCPF(CPF);
+            CargoInteresse.setCod_Cargo(Cod_Cargo);
+            
+            boolean Cargo = CargoManagement.insert(CargoInteresse);
+
+            if (Cargo =! false) {
+                jsp="";
+            } else {
+                String Erro = "Ocorreu erro ao Inserir Cargo Interesse!";
+                jsp="/WEB-Pages/Erro.jsp";
+                request.setAttribute("Erro", Erro);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+            jsp="";
+        }
+        
+        return jsp;
     }
     
 }
