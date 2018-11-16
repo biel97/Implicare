@@ -108,21 +108,6 @@ public class ImplicareServlet extends HttpServlet {
             case "ListarCargo":
                 jsp = ListarCargo.execute(request);
                 break;
-            case "ListarCargoAreaEstudo":
-                jsp = ListarCargoAreaEstudo.execute(request);
-                break;
-            case "ListarCargoInteresse":
-                jsp = ListarCargoInteresse.execute(request);
-                break;
-            case "ListarExperienciaProfissional":
-                jsp = ListarExperienciaProfissional.execute(request);
-                break;
-            case "ListarFormacaoAcademica":
-                jsp = ListarFormacaoAcademica.execute(request);
-                break;
-            case "ListarTelefone":
-                jsp = ListarTelefone.execute(request);
-                break;
             case "ListarVagaCandidato":
                 jsp = ListarVagaCandidato.execute(request);
                 break;
@@ -132,11 +117,8 @@ public class ImplicareServlet extends HttpServlet {
             case "Login":
                 jsp = Login.execute(request);
                 break;
-            case "PesquisarAreaEstudo":
-                jsp = PesquisarAreaEstudo.execute(request);
-                break;
-            case "PesquisarCargo":
-                jsp = PesquisarCargo.execute(request);
+            case "PerfilCandidato":
+                jsp = PerfilCandidato.execute(request);
                 break;
             case "PesquisarUsuarioCandidato":
                 jsp = PesquisarUsuarioCandidato.execute(request);
