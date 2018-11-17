@@ -43,11 +43,6 @@ CREATE TABLE Usuario(
 )
 ;
 
--- Create indexes for table Usuario
-
-CREATE INDEX IX_Relationship5 ON Usuario (Cod_CEP)
-;
-
 -- Add keys for table Usuario
 
 ALTER TABLE Usuario ADD CONSTRAINT Key3 PRIMARY KEY (CPF_CNPJ)
@@ -64,52 +59,6 @@ CREATE TABLE Area_Estudo(
 -- Add keys for table Area_Estudo
 
 ALTER TABLE Area_Estudo ADD CONSTRAINT Key6 PRIMARY KEY (Cod_Area_Estudo)
-;
-
--- Table Estado
-
-CREATE TABLE Estado(
- Cod_Estado Integer NOT NULL,
- Nom_Estado Character varying NOT NULL
-)
-;
-
--- Add keys for table Estado
-
-ALTER TABLE Estado ADD CONSTRAINT Key8 PRIMARY KEY (Cod_Estado)
-;
-
--- Table Cidade
-
-CREATE TABLE Cidade(
- Cod_Estado Integer NOT NULL,
- Cod_Cidade Integer NOT NULL,
- Nom_Cidade Character varying NOT NULL
-)
-;
-
--- Add keys for table Cidade
-
-ALTER TABLE Cidade ADD CONSTRAINT Key9 PRIMARY KEY (Cod_Cidade, Cod_Estado)
-;
-
--- Table CEP
-
-CREATE TABLE CEP(
- Cod_CEP Bigint NOT NULL,
- Cod_Cidade Integer,
- Cod_Estado Integer
-)
-;
-
--- Create indexes for table CEP
-
-CREATE INDEX IX_Relationship4 ON CEP (Cod_Cidade, Cod_Estado)
-;
-
--- Add keys for table CEP
-
-ALTER TABLE CEP ADD CONSTRAINT Key10 PRIMARY KEY (Cod_CEP)
 ;
 
 -- Table Empresa
@@ -269,15 +218,6 @@ CREATE TABLE Cargo_areaestudo(
 ALTER TABLE Cargo_areaestudo ADD CONSTRAINT Key26 PRIMARY KEY (Cod_Area_Estudo,Cod_Cargo)
 ;
 -- Create foreign keys (relationships) section ------------------------------------------------- 
-
-ALTER TABLE Cidade ADD CONSTRAINT Relationship1 FOREIGN KEY (Cod_Estado) REFERENCES Estado (Cod_Estado) ON DELETE NO ACTION ON UPDATE NO ACTION
-;
-
-ALTER TABLE CEP ADD CONSTRAINT Relationship4 FOREIGN KEY (Cod_Cidade, Cod_Estado) REFERENCES Cidade (Cod_Cidade, Cod_Estado) ON DELETE NO ACTION ON UPDATE NO ACTION
-;
-
-ALTER TABLE Usuario ADD CONSTRAINT Relationship5 FOREIGN KEY (Cod_CEP) REFERENCES CEP (Cod_CEP) ON DELETE NO ACTION ON UPDATE NO ACTION
-;
 
 ALTER TABLE Empresa ADD CONSTRAINT Relationship6 FOREIGN KEY (CNPJ) REFERENCES Usuario (CPF_CNPJ) ON DELETE CASCADE ON UPDATE CASCADE
 ;
