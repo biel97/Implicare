@@ -25,7 +25,6 @@ class InserirExperienciaProfissional {
         try {
 
             Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            int Seq_Experiencia = Integer.parseInt(request.getParameter("Seq_Experiencia"));
             String Nom_Empresa = request.getParameter("Nom_Empresa");
             int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
             Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
@@ -40,7 +39,6 @@ class InserirExperienciaProfissional {
             ExperienciaProfissional Exp = new ExperienciaProfissional();
             
             Exp.setCPF(CPF);
-            Exp.setSeq_Experiencia(Seq_Experiencia);
             Exp.setNom_Empresa(Nom_Empresa);
             Exp.setCod_Cargo(Cod_Cargo);
             Exp.setData_Inicio(Dat_Inicio);

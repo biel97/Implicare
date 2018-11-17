@@ -5,6 +5,9 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.Candidato;
+import br.cefetmg.implicare.model.service.CandidatoManagement;
+import br.cefetmg.implicare.model.serviceImpl.CandidatoManagementImpl;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,7 +19,28 @@ import javax.servlet.http.HttpServletRequest;
 class PesquisarUsuarioCandidato {
 
     static String execute(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String jsp = "";
+        try {
+
+            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+
+            CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
+            Candidato Cand = new Candidato();
+            Cand = CandidatoManagement.pesquisar(CPF);
+
+            if (Cand != null) {
+                jsp = "";
+                request.setAttribute("Candidato", Cand);
+            } else {
+                String Erro = "Erro Candidato Não Existe";
+                jsp = "/WEB-Pages/Erro.jsp";
+                request.setAttribute("Erro", Erro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
+        return jsp;
     }
     
 }

@@ -25,7 +25,6 @@ class InserirFormacaoAcademica {
         try {
 
             Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            int Seq_Formacao = Integer.parseInt(request.getParameter("Seq_Formacao"));
             String Instituicao_Ensino = request.getParameter("Instituicao_Ensino");
             int Cod_Area_Estudo = Integer.parseInt(request.getParameter("Cod_Area_Estudo"));
             String Atividades_Desenvolvidas = request.getParameter("Atividades_Desenvolvidas");
@@ -38,7 +37,6 @@ class InserirFormacaoAcademica {
             FormacaoAcademica Form = new FormacaoAcademica();
             
             Form.setCPF(CPF);
-            Form.setSeq_Formacao(Seq_Formacao);
             Form.setInstituicao_Ensino(Instituicao_Ensino);
             Form.setCod_Area_Estudo(Cod_Area_Estudo);
             Form.setAtividades_Desenvolvidas(Atividades_Desenvolvidas);

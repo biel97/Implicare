@@ -24,7 +24,6 @@ class InserirVaga {
         String jsp = "";
         try {
             
-            int Seq_Vaga = Integer.parseInt(request.getParameter("Seq_Vaga"));
             Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
             int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -38,7 +37,6 @@ class InserirVaga {
             VagaManagement VagaManagement = new VagaManagementImpl();
             Vaga Vag = new Vaga();
             
-            Vag.setSeq_Vaga(Seq_Vaga);
             Vag.setCNPJ(CNPJ);
             Vag.setCod_Cargo(Cod_Cargo);
             Vag.setDat_Publicacao(Dat_Publicacao);

@@ -5,6 +5,9 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.Empresa;
+import br.cefetmg.implicare.model.service.EmpresaManagement;
+import br.cefetmg.implicare.model.serviceImpl.EmpresaManagementImpl;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,7 +19,28 @@ import javax.servlet.http.HttpServletRequest;
 class PesquisarUsuarioEmpresa {
 
     static String execute(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String jsp = "";
+        try {
+
+            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+
+            EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
+            Empresa Empr = new Empresa();
+            Empr = EmpresaManagement.pesquisar(CNPJ);
+
+            if (Empr != null) {
+                jsp = "";
+                request.setAttribute("Empresa", Empr);
+            } else {
+                String Erro = "Erro Empresa Não Existe";
+                jsp = "/WEB-Pages/Erro.jsp";
+                request.setAttribute("Erro", Erro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
+        return jsp;
     }
     
 }
