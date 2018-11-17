@@ -88,6 +88,7 @@ class PerfilCandidato {
                 request.setAttribute("ListaAreaEstudo", ListaArea);
                 request.setAttribute("ListaExperienciaProfissional", ListaExpProfissional);
                 request.setAttribute("ListaCargo", ListaCargo);
+                request.setAttribute("ListaTelefone", ListaTelefone);
                 request.setAttribute("ListaCargoInteresse", ListaCargoInt);
                 request.setAttribute("ListaCargoAreaEstudo", ListaCargoArea);
             } else {
