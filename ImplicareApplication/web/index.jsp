@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 17/11/2018, 13:49:57
+    Document   : index
+    Created on : 17/11/2018, 15:05:06
     Author     : ADM
 --%>
 
@@ -10,12 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+        <link href="css\bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css\bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css\bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css\bootstrap-theme.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-          <form action="">
+        <form action="">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -31,7 +32,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/squery.js"></script>
+
+        <script src="js\bootstrap.js"></script>
+        <script src="js\bootstrap.min.js"></script>
+        <script src="js\jquery.js"></script>
     </body>
 </html>
