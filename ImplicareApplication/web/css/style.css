@@ -1,0 +1,122 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/11/2018, 23:35:07
+    Author     : ADM
+*/
+
+body#LoginForm{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#pagPrincipal{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+
+
+
+.form-heading { color:#1a1a1a; font-size:32px; text-align: center;}
+.panel h1{ color:#444444; font-size:18px; margin:0 0 8px 0; text-align: center;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+
+.btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+  border-color: #f0ad4e;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+.botao-pg-principal {
+    width: 100%;
+    text-align: center;
+}
+
+.botao-index {
+    width: 48%;
+    background: #f0ad4e none repeat scroll 0 0;
+    border-color: #f0ad4e;
+    color: #ffffff;
+    font-size: 14px;
+    
+}
+
+.opcao-cadastro {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: 0px;
+
+}
+
+.op-cad {
+    border-radius: 0px;
+
+    width: 49%;
+    
+}
+
+.cadastro {
+    max-width: 50%;
+    background: #ffffff none repeat scroll 0 0;
+    padding: 50px 70px 70px 71px;
+    margin: 10px auto 30px;
+    text-align: center;
+}
+
+.titulo-cadastro {
+    text-align: center;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.linha-botao-op-cad {
+    width: 100%;
+    text-align: center;
+}
+
+.bt1{
+
+    border-right: 1px;
+    background: #f0ad4e none repeat scroll 0 0;
+    border-color: #f0ad4e;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.bt2{
+
+    border-left: 0px;
+    background: #ffffff none repeat scroll 0 0;
+    border-color: #f0ad4e;
+    color: #f0ad4e;
+    font-size: 14px;
+}

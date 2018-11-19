@@ -14,26 +14,39 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
-          <form action="">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    
+        <body id="LoginForm">
+        <div class="container">
+            <h1 class="form-heading"><b>Implicare</b></h1>
+        <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+           <p>Insira login e senha</p>
+           </div>
+            <form action="">
+
+                <div class="form-group">
+
+
+                    <input type="text" class="form-control" id="inputCod" placeholder="Login">
+
+                </div>
+
+                <div class="form-group">
+
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="Login">Login</button>
+
+            </form>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-    </body>
+
+        </div></div></div>
+
+
+        </body>
 </html>
