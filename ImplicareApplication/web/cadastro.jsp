@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 
 <!DOCTYPE html>
 <html>
@@ -26,14 +27,23 @@
         <div class="opcao-cadastro">
 
                 <p class="linha-botao-op-cad">
-                    <a class="btn btn-primary op-cad bt1" id="bt1" onclick="bt1()" role="button">Empresa</a>
-                    <a class="btn btn-primary op-cad bt2" id="bt2" onclick="bt2()" role="button">Candidato</a>
+                <div class="btn-group btn-group " role="group" aria-label="opCadastro">
+                    <button type="button" onclick="bt1()" value="0" id="bt1" class="btn btn-secondary bt1">Empresa</button>
+                    <button type="button" onclick="bt2()" value="0" id="bt2" class="btn btn-secondary bt2">Candidato</button>
+                </div>
+                    
                 </p>
 
         </div>
-                <div id="conteudo-cadastro">
+                <div class="conteudo-cadastro">
+                    <% if(true%><%){ %>
+                        <%@ include file="formCadastroCandidato.jspf" %>
+                    <% }else if(false){ %>
+  
+                        <%@ include file="formCadastroEmpresa.jspf" %>
+                    <% } %>
                     
-
+                        
                 </div>
             </div>
         </div>

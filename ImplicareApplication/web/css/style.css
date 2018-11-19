@@ -104,19 +104,17 @@ body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:
 }
 
 .bt1{
-
-    border-right: 1px;
-    background: #f0ad4e none repeat scroll 0 0;
-    border-color: #f0ad4e;
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.bt2{
-
-    border-left: 0px;
     background: #ffffff none repeat scroll 0 0;
     border-color: #f0ad4e;
     color: #f0ad4e;
     font-size: 14px;
 }
+
+.bt2{
+
+    background: #ffffff none repeat scroll 0 0;
+    border-color: #f0ad4e;
+    color: #f0ad4e;
+    font-size: 14px;
+}
+
