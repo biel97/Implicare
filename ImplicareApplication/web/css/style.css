@@ -210,3 +210,17 @@ body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:
     font-weight: 600;
     color: #0062cc;
 }
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading span {
+	margin-top: -20px;
+	font-size: 15px;
+}
