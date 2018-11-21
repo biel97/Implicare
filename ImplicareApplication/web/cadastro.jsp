@@ -16,8 +16,10 @@
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
     <body id="cadastro">
+        
         <div class="container">
             <div class="cadastro">
                 <div class="panel">
@@ -37,8 +39,11 @@
                 </div>
             </div>
         </div>
+
+
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </body>
 </html>
 

@@ -17,7 +17,9 @@
         <link href="css\style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body id="pagPrincipal">
+
         <div class="container">
+         <%@include file="header.jspf" %>
             <div class="pagina-inicial">
                 <div class="main-div">
                     <div class="panel">
@@ -32,5 +34,8 @@
                 </div>
             </div>
         </div>
+            <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </body>
 </html>
