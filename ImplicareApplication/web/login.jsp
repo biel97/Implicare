@@ -25,22 +25,22 @@
             <div class="panel">
            <p>Insira login e senha</p>
            </div>
-            <form action="">
+            <form action="ImplicareServlet?acao=Login" method="POST">
 
                 <div class="form-group">
 
 
-                    <input type="text" class="form-control" id="inputCod" placeholder="Login">
+                    <input type="text" class="form-control" name="CPF_CNPJ" placeholder="Login">
 
                 </div>
 
                 <div class="form-group">
 
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="Senha" placeholder="Password">
 
                 </div>
                 
-                <button type="submit" class="btn btn-primary" id="Login">Login</button>
+                <input type="submit" class="btn btn-primary" id="Login">
 
             </form>
             </div>

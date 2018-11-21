@@ -27,7 +27,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Usuario WHERE CPF_CNPJ = ? AND Senha = md5(?)";
+            String sql = "SELECT * FROM Usuario WHERE CPF_CNPJ = ? AND Senha = ?";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             

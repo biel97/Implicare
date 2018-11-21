@@ -11,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.registry.InvalidRequestException;
 
 /**
  *
@@ -21,18 +20,14 @@ import javax.xml.registry.InvalidRequestException;
 
 public class ImplicareServlet extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, InvalidRequestException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         request.setCharacterEncoding("UTF-8");
 
         String jsp = null;
-        String action = request.getParameter("action");
+        String acao = request.getParameter("acao");
 
-        if(action == null || action.isEmpty()) { 
-            throw new InvalidRequestException("Erro: nenhuma ação foi solicitada.");
-        }
-
-        switch (action) {
+        switch (acao) {
             case "AlterarCandidatoVaga":
                 jsp = AlterarCandidatoVaga.execute(request);
                 break;

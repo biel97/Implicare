@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 class Login {
 
     static String execute(HttpServletRequest request) {
-         String jsp = "";
+        String jsp = "";
         try {
             long CPF_CNPJ = Long.parseLong(request.getParameter("CPF_CNPJ"));
             String Senha = request.getParameter("Senha");
@@ -51,7 +51,7 @@ class Login {
                 request.getSession().setAttribute("Cod_CEP",user.getCod_CEP());
                 request.getSession().setAttribute("Desc_Usuario", user.getDesc_Usuario());
                 
-                jsp = "/VisualizarExcluirAnimal.jsp";
+                jsp = "/index.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
