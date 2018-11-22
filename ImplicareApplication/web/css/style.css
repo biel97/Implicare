@@ -11,6 +11,7 @@ and open the template in the editor.
 body#LoginForm{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 body#pagPrincipal{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 
 
 
@@ -223,4 +224,100 @@ body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:
 .panel-heading span {
 	margin-top: -20px;
 	font-size: 15px;
+}
+
+
+
+
+
+
+
+.little-container {
+    
+}
+
+.btn-gerenciar-vaga {
+    width: 100%;
+    background-color: #f0ad4e;
+    background-image: none;
+    border-color: #black;
+    margin-bottom: 3px;
+}
+
+.btn-primary1 {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.btn-primary1:focus,
+.btn-primary1.focus {
+  color: #fff;
+  background-color: #ff9900;
+  border-color: #ff9900;
+}
+.btn-primary1:hover {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #ff9900;
+}
+.btn-primary1:active,
+.btn-primary1.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #ff9900;
+  border-color: #ff9900;
+}
+.btn-primary1:active:hover,
+.btn-primary1.active:hover,
+.open > .dropdown-toggle.btn-primary1:hover,
+.btn-primary1:active:focus,
+.btn-primary1.active:focus,
+.open > .dropdown-toggle.btn-primary1:focus,
+.btn-primary1:active.focus,
+.btn-primary1.active.focus,
+.open > .dropdown-toggle.btn-primary1.focus {
+  color: #fff;
+  background-color: #ff9900;
+  border-color: #ff9900;
+}
+.btn-primary1:active,
+.btn-primary1.active,
+.open > .dropdown-toggle.btn-primary1 {
+  background-image: none;
+}
+.btn-primary1.disabled:hover,
+.btn-primary1[disabled]:hover,
+fieldset[disabled] .btn-primary1:hover,
+.btn-primary1.disabled:focus,
+.btn-primary1[disabled]:focus,
+fieldset[disabled] .btn-primary1:focus,
+.btn-primary1.disabled.focus,
+.btn-primary1[disabled].focus,
+fieldset[disabled] .btn-primary1.focus {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.btn-primary1 .badge {
+  color: #e38d13;
+  background-color: #fff;
+}
+
+
+.panel-primary1 {
+  border-color: #ff9900;
+}
+.panel-primary1 > .panel-heading {
+  color: #fff;
+  background-color: #e38d13 ;
+  border-color: #ff9900;
+}
+.panel-primary1 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #337ab7;
+}
+.panel-primary1 > .panel-heading .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+.panel-primary1 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #337ab7;
 }

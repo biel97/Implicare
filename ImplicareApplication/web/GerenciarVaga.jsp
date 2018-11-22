@@ -20,17 +20,17 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body id="gerenciar-vaga">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary1">
                         <div class="panel-heading">
                             <h3 class="panel-title">Tecnico de Informática</h3>
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                         </div>
                         <div class="panel-body">
-                            <table class="col-md-9 col-lg-9">
+                            <table class="col-md-9 col-lsm-9">
                                 <tbody>
                                     <tr>
                                         <td>Data Publicação</td>
@@ -54,13 +54,15 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary" id="EditarVaga">Editar Vaga</button>
-                            <button type="submit" class="btn btn-primary" id="ExcluirVaga">Excluir Vaga</button>
+                            <div class="little-container col-md-3 col-lsm-9">
+                                <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
+                                <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary1">
                         <div class="panel-heading">
                             <h3 class="panel-title">Tecnico de Informática</h3>
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
@@ -90,15 +92,17 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary" id="EditarVaga">Editar Vaga</button>
-                            <button type="submit" class="btn btn-primary" id="ExcluirVaga">Excluir Vaga</button>
-                        </div>
+                            <div class="little-container col-md-3 col-lsm-9">
+                            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
+                            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary1">
                         <div class="panel-heading">
                             <h3 class="panel-title">Tecnico de Informática</h3>
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
@@ -128,13 +132,15 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary" id="EditarVaga">Editar Vaga</button>
-                            <button type="submit" class="btn btn-primary" id="ExcluirVaga">Excluir Vaga</button>
-                        </div>
+                            <div class="little-container col-md-3 col-lsm-9">
+                            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
+                            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
+                            </div>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary1">
                         <div class="panel-heading">
                             <h3 class="panel-title">Tecnico de Informática</h3>
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
@@ -164,13 +170,23 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary" id="EditarVaga">Editar Vaga</button>
-                            <button type="submit" class="btn btn-primary" id="ExcluirVaga">Excluir Vaga</button>
-                        </div>
+                            <div class="little-container col-md-3 col-lsm-9">
+                            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
+                            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="CriarVaga">Criar Vaga</button>
+            <div class="row ">
+                <div class="col-md-3">
+            <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="CriarVaga">Criar Vaga</button>
+                </div>
+            </div>
         </div>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        
     </body>
 </html>
