@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                             
-                            <div class="tab-pane fade active" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
+                            <div class="tab-pane fade" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Nome da Instituição</label>
