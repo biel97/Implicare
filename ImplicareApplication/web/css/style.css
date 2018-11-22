@@ -242,7 +242,8 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
     background-color: #f0ad4e;
     background-image: none;
     border-color: #black;
-    margin: 3px;
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
 
 .btn-primary1 {
