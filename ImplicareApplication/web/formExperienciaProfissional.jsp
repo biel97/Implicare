@@ -1,7 +1,7 @@
-
 <%@ page pageEncoding="UTF-8" %>
 <%@page import="java.util.ArrayList"%>
-<%@page import="br.cefetmg.implicare.model.domain.AreaEstudo"%>
+<%@page import="br.cefetmg.implicare.model.domain.Cargo"%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,20 +18,17 @@
             <div class="main-div">
                 <form>
                     <div class="form-group">
-                        <input type="cpf" class="form-control" id="CPF" placeholder="CPF">
+                        <input type="text" class="form-control" id="Nom_Empresa" placeholder="Nome da Empresa">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Instituicao_Ensino" placeholder="Instituição de Ensino">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Area de Estudo</label>
-                        <select class="form-control" id="AreaEstudo" name="AreaEstudo">
+                        <label for="exampleFormControlSelect1">Cargo</label>
+                        <select class="form-control" id="Cod_Cargo" name="Cod_Cargo">
                             <% 
-                                ArrayList<AreaEstudo> ListaArea = (ArrayList)request.getAttribute("ListaArea");
-                                for(int i = 0; i < ListaArea.size(); i++) { 
+                                ArrayList<Cargo> ListaCargo = (ArrayList)request.getAttribute("ListaCargo");
+                                for(int i = 0; i < ListaCargo.size(); i++) { 
                             %>
-                                <option value="<% ListaArea.get(i).getCod_Area_Estudo(); %>">
-                                               <% ListaArea.get(i).getNom_Area_Estudo(); %>
+                                <option value="<% ListaCargo.get(i).getCod_Cargo(); %>">
+                                               <% ListaCargo.get(i).getNom_Cargo(); %>
                                                </option> <% } %>
                         </select>
                     </div>
@@ -41,15 +38,15 @@
                         <input type="text" class="form-control" id="Atividades_Desenvolvidas" placeholder="Atividades desenvolvidas">
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Inicio" >
+                        <input type="date" class="form-control" id="Data_Inicio" >
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Termino" >
+                        <input type="date" class="form-control" id="Data_Termino" >
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Formacao_Academica" placeholder="Descrição da formação acadêmica">
+                        <input type="text" class="form-control" id="Desc_Experiencia_Profissional" placeholder="Descrição Experiência Profissional">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="InserirFormacaoAcademica">Inserir Formação Acadêmica</button>
+                    <button type="submit" class="btn btn-primary" id="Inserir Experiência Profissional">Inserir Experiência Profissional</button>
                 </form>
             </div>
         </div>
