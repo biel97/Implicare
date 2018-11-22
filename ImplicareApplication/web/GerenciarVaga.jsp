@@ -55,8 +55,8 @@
                                 <tbody>
                             </table>
                             <div class="little-container col-md-3 col-lsm-9">
-                                <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
-                                <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
+                                <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga">Editar Vaga</button>
+                                <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ExcluirVaga">Excluir Vaga</button>
                             </div>
                         </div>
                     </div>

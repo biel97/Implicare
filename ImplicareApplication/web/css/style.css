@@ -180,10 +180,11 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
 .profile-head .nav-tabs .nav-link{
     font-weight:600;
     border: none;
+    color: #e38d13;
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #0062cc;
+    border-bottom:2px solid  #e38d13;
 }
 .profile-work{
     padding: 14%;
@@ -209,7 +210,7 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
 }
 .profile-tab p{
     font-weight: 600;
-    color: #0062cc;
+    color: #e38d13;
 }
 
 .row{
@@ -241,7 +242,7 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
     background-color: #f0ad4e;
     background-image: none;
     border-color: #black;
-    margin-bottom: 3px;
+    margin: 3px;
 }
 
 .btn-primary1 {
@@ -320,4 +321,12 @@ fieldset[disabled] .btn-primary1.focus {
 }
 .panel-primary1 > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #337ab7;
+}
+
+.btn-perfil-cand {
+    margin: 3px;
+}
+
+.nome-usuario {
+    font-size: 20px;
 }

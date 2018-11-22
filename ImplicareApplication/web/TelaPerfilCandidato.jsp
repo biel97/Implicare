@@ -10,20 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Perfil</title>
-        <link href="css\bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css\bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css\bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="css\bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="css\style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body id="LoginForm">
+
         <div class="container emp-profile">
+            
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
+                            <div class="file btn btn-lg btn-primary1">
                                 Mudar Foto
                                 <input type="file" name="file"/>
                             </div>
@@ -31,26 +30,30 @@
                     </div>
                     <div class="col-md-8">
                         <div class="profile-head">
-                                    <h5>
-                                        Gabriel Vinicius dos Santos
+                            <div class="row">
+                                    <h5 class="nome-usuario">
+                                        <b>Gabriel Vinicius dos Santos</b>
                                     </h5>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Perfil" role="tab" aria-controls="home" aria-selected="true">Perfil</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="Formacao_Academica-tab" data-toggle="tab" href="#Formacao_Academica" role="tab" aria-controls="profile" aria-selected="false">Formação Acadêmica</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="Experiencia_Profissional-tab" data-toggle="tab" href="#Experiencia_Profissional" role="tab" aria-controls="profile" aria-selected="false">Experiência Profissional</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="Cargo_Interesse-tab" data-toggle="tab" href="#Cargo_Interesse" role="tab" aria-controls="profile" aria-selected="false">Cargo Interesse</a>
-                                </li>
-                            </ul>
+                            </div>
+                            <div class="row">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#Perfil" role="tab" aria-controls="Perfil" aria-selected="true">Perfil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Formacao_Academica-tab" data-toggle="tab" href="#Formacao_Academica" role="Formacao_Academica" aria-controls="profile" aria-selected="false">Formação</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Experiencia_Profissional-tab" data-toggle="tab" href="#Experiencia_Profissional" role="tab" aria-controls="profile" aria-selected="false">Experiência Profissional</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Cargo_Interesse-tab" data-toggle="tab" href="#Cargo_Interesse" role="tab" aria-controls="Cargo_Interesse" aria-selected="false">Cargo Interesse</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -122,11 +125,19 @@
                                                 <p>khsafjdpjkgkargbmvbkgjbt</p>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary">Editar</button>
-                                        <button type="button" class="btn btn-danger">Excluir Conta</button>
+                                <div class="row">
+
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Excluir Conta</button>
+                                        </div>
+
+                                </div>
                             </div>
                             
-                            <div class="tab-pane fade" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
+                            <div class="tab-pane fade active" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Nome da Instituição</label>
@@ -175,8 +186,17 @@
                                                 <p>sfhafshfhfdhfhfadhfdhdhfd</p>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary">Editar</button>
-                                        <button type="button" class="btn btn-danger">Excluir</button>
+                                <div class="row">
+                 
+                                            <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
+                                            </div>
+                                        <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Excluir Conta</button>
+                                        </div>
+                         
+                                </div>
+
                             </div>
                             
                             <div class="tab-pane fade" id="Experiencia_Profissional" role="tabpanel" aria-labelledby="Experiencia_Profissional-tab">
@@ -220,8 +240,16 @@
                                                 <p>sfhafshfhfdhfhfadhfdhdhfd</p>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary">Editar</button>
-                                        <button type="button" class="btn btn-danger">Excluir</button>
+                                        <div class="row">
+           
+                                            <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
+                                            </div>
+                                        <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Excluir Conta</button>
+                                        </div>
+  
+                                </div>
                             </div>
                             
                             <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
@@ -257,8 +285,16 @@
                                                 <p> </p>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary">Editar</button>
-                                        <button type="button" class="btn btn-danger">Excluir</button>
+                                        <div class="row">
+          
+                                            <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
+                                            </div>
+                                        <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Excluir Conta</button>
+                                        </div>
+
+                                </div>
                             </div>
                             
                             <div class="tab-pane fade" id="Cargo_Interesse" role="tabpanel" aria-labelledby="Cargo_Interesse-tab">
@@ -271,7 +307,14 @@
                                                     <option value="4">Tecnico</option> 
                                             </select>
                                         </div>
-                                        <button type="button" class="btn btn-danger">Excluir</button>
+                                        <div class="row">
+                      
+                                            <div class="col-md-6">
+                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
+                                            </div>
+                                        
+                           
+                                </div>
                             </div>
                             
                         </div>
@@ -279,8 +322,9 @@
                 </div>
             </form>           
         </div>
-        <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
 </html>
