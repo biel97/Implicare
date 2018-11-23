@@ -28,13 +28,10 @@ class AlterarExperienciaProfissional {
             int Seq_Experiencia = Integer.parseInt(request.getParameter("Seq_Experiencia"));
             String Nom_Empresa = request.getParameter("Nom_Empresa");
             int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
-            Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             Date Dat_Inicio = (Date) formato.parse(request.getParameter("Data_Inicio"));
             Date Data_Termino = (Date) formato.parse(request.getParameter("Data_Termino"));
             String Desc_Experiencia_Profissional = request.getParameter("Desc_Experiencia_Profissional");
-            Long Cod_Cidade = Long.parseLong(request.getParameter("Cod_Cidade"));
-            Long Cod_Estado = Long.parseLong(request.getParameter("Cod_Estado"));
 
             ExperienciaProfissionalManagement ExperienciaManagement = new ExperienciaProfissionalManagementImpl();
             ExperienciaProfissional Exp = new ExperienciaProfissional();
