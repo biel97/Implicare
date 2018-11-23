@@ -298,6 +298,7 @@
                             </div>
                             
                             <div class="tab-pane fade" id="Cargo_Interesse" role="tabpanel" aria-labelledby="Cargo_Interesse-tab">
+                                <div class="row">
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Area de Estudo</label>
                                             <select class="form-control" id="AreaEstudo" name="AreaEstudo">
@@ -307,6 +308,7 @@
                                                     <option value="4">Tecnico</option> 
                                             </select>
                                         </div>
+                                    </div>
                                         <div class="row">
                       
                                             <div class="col-md-6">
