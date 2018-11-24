@@ -30,7 +30,7 @@
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                         </div>
                         <div class="panel-body">
-                            <table class="col-md-9 col-lsm-9">
+                            <table class="col-md-12 col-lg-9 tabelinha">
                                 <tbody>
                                     <tr>
                                         <td>Data Publicação</td>
@@ -54,7 +54,7 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <div class="little-container col-md-3 col-lsm-9">
+                            <div class="little-container col-lg-3 col-md-12 col-sm-12">
                                 <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga">Editar Vaga</button>
                                 <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ExcluirVaga">Excluir Vaga</button>
                             </div>
@@ -68,7 +68,7 @@
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                         </div>
                         <div class="panel-body">
-                           <table class="col-md-9 col-lg-9">
+                           <table class="col-md-12 col-lg-9 tabelinha">
                                 <tbody>
                                     <tr>
                                         <td>Data Publicação</td>
@@ -92,7 +92,7 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <div class="little-container col-md-3 col-lsm-9">
+                            <div class="little-container col-lg-3 col-md-12 col-sm-12">
                             <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
                             <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
                             </div>
@@ -108,7 +108,7 @@
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                         </div>
                         <div class="panel-body">
-                            <table class="col-md-9 col-lg-9">
+                            <table class="col-md-12 col-lg-9 tabelinha">
                                 <tbody>
                                     <tr>
                                         <td>Data Publicação</td>
@@ -124,7 +124,7 @@
                                     </tr>
                                     <tr>
                                         <td>Descrição Vaga</td>
-                                        <td>dsgadsgseagdsgasdgdsa</td>
+                                        <td>dsgadsgseagdsgaASsSaddadaasdadadasdgdsa</td>
                                     </tr>
                                     <tr>
                                         <td>Status Vaga</td>
@@ -132,45 +132,45 @@
                                     </tr>
                                 <tbody>
                             </table>
-                            <div class="little-container col-md-3 col-lsm-9">
+                            <div class="little-container col-lg-3 col-md-12 col-sm-12">
                             <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
                             <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
                             </div>
                             </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="panel panel-primary1">
+                <div class="col-md-6 col-sm-12">
+                    <div class="panel panel-primary1 ">
                         <div class="panel-heading">
                             <h3 class="panel-title">Tecnico de Informática</h3>
                             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                         </div>
                         <div class="panel-body">
-                            <table class="col-md-9 col-lg-9">
+                            <table class="col-md-12 col-lg-9 tabelinha">
                                 <tbody>
                                     <tr>
-                                        <td>Data Publicação</td>
-                                        <td>23/11/2018</td>
+                                        <td class="col-md-4">Data Publicação</td>
+                                        <td  class="col-md-4">23/11/2018</td>
                                     </tr>
                                     <tr>
-                                        <td>Número de Vagas</td>
-                                        <td>20</td>
+                                        <td class="col-md-4">Número de Vagas</td>
+                                        <td class="col-md-4">20</td>
                                     </tr>
                                     <tr>
-                                        <td>Carga Horária</td>
-                                        <td>8hrs</td>
+                                        <td class="col-md-4">Carga Horária</td>
+                                        <td class="col-md-4">8hrs</td>
                                     </tr>
                                     <tr>
-                                        <td>Descrição Vaga</td>
-                                        <td>dsgadsgseagdsgasdgdsa</td>
+                                        <td class="col-md-4">Descrição Vaga</td>
+                                        <td class="col-md-4">dsgasdasdasdasdsadasdasadsgseagdsgasdgdsa</td>
                                     </tr>
                                     <tr>
-                                        <td>Status Vaga</td>
-                                        <td>Aberto</td>
+                                        <td class="col-md-4">Status Vaga</td>
+                                        <td class="col-md-4">Aberto</td>
                                     </tr>
                                 <tbody>
                             </table>
-                            <div class="little-container col-md-3 col-lsm-9">
+                            <div class="little-container col-lg-3 col-md-12 col-sm-12">
                             <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="EditarVaga">Editar Vaga</button>
                             <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="ExcluirVaga">Excluir Vaga</button>
                             </div>

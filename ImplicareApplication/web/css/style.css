@@ -331,3 +331,12 @@ fieldset[disabled] .btn-primary1.focus {
 .nome-usuario {
     font-size: 20px;
 }
+
+    td{
+       word-wrap:break-word;
+       
+    }
+    
+    .tabelinha{
+        table-layout:fixed;
+    }
