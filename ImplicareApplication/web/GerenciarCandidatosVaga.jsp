@@ -25,8 +25,8 @@
     </head>
     <body>
         <div class="container">
-            <%ArrayList<Candidato> ListaCandidato = (ArrayList)request.getAttribute("ListaCandidato");
-            ArrayList<CandidatoVaga> ListaCandidatoVaga = (ArrayList)request.getAttribute("ListaCandidatoVaga");
+            <%ArrayList<Candidato> ListaCandidato = (ArrayList<Candidato>)request.getAttribute("ListaCandidato");
+            ArrayList<CandidatoVaga> ListaCandidatoVaga = (ArrayList<CandidatoVaga>)request.getAttribute("ListaCandidatoVaga");
             for(int i = 0; i < ListaCandidato.size(); i++) { 
                 if(i%3 == 0){%>
                     <div class="row">
@@ -34,43 +34,41 @@
                     <div class="col-md-4">
                         <div class="panel panel-primary1">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><%ListaCandidato.get(i).getNome();%></h3>
+                                <h3 class="panel-title"><%=ListaCandidato.get(i).getNome()%></h3>
                                 <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                             </div>
                             <div class="panel-body">
                                 <div class="profile-img" align="center">
-                                    <img src="<%ListaCandidato.get(i).getFoto();%>" alt=""  width="75" height="75"/>
+                                    <img src="<=%ListaCandidato.get(i).getFoto()%>" alt=""  width="75" height="75"/>
                                 </div>
                                 <table class="col-md-12 col-lg-12">
                                     <tbody>
                                         <tr>
                                             <td>Email</td>
-                                            <td><%ListaCandidato.get(i).getEmail();%></td>
+                                            <td><%=ListaCandidato.get(i).getEmail()%></td>
                                         </tr>
                                         <tr>
                                             <td>Data Nascimento</td>
-                                            <td><%ListaCandidato.get(i).getData_Nascimento();%></td>
+                                            <td><%=ListaCandidato.get(i).getData_Nascimento()%></td>
                                         </tr>
                                         <tr>
                                             <td>Endereço</td>
-                                            <td><%ListaCandidato.get(i).getEndereco();%></td>
+                                            <td><%=ListaCandidato.get(i).getEndereco()%></td>
                                         </tr>
                                         <tr>
                                             <td>Descrição</td>
-                                            <td><%ListaCandidato.get(i).getDesc_Usuario();%></td>
+                                            <td><%=ListaCandidato.get(i).getDesc_Usuario()%></td>
                                         </tr>
                                         <tr>
                                             <td>Status Candidato</td>
-                                            <td>
-                                            <%if(ListaCandidatoVaga.get(i).getStatus_Candidato() == "E"){%>Espera<%}%>
-                                            <%if(ListaCandidatoVaga.get(i).getStatus_Candidato() == "A"){%>Aceito<%}%>
-                                            <%if(ListaCandidatoVaga.get(i).getStatus_Candidato() == "R"){%>Rejeitado<%}%>
-                                            </td>
+                                            <%if(ListaCandidatoVaga.get(i).getStatus_Candidato() == "E"){%><td>Espera</td><%}%>
+                                            <%if(ListaCandidatoVaga.get(i).getStatus_Candidato() == "A"){%><td>Aceito</td><%}%>
+                                            <%if(ListaCandidatoVaga.get(i).getStatus_Candidato() == "R"){%><td>Rejeitado</td><%}%>
                                        </tr>
                                     <tbody>
                                 </table>
                                 <div class="row">
-                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga" href="ImplicareServlet?acao=PerfilUsuarioCandidato?CPF=<%ListaCandidato.get(i).getCPF_CNPJ();%>">Vizualizar</button>
+                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga" href="ImplicareServlet?acao=PerfilUsuarioCandidato&CPF=<%=ListaCandidato.get(i).getCPF_CNPJ()%>">Vizualizar</button>
                                 </div>
                             </div>
                         </div>

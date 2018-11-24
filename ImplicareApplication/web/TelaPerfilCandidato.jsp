@@ -81,16 +81,16 @@
                         <div class="profile-work">
                             <p>Experiências Profissional</p>
                             <%for(int i = 0; i < ListaExpProfissional.size(); i++) { %>
-                                <a href=""><%ListaExpProfissional.get(i).getNom_Empresa();%></a><br/>
+                                <a href=""><%=ListaExpProfissional.get(i).getNom_Empresa()%></a><br/>
                             <% } %>
                             <p>Formações</p>
                             <%for(int i = 0; i < ListaFormAcad.size(); i++) { %>
-                                <a href="">
+                                
                                 <%for(int j = 0; j < ListaArea.size(); j++) {
-                                    if(ListaFormAcad.get(i).getCod_Area_Estudo() == ListaArea.get(j).getCod_Area_Estudo())
-                                        ListaArea.get(j).getNom_Area_Estudo();
-                                } %>
-                                </a><br/>
+                                    if(ListaFormAcad.get(i).getCod_Area_Estudo() == ListaArea.get(j).getCod_Area_Estudo()) {%>
+                                        <a href=""><%=ListaArea.get(j).getNom_Area_Estudo()%></a><br/>
+                                    <%}%>
+                                <%}%>
                             <% } %>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                                 <label>CPF</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%Cand.getCPF_CNPJ();%></p>
+                                                <p><%=Cand.getCPF_CNPJ()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -111,7 +111,7 @@
                                                 <label>Nome</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%Cand.getNome();%></p>
+                                                <p><%=Cand.getNome()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -119,7 +119,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%Cand.getEmail();%></p>
+                                                <p><%=Cand.getEmail()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -127,7 +127,7 @@
                                                 <label>Data Nascimento</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%Cand.getData_Nascimento();%></p>
+                                                <p><%=Cand.getData_Nascimento()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -135,7 +135,7 @@
                                                 <label>Endereço</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%Cand.getEndereco();%></p>
+                                                <p><%=Cand.getEndereco()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -143,17 +143,17 @@
                                                 <label>Descrição</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%Cand.getDesc_Usuario();%></p>
+                                                <p><%=Cand.getDesc_Usuario()%></p>
                                             </div>
                                         </div>
                                 <div class="row">
 
-                                        <div class="col-md-6">
-                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarUsuarioCandidato?CPF=<%Cand.getCPF_CNPJ();%>">Editar</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirUsuarioCandidato?CPF=<%Cand.getCPF_CNPJ();%>">Excluir Conta</button>
-                                        </div>
+                                    <div class="col-md-6">
+                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarUsuarioCandidato&CPF=<%=Cand.getCPF_CNPJ()%>">Editar</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirUsuarioCandidato&CPF=<%=Cand.getCPF_CNPJ()%>">Excluir Conta</a>
+                                    </div>
 
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
                                                 <label>Nome da Instituição</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaFormAcad.get(j).getInstituicao_Ensino();%></p>
+                                                <p><%=ListaFormAcad.get(j).getInstituicao_Ensino()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -173,12 +173,11 @@
                                                 <label>Formação</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>
                                                 <%for(int i = 0; i < ListaArea.size(); i++) {
-                                                    if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaArea.get(i).getCod_Area_Estudo())
-                                                        ListaArea.get(i).getNom_Area_Estudo();
+                                                    if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaArea.get(i).getCod_Area_Estudo()) {%>
+                                                        <p><%=ListaArea.get(i).getNom_Area_Estudo()%></p>
+                                                    <% } 
                                                 } %>
-                                                </p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -186,7 +185,7 @@
                                                 <label>Atividades Desenvolvidas</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaFormAcad.get(j).getAtividades_Desenvolvidas();%></p>
+                                                <p><%=ListaFormAcad.get(j).getAtividades_Desenvolvidas()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -194,7 +193,7 @@
                                                 <label>Data de Ingresso</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaFormAcad.get(j).getData_Inicio();%></p>
+                                                <p><%=ListaFormAcad.get(j).getData_Inicio()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -202,7 +201,7 @@
                                                 <label>Data de Termino</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaFormAcad.get(j).getData_Termino();%></p>
+                                                <p><%=ListaFormAcad.get(j).getData_Termino()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -210,23 +209,23 @@
                                                 <label>Descrição Formação</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaFormAcad.get(j).getDesc_Formacao_Academica();%></p>
+                                                <p><%=ListaFormAcad.get(j).getDesc_Formacao_Academica()%></p>
                                             </div>
                                         </div>
                                 <div class="row">
                  
-                                            <div class="col-md-6">
-                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarFormacaoAcademica?Seq_Formacao=<%ListaFormAcad.get(j).getSeq_Formacao();%>">Editar</button>
-                                            </div>
-                                        <div class="col-md-6">
-                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirFormacaoAcademica?Seq_Formacao=<%ListaFormAcad.get(j).getSeq_Formacao();%>">Excluir</button>
-                                        </div>
+                                    <div class="col-md-6">
+                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarFormacaoAcademica&Seq_Formacao=<%=ListaFormAcad.get(j).getSeq_Formacao()%>">Editar</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirFormacaoAcademica&Seq_Formacao=<%=ListaFormAcad.get(j).getSeq_Formacao()%>">Excluir</a>
+                                    </div>
                          
                                 </div>
                                 <% } %>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ListarAreaEstudo">Adicionar Formação Acadêmica</button>
+                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ListarAreaEstudo">Adicionar Formação Acadêmica</a>
                                     </div>
                          
                                 </div>
@@ -239,7 +238,7 @@
                                                 <label>Nome da Empresa</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaExpProfissional.get(j).getNom_Empresa();%></p>
+                                                <p><%=ListaExpProfissional.get(j).getNom_Empresa()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -249,8 +248,9 @@
                                             <div class="col-md-6">
                                                 <p>
                                                 <%for(int i = 0; i < ListaCargo.size(); i++) {
-                                                    if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaCargo.get(i).getCod_Cargo())
-                                                        ListaCargo.get(i).getNom_Cargo();
+                                                    if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaCargo.get(i).getCod_Cargo()) {%>
+                                                        <p><%=ListaCargo.get(i).getNom_Cargo()%></p>
+                                                <% } 
                                                 } %>
                                                 </p>
                                             </div>
@@ -260,7 +260,7 @@
                                                 <label>Data de Ingresso</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaExpProfissional.get(j).getData_Inicio();%></p>
+                                                <p><%=ListaExpProfissional.get(j).getData_Inicio()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -268,10 +268,9 @@
                                                 <label>Data de Termino</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%if(ListaExpProfissional.get(j).getData_Termino() == null){ %>
-                                                        Atual
-                                                   <% } else {ListaExpProfissional.get(j).getData_Termino();}%>
-                                                </p>
+                                                <%if(ListaExpProfissional.get(j).getData_Termino() == null){ %>
+                                                    <p>Atual</p>
+                                                    <% } else { %> <p><%=ListaExpProfissional.get(j).getData_Termino()%></p><%}%>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -279,23 +278,22 @@
                                                 <label>Descrição Experiencia</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaExpProfissional.get(j).getDesc_Experiencia_Profissional();%></p>
+                                                <p><%=ListaExpProfissional.get(j).getDesc_Experiencia_Profissional()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
-           
-                                                <div class="col-md-6">
-                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarExperienciaProfissional?Seq_Experiencia=<%ListaExpProfissional.get(j).getSeq_Experiencia();%>">Editar</button>
-                                                </div>
                                             <div class="col-md-6">
-                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirExperienciaProfissional?Seq_Experiencia=<%ListaExpProfissional.get(j).getSeq_Experiencia();%>">Excluir</button>
+                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarExperienciaProfissional&Seq_Experiencia=<%=ListaExpProfissional.get(j).getSeq_Experiencia()%>">Editar</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirExperienciaProfissional&Seq_Experiencia=<%=ListaExpProfissional.get(j).getSeq_Experiencia()%>">Excluir</a>
                                             </div>
   
                                         </div>
                                     <% } %>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ListarCargo">Adicionar Experiência Profissional</button>
+                                            <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ListarCargo">Adicionar Experiência Profissional</a>
                                         </div>
                                     </div>
                             </div>
@@ -307,11 +305,9 @@
                                                 <label>Tipo de Telefone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>
                                                 <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
                                                 <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
                                                 <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
-                                                </p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -319,7 +315,7 @@
                                                 <label>Número de Telefone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaTelefone.get(j).getNum_Telefone();%></p>
+                                                <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -327,7 +323,7 @@
                                                 <label>DDD</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaTelefone.get(j).getDDD();%></p>
+                                                <p><%=ListaTelefone.get(j).getDDD()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -335,23 +331,21 @@
                                                 <label>Ramal</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%ListaTelefone.get(j).getRamal();%></p>
+                                                <p><%=ListaTelefone.get(j).getRamal()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
-          
                                             <div class="col-md-6">
-                                                <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone?Seq_Telefone=<%ListaTelefone.get(j).getSeq_Telefone();%>">Editar</button>
+                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Editar</a>
                                             </div>
-                                        <div class="col-md-6">
-                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone?Seq_Telefone=<%ListaTelefone.get(j).getSeq_Telefone();%>">Excluir</button>
-                                        </div>
-
+                                            <div class="col-md-6">
+                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Excluir</a>
+                                            </div>      
                                     </div>
                                 <% } %>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1" href="formTelefone.jsp">Adicionar Telefone</button>
+                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="formTelefone.jsp">Adicionar Telefone</a>
                                     </div>
                                 </div>
                             </div>
