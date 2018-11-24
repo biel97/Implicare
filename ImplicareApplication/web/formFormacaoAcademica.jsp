@@ -16,7 +16,7 @@
     <div class="container">
         <div class="login-form">
             <div class="main-div">
-                <form>
+                <form action="ImplicareServlet?acao=InserirFormacaoAcademica" method="POST">
                     <div class="form-group">
                         <input type="cpf" class="form-control" id="CPF" placeholder="CPF">
                     </div>

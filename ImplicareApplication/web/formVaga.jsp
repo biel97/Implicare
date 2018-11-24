@@ -16,7 +16,7 @@
     <div class="container">
         <div class="login-form">
             <div class="main-div">
-                <form>
+                <form action="ImplicareServlet?acao=InserirVaga" method="POST">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cargo</label>
                         <select class="form-control" id="Cod_Cargo" name="Cod_Cargo">

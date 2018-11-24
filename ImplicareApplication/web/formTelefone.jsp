@@ -14,7 +14,7 @@
     <div class="container">
         <div class="login-form">
             <div class="main-div">
-                <form>
+                <form action="ImplicareServlet?acao=InserirTelefone" method="POST">
                     <div class="form-group">
                         <input type="number" class="form-control" id="Num_Telefone" placeholder="Némero de Telefone">
                     </div>

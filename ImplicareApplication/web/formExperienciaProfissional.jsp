@@ -16,7 +16,7 @@
     <div class="container">
         <div class="login-form">
             <div class="main-div">
-                <form>
+                <form action="ImplicareServlet?acao=InserirExperienciaProfissional" method="POST">
                     <div class="form-group">
                         <input type="text" class="form-control" id="Nom_Empresa" placeholder="Nome da Empresa">
                     </div>
