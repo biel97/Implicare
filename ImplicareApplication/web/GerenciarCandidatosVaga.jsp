@@ -23,7 +23,7 @@
     <body>
         <div class="container">
     <div class="row">
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-12">
 			<div class="panel panel-primary1">
 				<div class="panel-heading">
 					<h3 class="panel-title">Gabriel Vinicius dos Santos</h3>
@@ -34,7 +34,7 @@
                         <img src="" alt=""  width="75" height="75"/>
                     </div>
            
-                        <table class="col-md-12 col-lg-12">
+                        <table class="col-md-12 col-lg-12  col-sm-12 tabelinha">
                            <tbody>
                                 <tr>
                                     <td>Email</td>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-12">
 			<div class="panel panel-primary1">
 				<div class="panel-heading">
 					<h3 class="panel-title">Gabriel Vinicius dos Santos</h3>
@@ -75,7 +75,7 @@
                         <img src="" alt=""  width="75" height="75"/>
                     </div>
                
-                        <table class="col-md-12 col-lg-12">
+                        <table class="col-md-12 col-lg-12  col-sm-12 tabelinha">
                            <tbody>
                                 <tr>
                                     <td>Email</td>
@@ -106,7 +106,7 @@
 				</div>
 			</div>
 		</div>
-	    <div class="col-md-4">
+	    <div class="col-md-4 col-sm-12">
 			<div class="panel panel-primary1">
 				<div class="panel-heading">
 					<h3 class="panel-title">Gabriel Vinicius dos Santos</h3>
@@ -117,8 +117,8 @@
                         <img src="" alt=""  width="75" height="75"/>
                     </div>
                
-                        <table class="col-md-12 col-lg-12">
-                           <tbody>
+                        <table class="col-md-12 col-lg-12  col-sm-12  tabelinha">
+                           <tbody> 
                                 <tr>
                                     <td>Email</td>
                                     <td>gv92769@gmail.com</td>
@@ -150,7 +150,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-12">
 			<div class="panel panel-primary1">
 				<div class="panel-heading">
 					<h3 class="panel-title">Gabriel Vinicius dos Santos</h3>
@@ -161,7 +161,7 @@
                         <img src="" alt=""  width="75" height="75"/>
                     </div>
                 
-                        <table class="col-md-12 col-lg-12">
+                        <table class="col-md-12 col-lg-12  col-sm-12  tabelinha">
                            <tbody>
                                 <tr>
                                     <td>Email</td>
@@ -192,7 +192,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4  col-sm-12">
 			<div class="panel panel-primary1">
 				<div class="panel-heading">
 					<h3 class="panel-title">Gabriel Vinicius dos Santos</h3>
@@ -203,7 +203,7 @@
                         <img src="" alt=""  width="75" height="75"/>
                     </div>
           
-                        <table class="col-md-12 col-lg-12">
+                        <table class="col-md-12 col-lg-12  col-sm-12 tabelinha">
                            <tbody>
                                 <tr>
                                     <td>Email</td>
@@ -234,7 +234,7 @@
 				</div>
 			</div>
 		</div>
-	    <div class="col-md-4">
+	    <div class="col-md-4 col-sm-12">
 			<div class="panel panel-primary1">
 				<div class="panel-heading">
 					<h3 class="panel-title">Gabriel Vinicius dos Santos</h3>
@@ -245,7 +245,7 @@
                         <img src="" alt=""  width="75" height="75"/>
                     </div>
                   
-                        <table class="col-md-12 col-lg-12">
+                        <table class="col-md-12 col-lg-12 col-sm-12  tabelinha">
                            <tbody>
                                 <tr>
                                     <td>Email</td>
