@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Experiência Profissional</title>
+        <title>Formação Acadêmica</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
@@ -27,8 +27,8 @@
                                 ArrayList<AreaEstudo> ListaArea = (ArrayList)request.getAttribute("ListaArea");
                                 for(int i = 0; i < ListaArea.size(); i++) { 
                             %>
-                                <option value="<% ListaArea.get(i).getCod_Area_Estudo(); %>">
-                                               <% ListaArea.get(i).getNom_Area_Estudo(); %>
+                                <option value="<%=ListaArea.get(i).getCod_Area_Estudo()%>">
+                                               <%=ListaArea.get(i).getNom_Area_Estudo()%>
                                                </option> <% } %>
                         </select>
                     </div>

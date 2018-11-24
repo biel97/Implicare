@@ -34,9 +34,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Atividades_Desenvolvidas" placeholder="Atividades desenvolvidas">
-                    </div>
-                    <div class="form-group">
                         <input type="date" class="form-control" id="Data_Inicio" requeried>
                     </div>
                     <div class="form-group">
