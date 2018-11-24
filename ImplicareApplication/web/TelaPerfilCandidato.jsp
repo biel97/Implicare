@@ -30,14 +30,14 @@
                     <div class="col-md-4">
                         <div class="profile-img
                              <%
-                                Candidato Cand = new Candidato();
-                                ArrayList<FormacaoAcademica> ListaFormAcad = new ArrayList();
-                                ArrayList<AreaEstudo> ListaArea = new ArrayList();
-                                ArrayList<ExperienciaProfissional> ListaExpProfissional = new ArrayList();
-                                ArrayList<Cargo> ListaCargo = new ArrayList();
-                                ArrayList<Telefone> ListaTelefone = new ArrayList();
-                                ArrayList<CargoInteresse> ListaCargoInt = new ArrayList();
-                                ArrayList<Cargo> ListaCargoArea = new ArrayList();
+                                Candidato Cand = (Candidato)request.getAttribute("Cand");
+                                ArrayList<FormacaoAcademica> ListaFormAcad = (ArrayList)request.getAttribute("ListaFormAcad");
+                                ArrayList<AreaEstudo> ListaArea = (ArrayList)request.getAttribute("ListaArea");
+                                ArrayList<ExperienciaProfissional> ListaExpProfissional = (ArrayList)request.getAttribute("ListaExpProfissional");
+                                ArrayList<Cargo> ListaCargo = (ArrayList)request.getAttribute("ListaCargo");
+                                ArrayList<Telefone> ListaTelefone = (ArrayList)request.getAttribute("ListaTelefone");
+                                ArrayList<CargoInteresse> ListaCargoInt = (ArrayList)request.getAttribute("ListaCargoInt");
+                                ArrayList<Cargo> ListaCargoArea = (ArrayList)request.getAttribute("ListaCargoArea");
                              %>
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
                             <div class="file btn btn-lg btn-primary1">
