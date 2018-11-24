@@ -50,7 +50,7 @@ class ExcluirExperienciaProfissional {
             boolean Experiencia = ExperienciaManagement.delete(Exp);
 
             if (Experiencia =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("ExperienciaProfissional", Exp);
             } else {
                 String Erro = "Erro ao Excluir Experiencia Profissional";

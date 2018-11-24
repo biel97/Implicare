@@ -49,7 +49,7 @@ class ExcluirUsuarioCandidato {
             boolean Candidato = CandidatoManagement.update(Cand);
 
             if (Candidato =! false) {
-                jsp = "";
+                jsp = "index.jsp";
                 request.setAttribute("FormacaoAcademica", Cand);
             } else {
                 String Erro = "Erro ao Editar Formacao Academica";

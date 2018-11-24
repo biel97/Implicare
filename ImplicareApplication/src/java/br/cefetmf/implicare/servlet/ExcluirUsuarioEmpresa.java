@@ -46,7 +46,7 @@ class ExcluirUsuarioEmpresa {
             boolean Empresa = EmpresaManagement.delete(Empr);
 
             if (Empresa =! false) {
-                jsp = "";
+                jsp = "index.jsp";
                 request.setAttribute("FormacaoAcademica", Empr);
             } else {
                 String Erro = "Erro ao Excluir Formacao Academica";

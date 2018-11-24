@@ -47,7 +47,7 @@ class PerfilCandidato {
             Candidato Cand = new Candidato();
             Cand = CandidatoManagement.pesquisar(CPF);
             
-            jsp = "";
+            jsp = "TelaPerfilCandidato.jsp";
             
             if(Cand == null) {
                 jsp = "";

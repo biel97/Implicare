@@ -38,7 +38,7 @@ class PesquisarUsuarioEmpresa {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
+            jsp = "EditarPerfilEmpresa.jsp";
         }
         return jsp;
     }

@@ -49,7 +49,7 @@ class ExcluirFormacaoAcademica {
             boolean Formacao = FormacaoManagement.delete(Form);
 
             if (Formacao =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("FormacaoAcademica", Form);
             } else {
                 String Erro = "Erro ao Excluir Formacao Academica";

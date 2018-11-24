@@ -46,10 +46,10 @@ class AlterarUsuarioEmpresa {
             boolean Empresa = EmpresaManagement.update(Empr);
 
             if (Empresa =! false) {
-                jsp = "";
-                request.setAttribute("FormacaoAcademica", Empr);
+                jsp = "ImplicareServlet?acao=PerfilEmpresa";
+                request.setAttribute("Empresa", Empr);
             } else {
-                String Erro = "Erro ao Editar Formacao Academica";
+                String Erro = "Erro ao Editar Usuario Empresa";
                 jsp = "/WEB-Pages/Erro.jsp";
                 request.setAttribute("Erro", Erro);
             }

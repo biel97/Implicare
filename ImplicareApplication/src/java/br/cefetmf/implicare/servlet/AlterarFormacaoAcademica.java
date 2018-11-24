@@ -49,7 +49,7 @@ class AlterarFormacaoAcademica {
             boolean Formacao = FormacaoManagement.update(Form);
 
             if (Formacao =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("FormacaoAcademica", Form);
             } else {
                 String Erro = "Erro ao Editar Formacao Academica";

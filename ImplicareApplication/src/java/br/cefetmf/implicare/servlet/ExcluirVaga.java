@@ -51,7 +51,7 @@ class ExcluirVaga {
             boolean Vaga = VagaManagement.delete(Vag);
 
             if (Vaga =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("Vaga", Vag);
             } else {
                 String Erro = "Erro ao Excluir Vaga";

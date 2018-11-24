@@ -5,6 +5,13 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.Cargo;
+import br.cefetmg.implicare.model.domain.Vaga;
+import br.cefetmg.implicare.model.service.CargoManagement;
+import br.cefetmg.implicare.model.service.VagaManagement;
+import br.cefetmg.implicare.model.serviceImpl.CargoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.VagaManagementImpl;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,7 +23,28 @@ import javax.servlet.http.HttpServletRequest;
 class ListarVagaEmpresa {
 
     static String execute(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String jsp = "";
+        try {
+            
+            Long CNPJ = (Long) request.getSession().getAttribute("CNPJ");
+            
+            VagaManagement VagaManagement = new VagaManagementImpl();
+            ArrayList<Vaga> ListaVaga = new ArrayList();
+            ListaVaga = VagaManagement.listarVagaEmpresa(CNPJ);
+            
+            CargoManagement CargoManagement = new CargoManagementImpl();
+            ArrayList<Cargo> ListaCargo = new ArrayList();
+            ListaCargo = CargoManagement.listar();
+
+            jsp = "/GerenciarVaga.jsp";
+            request.setAttribute("ListaVaga", ListaVaga); 
+            request.setAttribute("ListaCargo", ListaCargo); 
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
+        return jsp;
     }
     
 }

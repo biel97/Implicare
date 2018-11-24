@@ -38,7 +38,7 @@ class PesquisarUsuarioCandidato {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
+            jsp = "EditarPerfilCandidato.jsp";
         }
         return jsp;
     }

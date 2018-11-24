@@ -5,6 +5,10 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.AreaEstudo;
+import br.cefetmg.implicare.model.service.AreaEstudoManagement;
+import br.cefetmg.implicare.model.serviceImpl.AreaEstudoManagementImpl;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,7 +20,21 @@ import javax.servlet.http.HttpServletRequest;
 class ListarAreaEstudo {
 
     static String execute(HttpServletRequest request) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String jsp = "";
+        try {
+
+            AreaEstudoManagement AreaEstudoManagement = new AreaEstudoManagementImpl();
+            ArrayList<AreaEstudo> ListaArea = new ArrayList();
+            ListaArea = AreaEstudoManagement.listar();
+
+            jsp = "/formFormacaoAcademica.jsp";
+            request.setAttribute("ListaArea", ListaArea); 
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
+        return jsp;
     }
     
 }

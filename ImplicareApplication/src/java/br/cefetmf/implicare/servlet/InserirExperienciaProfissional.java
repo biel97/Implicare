@@ -48,7 +48,7 @@ class InserirExperienciaProfissional {
             boolean Experiencia = ExperienciaManagement.insert(Exp);
 
             if (Experiencia =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("ExperienciaProfissional", Exp);
             } else {
                 String Erro = "Erro ao Inserir Experiencia Profissional";

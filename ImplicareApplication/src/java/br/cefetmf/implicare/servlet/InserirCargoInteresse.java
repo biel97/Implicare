@@ -34,7 +34,7 @@ class InserirCargoInteresse {
             boolean Cargo = CargoManagement.insert(CargoInteresse);
 
             if (Cargo =! false) {
-                jsp="";
+                jsp="ImplicareServlet?acao=PerfilCandidato";
             } else {
                 String Erro = "Ocorreu erro ao Inserir Cargo Interesse!";
                 jsp="/WEB-Pages/Erro.jsp";

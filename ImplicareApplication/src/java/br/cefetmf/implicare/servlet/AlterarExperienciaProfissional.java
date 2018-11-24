@@ -47,7 +47,7 @@ class AlterarExperienciaProfissional {
             boolean Experiencia = ExperienciaManagement.update(Exp);
 
             if (Experiencia =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("ExperienciaProfissional", Exp);
             } else {
                 String Erro = "Erro ao Editar Experiencia Profissional";

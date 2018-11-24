@@ -47,7 +47,7 @@ class PerfilEmpresa {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
+            jsp = "TelePerfilEmpresa.jsp";
         }
         return jsp;
     }

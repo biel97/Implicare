@@ -47,7 +47,7 @@ class InserirFormacaoAcademica {
             boolean Formacao = FormacaoManagement.insert(Form);
 
             if (Formacao =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("FormacaoAcademica", Form);
             } else {
                 String Erro = "Erro ao Inserir Formacao Academica";
