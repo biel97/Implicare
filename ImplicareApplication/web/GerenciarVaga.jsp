@@ -75,8 +75,8 @@
                                     <tbody>
                                 </table>
                                 <div class="little-container col-lg-3 col-md-12 col-sm-12">
-                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga">Editar Vaga</button>
-                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ExcluirVaga">Excluir Vaga</button>
+                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga" href="ImplicareServlet?acao=PesquisarVaga?Seq_Vaga=<%ListaVaga.get(i).getSeq_Vaga();%>">Editar Vaga</button>
+                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ExcluirVaga" href="ImplicareServlet?acao=ExcluirVaga?Seq_Vaga=<%ListaVaga.get(i).getSeq_Vaga();%>">Excluir Vaga</button>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
             <% } %>   
             <div class="row ">
                 <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="CriarVaga">Criar Vaga</button>
+                    <button type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="CriarVaga" href="formVaga.jsp">Criar Vaga</button>
                 </div>
             </div>
         </div>
