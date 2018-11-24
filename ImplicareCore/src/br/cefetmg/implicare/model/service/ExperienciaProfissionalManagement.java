@@ -20,5 +20,6 @@ public interface ExperienciaProfissionalManagement {
     public boolean insert(ExperienciaProfissional ExperienciaProfissional) throws BusinessException, PersistenceException;
     public boolean update(ExperienciaProfissional ExperienciaProfissional) throws BusinessException, PersistenceException;
     public boolean delete(ExperienciaProfissional ExperienciaProfissional) throws PersistenceException;
+    public ExperienciaProfissional pesquisar(int Seq_Experiencia) throws PersistenceException; 
     public ArrayList<ExperienciaProfissional> listar(long CPF) throws PersistenceException;
 }

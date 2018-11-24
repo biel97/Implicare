@@ -43,7 +43,13 @@ public class FormacaoAcademicaManagementImpl implements FormacaoAcademicaManagem
         boolean result = FormacaoAcademicaDao.delete(FormacaoAcademica);
         return result;
     }
-
+    
+    @Override
+     public FormacaoAcademica pesquisar(int Seq_Formacao) throws PersistenceException {
+        FormacaoAcademica result = FormacaoAcademicaDao.pesquisar(Seq_Formacao);
+        return result;
+    }
+    
     @Override
     public ArrayList<FormacaoAcademica> listar(long CPF) throws PersistenceException {
         ArrayList<FormacaoAcademica> result = FormacaoAcademicaDao.listar(CPF);
