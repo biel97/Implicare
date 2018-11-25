@@ -1,62 +1,66 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 
-  <div class="stack">
+  <div class="stack col-md-6">
+      <div class="swipe-area">
       <div class="final-message"><b>Sem correspondências</b></div>
     <ul>
       <li>
-        <div id="card10" class="card js-swiping-card">
+        <div id="card10" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/300/200"></div>
         </div>
       </li>
       <li>
-        <div id="card9" class="card js-swiping-card">
+        <div id="card9" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/400/200"></div>
         </div>
       </li>
       <li>
-        <div id="car8" class="card js-swiping-card">
+        <div id="card8" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/450/200"></div>
         </div>
       </li>
       <li>
-        <div id="card7" class="card js-swiping-card">
+        <div id="card7" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/800/200"></div>
         </div>
       </li>
       <li>
-        <div id="card6" class="card js-swiping-card">
+        <div id="card6" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/100/200"></div>
         </div>
       </li>
       <li>
-        <div id="card5" class="card js-swiping-card">
+        <div id="card5" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/400/200"></div>
         </div>
       </li>
       <li>
-        <div id="card4" class="card js-swiping-card">
+        <div id="card4" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/150/200"></div>
         </div>
       </li>
       <li>
-        <div id="card3" class="card js-swiping-card">
+        <div id="card3" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="http://www.escaledigitale.com/im/team/anita@2x.png"></div>
         </div>
       </li>
       <li>
-        <div id="card2" class="card js-swiping-card">
+        <div id="card2" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/600/200"></div>
         </div>
       </li>
       <li>
-        <div id="card1" class="card js-swiping-card">
+        <div id="card1" class="card col-md-12 js-swiping-card">
           <div class="card-illustration js-lazyload" data-original="https://placekitten.com/g/400/200"></div>
         </div>
       </li>
     </ul>
+      </div>
   </div>
-  <div class="btn-controls text-center">
+  
+
+<div class="botoes-swipe">
     <button type="button" class="btn btn-primary1 js-left-trigger col-md-2">
       Não Gostei
     </button>
@@ -64,4 +68,3 @@
       Gostei
     </button>
   </div>
-

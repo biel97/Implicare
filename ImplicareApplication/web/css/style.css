@@ -358,24 +358,28 @@ fieldset[disabled] .btn-primary1.focus {
 
 .final-message {
   position: absolute;
+  margin-top: 30px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
+
+}
+
+ul{
+    list-style-type: none;
 }
 .stack {
-  position: relative;
-  height: 250px;
-  width: 400px;
-  max-width: calc(100vw - 60px);
-  margin: 50px auto;
+    
+  margin: auto;
 }
 .card {
 
-  height: 250px;
-  width: 400px;
+
+  width: 100%;
   max-width: 100%;
   padding: 30px;
-  background: white;
+
   border: 1px solid grey;
   border-radius: 10px;
 
@@ -408,3 +412,10 @@ fieldset[disabled] .btn-primary1.focus {
 .cabEmp {
     font-size: 33px;
 }
+
+.botoes-swipe{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+

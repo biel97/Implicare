@@ -55,6 +55,9 @@ $('.js-lazyload').lazyload({
   threshold: 50,
 });
 
+
+
+
 //Globals
 var $topCard,
   //deltaThreshold is the swipe distance from the initial place of the card
@@ -146,3 +149,10 @@ $('.js-right-trigger').on('click', function(event) {
   var $topCard = $('.js-swiping-card').last();
   swipeEnded(event, 'right', $topCard);
 });
+
+$(".swipe-area").prepend("<div id='relativefix' style='position:relative;margin-top:"+($(".card").offset().top+$(".card").outerHeight()+30)+"px'></div>");
+
+
+$(window).resize(function(){
+$("#relativefix").css("margin-top",($(".card").offset().top+$(".card").outerHeight()+30)+"px");
+            });
