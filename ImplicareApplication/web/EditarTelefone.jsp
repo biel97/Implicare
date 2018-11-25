@@ -16,7 +16,7 @@
         <div class="login-form">
             <div class="main-div">
                 <%Telefone Tel = (Telefone)request.getAttribute("Tel");%>
-                <form action="ImplicareServlet?acao=EditarTelefone&Seq_Telefone<%=Tel.getSeq_Telefone()%>" method="POST">
+                <form action="ImplicareServlet?acao=AlterarTelefone&Seq_Telefone<%=Tel.getSeq_Telefone()%>" method="POST">
                     <div class="form-group">
                         <input type="number" class="form-control" id="Num_Telefone" value="<%=Tel.getNum_Telefone()%>" requeried>
                     </div>

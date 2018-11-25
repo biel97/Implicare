@@ -18,7 +18,7 @@
         <div class="login-form">
             <div class="main-div">
                 <%Vaga Vaga = (Vaga)request.getAttribute("Vaga");%>
-                <form action="ImplicareServlet?acao=EditarVaga&Seq_Vaga=<%=Vaga.getSeq_Vaga()%>" method="POST">
+                <form action="ImplicareServlet?acao=AlterarVaga&Seq_Vaga=<%=Vaga.getSeq_Vaga()%>" method="POST">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cargo</label>
                         <select class="form-control" id="Cod_Cargo" name="Cod_Cargo" requeried>

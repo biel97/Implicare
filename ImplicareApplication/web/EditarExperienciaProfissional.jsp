@@ -18,7 +18,7 @@
         <div class="login-form">
             <div class="main-div">
                 <%ExperienciaProfissional ExperienciaProf = (ExperienciaProfissional)request.getAttribute("ExperienciaProfissional");%>
-                <form action="ImplicareServlet?acao=EditarExperienciaProfissional&Seq_Experiencia=<%=ExperienciaProf.getSeq_Experiencia()%>" method="POST">
+                <form action="ImplicareServlet?acao=AlterarExperienciaProfissional&Seq_Experiencia=<%=ExperienciaProf.getSeq_Experiencia()%>" method="POST">
                     <div class="form-group">
                         <input type="text" class="form-control" id="Nom_Empresa" value="<%=ExperienciaProf.getNom_Empresa()%>" required>
                     </div>

@@ -1,1 +1,34 @@
-
+<div class="login-form">
+     <div class="main-div">
+         <form action="ImplicareServlet?acao=IserirUsuarioCandidato" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" id="Nome" placeholder="Nome" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="CPF_CNPJ" placeholder="CPF_CNPJ" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="Email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="file" name="Foto">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="Email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                 <input type="date" class="form-control" id="Data_Nascimento" requeried>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="Senha" placeholder="Senha">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="Endereco" placeholder="Endereço">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="Desc_Usuario" placeholder="Descrição Usuário">
+            </div>
+            <button type="submit" class="btn btn-primary" id="CadastrarCandidato">Cadastrar</button>
+        </form>
+   </div>
+</div>

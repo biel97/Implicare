@@ -18,7 +18,7 @@
         <div class="login-form">
             <div class="main-div">
                 <%FormacaoAcademica FormAcad = (FormacaoAcademica)request.getAttribute("FormAcad");%>
-                <form action="ImplicareServlet?acao=EditarFormacaoAcademica&Seq_Formacao=<%=FormAcad.getSeq_Formacao()%>" method="POST">
+                <form action="ImplicareServlet?acao=AlterarFormacaoAcademica&Seq_Formacao=<%=FormAcad.getSeq_Formacao()%>" method="POST">
                     <div class="form-group">
                         <input type="text" class="form-control" id="Instituicao_Ensino" value="<%=FormAcad.getInstituicao_Ensino()%>" requeried>
                     </div>
