@@ -121,9 +121,9 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
 
 .emp-profile{
     padding: 3%;
-    margin-top: 3%;
+    margin-top: 0px;
     margin-bottom: 3%;
-    border-radius: 0.5rem;
+    border-radius: 0rem;
     background: #fff;
 }
 .profile-img{
@@ -254,7 +254,7 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
 .btn-primary1:focus,
 .btn-primary1.focus {
   color: #fff;
-  background-color: #ff9900;
+  background-color: #f0ad4e;
   border-color: #ff9900;
 }
 .btn-primary1:hover {
@@ -340,3 +340,71 @@ fieldset[disabled] .btn-primary1.focus {
     .tabelinha{
         table-layout:fixed;
     }
+    
+    .whov:hover { background-color: #e38d13!important; }
+.view {
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 500px;
+}
+.secondbase {
+    background-color: rgba(255,255,255,.6); 
+    margin-top: -90px;
+}
+
+.cor{
+    background-color: #f0ad4e;
+}
+
+.final-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.stack {
+  position: relative;
+  height: 250px;
+  width: 400px;
+  max-width: calc(100vw - 60px);
+  margin: 50px auto;
+}
+.card {
+
+  height: 250px;
+  width: 400px;
+  max-width: 100%;
+  padding: 30px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  .card-illustration {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    transform: scale(1);
+    transition: transform 0.5s;
+  }
+  &:hover,
+  &:focus {
+    .card-illustration {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.js-swiping-card {
+  transition: transform 0.5s;
+  &.done {
+    display: none;
+  }
+}
+
+.cabEmp {
+    font-size: 33px;
+}

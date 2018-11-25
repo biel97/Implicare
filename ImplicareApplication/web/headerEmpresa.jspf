@@ -1,0 +1,23 @@
+<%-- para adicionar em outra página basta usar o import --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark cor d-flex justify-content-between">
+    <a class="navbar-brand cabEmp" href="#"><b>Implicare</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <ul class="navbar-nav">
+      <li class="nav-item dropdown ">
+ 
+        <a class="nav-link dropdown-toggle ml-auto p-2" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Advanced
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Perfil</a>
+          <a class="dropdown-item" href="#">Gerenciar Vagas</a>
+        </div>
+
+      </li>
+  
+  </ul>
+</nav>
