@@ -13,8 +13,8 @@
           Advanced
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Perfil</a>
-          <a class="dropdown-item" href="#">Gerenciar Vagas</a>
+          <a class="dropdown-item" href="ImplicareServlet?acao=PerfilEmpresa">Perfil</a>
+          <a class="dropdown-item" href="ImplicareServlet?acao=ListarVagaEmpresa">Gerenciar Vagas</a>
         </div>
 
       </li>

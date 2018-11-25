@@ -4,7 +4,11 @@
     Author     : Gabriel
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.cefetmg.implicare.model.domain.Empresa"%>
+<%@page import="br.cefetmg.implicare.model.domain.Telefone"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +22,9 @@
         
     </head>
     <body id="LoginForm">
-    
+        <%Empresa Empr = (Empresa)request.getAttribute("Empresa");
+          ArrayList<Telefone> ListaTelefone = (ArrayList<Telefone>)request.getAttribute("ListaTelefone");
+          %>
         <div class="container ">
             <%@include file="headerEmpresa.jspf" %>
             <div class="emp-profile">
@@ -37,7 +43,7 @@
                         <div class="profile-head">
                             <div class="row">
                                     <h5 class="nome-usuario">
-                                        <b>DTI</b>
+                                        <b><%=Empr.getNome_Fantasia()%></b>
                                     </h5>
                             </div>
                             <div class="row">
@@ -65,7 +71,7 @@
                                                 <label>CNPJ</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123456789</p>
+                                                <p><%=Empr.getCPF_CNPJ()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -73,7 +79,7 @@
                                                 <label>Nome Fantasia</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>DTI</p>
+                                                <p><%=Empr.getNome_Fantasia()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -81,7 +87,7 @@
                                                 <label>Nome Razão Social</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>DTI</p>
+                                                <p><%=Empr.getNom_Razao_Social()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -89,7 +95,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>DTI@gmail.com</p>
+                                                <p><%=Empr.getEmail()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -97,7 +103,7 @@
                                                 <label>Endereço</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>ffgjfvffvghfgfhgffhfgfhdsg</p>
+                                                <p><%=Empr.getEndereco()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -105,7 +111,7 @@
                                                 <label>Descrição</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>khsafjdpjkgkargbmvbkgjbt</p>
+                                                <p><%=Empr.getDesc_Usuario()%></p>
                                             </div>
                                         </div>
                                 <div class="row">
@@ -121,12 +127,15 @@
                             </div>
 
                             <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
+                                  <%for(int j = 0; j < ListaTelefone.size(); j++) {%> 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Tipo de Telefone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Fixo</p>
+                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
+                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
+                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -134,7 +143,7 @@
                                                 <label>Número de Telefone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>34424642</p>
+                                                <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -142,7 +151,7 @@
                                                 <label>DDD</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>31</p>
+                                                <p><%=ListaTelefone.get(j).getDDD()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -150,17 +159,23 @@
                                                 <label>Ramal</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p> </p>
+                                                <p><%=ListaTelefone.get(j).getRamal()%></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
+                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Editar</a>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Excluir Conta</button>
+                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Excluir</a>
                                             </div>
                                         </div>
+                                <%}%> 
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                            <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="formTelefone.jsp">Adicionar Telefone</a>
+                                        </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
