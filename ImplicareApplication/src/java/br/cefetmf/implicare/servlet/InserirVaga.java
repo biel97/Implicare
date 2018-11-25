@@ -49,7 +49,7 @@ class InserirVaga {
             boolean Vaga = VagaManagement.insert(Vag);
 
             if (Vaga =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=ListarVagaEmpresa";
                 request.setAttribute("Vaga", Vag);
             } else {
                 String Erro = "Erro ao Inserir Vaga";

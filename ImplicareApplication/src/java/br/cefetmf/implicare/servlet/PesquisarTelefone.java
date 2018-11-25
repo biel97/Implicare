@@ -16,28 +16,23 @@ import javax.servlet.http.HttpServletRequest;
  * 
  */
 
-class ExcluirTelefone {
+class PesquisarTelefone {
 
     static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
 
-            int Seq_Telefone = Integer.parseInt(request.getParameter("Seq_Telefone"));
+            int Seq_Telefone = (int) request.getSession().getAttribute("Seq_Telefone");
 
             TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
             Telefone Tel = new Telefone();
             Tel = TelefoneManagement.pesquisar(Seq_Telefone);
             
-            boolean Telefone = TelefoneManagement.delete(Tel);
-
-            if (Telefone =! false) {
-                jsp = "";
+            if (Tel != null) {
+                jsp = "EditarTelefone.jsp";
                 request.setAttribute("Telefone", Tel);
-            } else {
-                String Erro = "Erro ao Excluir Telefone";
-                jsp = "/WEB-Pages/Erro.jsp";
-                request.setAttribute("Erro", Erro);
-            }
+            } 
+            
         } catch (Exception e) {
             e.printStackTrace();
             jsp = "";

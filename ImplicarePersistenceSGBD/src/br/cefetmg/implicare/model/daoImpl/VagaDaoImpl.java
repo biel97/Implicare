@@ -112,6 +112,41 @@ public class VagaDaoImpl implements VagaDao{
     }
     
     @Override
+    public Vaga pesquisar(int Seq_Vaga) throws PersistenceException {
+        try {
+            Connection connection = JDBCConnectionManager.getInstance().getConnection();
+
+            String sql = "SELECT * FROM Vaga WHERE Seq_Vaga = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setLong(1, Seq_Vaga);
+            ResultSet rs = ps.executeQuery();
+
+            Vaga Vag = new Vaga();
+                    
+            Vag.setCNPJ(rs.getLong("CNPJ"));
+            Vag.setSeq_Vaga(rs.getInt("Seq_Vaga"));
+            Vag.setCod_Cargo(rs.getInt("Cod_Cargo"));
+            Vag.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
+            Vag.setNum_Vagas(rs.getInt("Num_Vagas"));
+            Vag.setCarga_Horaria(rs.getInt("Caraga_Horaria"));
+            Vag.setRemuneracao(rs.getDouble("Remuneracao"));
+            Vag.setDesc_Vaga(rs.getString("Desc_Vaga"));
+            Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
+             
+            rs.close();
+            ps.close();
+            connection.close();
+
+            return Vag;
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    @Override
     public ArrayList<Vaga> listarVagaEmpresa(long CNPJ) throws PersistenceException {
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();

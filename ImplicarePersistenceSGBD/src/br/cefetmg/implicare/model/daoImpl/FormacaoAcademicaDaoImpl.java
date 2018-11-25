@@ -112,6 +112,39 @@ public class FormacaoAcademicaDaoImpl implements FormacaoAcademicaDao {
     }
     
     @Override
+    public FormacaoAcademica pesquisar(int Seq_Formacao) throws PersistenceException {
+        try {
+            Connection connection = JDBCConnectionManager.getInstance().getConnection();
+
+            String sql = "SELECT * FROM Formacao_Academica WHERE Seq_Formacao = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, Seq_Formacao);
+            ResultSet rs = ps.executeQuery();
+
+            FormacaoAcademica Acad = new FormacaoAcademica();
+            Acad.setCPF(rs.getLong("CPF"));
+            Acad.setSeq_Formacao(rs.getInt("Seq_Formacao"));
+            Acad.setInstituicao_Ensino(rs.getString("Instituicao_Ensino"));
+            Acad.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
+            Acad.setAtividades_Desenvolvidas(rs.getString("Atividades_Desenvolvidas"));
+            Acad.setData_Inicio(rs.getDate("Data_Inicio"));
+            Acad.setData_Termino(rs.getDate("Data_Termino"));
+            Acad.setDesc_Formacao_Academica(rs.getString("Desc_Formacao_Academica"));
+            
+            rs.close();
+            ps.close();
+            connection.close();
+
+            return Acad;
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    @Override
     public ArrayList<FormacaoAcademica> listar(long CPF) throws PersistenceException {
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();

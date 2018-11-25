@@ -49,10 +49,10 @@ class AlterarUsuarioCandidato {
             boolean Candidato = CandidatoManagement.update(Cand);
 
             if (Candidato =! false) {
-                jsp = "";
-                request.setAttribute("FormacaoAcademica", Cand);
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
+                request.setAttribute("Candidato", Cand);
             } else {
-                String Erro = "Erro ao Editar Formacao Academica";
+                String Erro = "Erro ao Editar Usuario Candidato";
                 jsp = "/WEB-Pages/Erro.jsp";
                 request.setAttribute("Erro", Erro);
             }

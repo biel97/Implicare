@@ -33,7 +33,7 @@ class ExcluirCargoInteresse {
             boolean Cargo = CargoManagement.delete(CargoInteresse);
 
             if (Cargo =! false) {
-                jsp="";
+                jsp="ImplicareServlet?acao=PerfilCandidato";
             } else {
                 String Erro = "Ocorreu erro ao Excluir Cargo Interesse!";
                 jsp="/WEB-Pages/Erro.jsp";

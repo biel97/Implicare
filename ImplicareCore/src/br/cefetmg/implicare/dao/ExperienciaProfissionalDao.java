@@ -19,5 +19,6 @@ public interface ExperienciaProfissionalDao {
     public boolean insert(ExperienciaProfissional ExperienciaProfissional) throws PersistenceException;
     public boolean update(ExperienciaProfissional ExperienciaProfssional) throws PersistenceException;
     public boolean delete(ExperienciaProfissional ExperienciaProfissional) throws PersistenceException;
+    public ExperienciaProfissional pesquisar(int Seq_Experiencia) throws PersistenceException; 
     public ArrayList<ExperienciaProfissional> listar(long CPF) throws PersistenceException;
 }

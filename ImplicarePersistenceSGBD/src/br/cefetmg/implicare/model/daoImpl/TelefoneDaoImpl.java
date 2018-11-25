@@ -104,6 +104,40 @@ public class TelefoneDaoImpl implements TelefoneDao{
     }
     
     @Override
+    public Telefone pesquisar(int Seq_Telefone) throws PersistenceException{
+        try {
+           Connection connection = JDBCConnectionManager.getInstance().getConnection();
+            
+            String SQL = "SELECT * FROM Telefone"
+                    + "WHERE Seq_Telefone = ?";
+            
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            
+            ps.setLong(1, Seq_Telefone);
+            
+            ResultSet rs = ps.executeQuery(SQL);
+
+            Telefone Tel = new Telefone();
+            Tel.setCPF_CNPJ(rs.getLong("CPF_CNPJ"));
+            Tel.setSeq_Telefone(rs.getInt("Seq_Telefone"));
+            Tel.setNum_Telefone(rs.getString("Num-Telefone"));
+            Tel.setTipo_Telefone(rs.getString("Tipo_Telfone"));
+            Tel.setDDD(rs.getInt("DDD"));
+            Tel.setRamal(rs.getInt("Ramal"));
+
+            rs.close();
+            ps.close();
+            connection.close();
+            
+            return Tel;
+            
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    @Override
     public ArrayList<Telefone> listar(long CPF_CNPJ) throws PersistenceException{
         try {
            Connection connection = JDBCConnectionManager.getInstance().getConnection();

@@ -43,7 +43,13 @@ public class TelefoneManagementImpl implements TelefoneManagement {
         boolean result = TelefoneDao.delete(Telefone);
         return result;
     }
-
+    
+    @Override
+    public Telefone pesquisar(int Seq_Telefone) throws PersistenceException {
+        Telefone result = TelefoneDao.pesquisar(Seq_Telefone);
+        return result;
+    }
+    
     @Override
     public ArrayList<Telefone> listar(long CPF_CNPJ) throws PersistenceException {
         ArrayList<Telefone> result = TelefoneDao.listar(CPF_CNPJ);

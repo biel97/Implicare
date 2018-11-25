@@ -16,32 +16,28 @@
     <div class="container">
         <div class="login-form">
             <div class="main-div">
-                <form>
+                <form action="ImplicareServlet?acao=InserirExperienciaProfissional" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nom_Empresa" placeholder="Nome da Empresa">
+                        <input type="text" class="form-control" id="Nom_Empresa" placeholder="Nome da Empresa" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cargo</label>
-                        <select class="form-control" id="Cod_Cargo" name="Cod_Cargo">
+                        <select class="form-control" id="Cod_Cargo" name="Cod_Cargo" required>
                             <% 
                                 ArrayList<Cargo> ListaCargo = (ArrayList)request.getAttribute("ListaCargo");
                                 for(int i = 0; i < ListaCargo.size(); i++) { 
                             %>
-                                <option value="<% ListaCargo.get(i).getCod_Cargo(); %>">
-                                               <% ListaCargo.get(i).getNom_Cargo(); %>
-                                               </option> <% } %>
+                                <option value="<%=ListaCargo.get(i).getCod_Cargo()%>">
+                                               <%=ListaCargo.get(i).getNom_Cargo()%>
+                                </option> 
+                            <% } %>
                         </select>
                     </div>
-
-
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Atividades_Desenvolvidas" placeholder="Atividades desenvolvidas">
+                        <input type="date" class="form-control" id="Data_Inicio" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Data_Inicio" >
-                    </div>
-                    <div class="form-group">
-                        <input type="date" class="form-control" id="Data_Termino" >
+                        <input type="date" class="form-control" id="Data_Termino" requeried>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="Desc_Experiencia_Profissional" placeholder="Descrição Experiência Profissional">

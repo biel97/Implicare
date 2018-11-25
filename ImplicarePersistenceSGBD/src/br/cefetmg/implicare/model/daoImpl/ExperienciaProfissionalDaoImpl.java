@@ -107,7 +107,40 @@ public class ExperienciaProfissionalDaoImpl implements ExperienciaProfissionalDa
             return false;
         }
     }
+    
+    @Override
+    public ExperienciaProfissional pesquisar(int Seq_Experiencia) throws PersistenceException {
+        try {
+            Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
+            String sql = "SELECT * FROM Experiencia_Profissional WHERE Seq_Experiencia = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, Seq_Experiencia);
+            ResultSet rs = ps.executeQuery();
+            
+            ExperienciaProfissional Exp = new ExperienciaProfissional();
+                    
+            Exp.setCPF(rs.getLong("CPF"));
+            Exp.setSeq_Experiencia(rs.getInt("Seq_Experiencia"));
+            Exp.setNom_Empresa(rs.getString("Nom_Empresa"));
+            Exp.setCod_Cargo(rs.getInt("Cod_Cargo"));
+            Exp.setData_Inicio(rs.getDate("Data_Inicio"));
+            Exp.setData_Termino(rs.getDate("Data_Termino"));
+            Exp.setDesc_Experiencia_Profissional(rs.getString("Desc_Experiencia_Profissional"));
+
+            rs.close();
+            ps.close();
+            connection.close();
+
+            return Exp;
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
     @Override
     public ArrayList<ExperienciaProfissional> listar(long CPF) throws PersistenceException {
         try {

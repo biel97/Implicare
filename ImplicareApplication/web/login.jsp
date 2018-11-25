@@ -30,13 +30,13 @@
                 <div class="form-group">
 
 
-                    <input type="text" class="form-control" name="CPF_CNPJ" placeholder="Login">
+                    <input type="text" class="form-control" name="CPF_CNPJ" placeholder="Login" requeried>
 
                 </div>
 
                 <div class="form-group">
 
-                    <input type="password" class="form-control" name="Senha" placeholder="Password">
+                    <input type="password" class="form-control" name="Senha" placeholder="Password" requeried>
 
                 </div>
                 

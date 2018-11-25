@@ -43,7 +43,13 @@ public class VagaManagementImpl implements VagaManagement {
         boolean result = VagaDao.delete(Vaga);
         return result;
     }
-
+    
+    @Override
+    public Vaga pesquisar(int Seq_Vaga) throws PersistenceException {
+        Vaga result = VagaDao.pesquisar(Seq_Vaga);
+        return result;
+    }
+    
     @Override
     public ArrayList<Vaga> listarVagaEmpresa(long CNPJ) throws PersistenceException {
         ArrayList<Vaga> result = VagaDao.listarVagaEmpresa(CNPJ);

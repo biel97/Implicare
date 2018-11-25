@@ -124,6 +124,18 @@ public class ImplicareServlet extends HttpServlet {
             case "PesquisarUsuarioEmpresa":
                 jsp = PesquisarUsuarioEmpresa.execute(request);
                 break;
+            case "PesquisarExperienciaProfissional":
+                jsp = PesquisarExperienciaProfissional.execute(request);
+                break;
+            case "PesquisarFormacaoAcademica":
+                jsp = PesquisarFormacaoAcademica.execute(request);
+                break;
+            case "PesquisarTelefone":
+                jsp = PesquisarTelefone.execute(request);
+                break;
+            case "PesquisarVaga":
+                jsp = PesquisarVaga.execute(request);
+                break;
             default:
                 jsp = "/WEB-Pages/Erro.jsp";
                 request.setAttribute("Erro", "A solicitação feita ao servlet é inválida.");

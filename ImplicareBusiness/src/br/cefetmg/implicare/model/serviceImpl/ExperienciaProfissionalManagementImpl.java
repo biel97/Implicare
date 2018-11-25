@@ -43,7 +43,13 @@ public class ExperienciaProfissionalManagementImpl implements ExperienciaProfiss
         boolean result = ExperienciaProfissionalDao.delete(ExperienciaProfissional);
         return result;
     }
-
+    
+    @Override
+    public ExperienciaProfissional pesquisar(int Seq_Experiencia) throws PersistenceException {
+        ExperienciaProfissional result = ExperienciaProfissionalDao.pesquisar(Seq_Experiencia);
+        return result;
+    }
+    
     @Override
     public ArrayList<ExperienciaProfissional> listar(long CPF) throws PersistenceException {
         ArrayList<ExperienciaProfissional> result = ExperienciaProfissionalDao.listar(CPF);

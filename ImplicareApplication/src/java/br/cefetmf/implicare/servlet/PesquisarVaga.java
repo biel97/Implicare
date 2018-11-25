@@ -6,8 +6,11 @@
 package br.cefetmf.implicare.servlet;
 
 import br.cefetmg.implicare.model.domain.Cargo;
+import br.cefetmg.implicare.model.domain.Vaga;
 import br.cefetmg.implicare.model.service.CargoManagement;
+import br.cefetmg.implicare.model.service.VagaManagement;
 import br.cefetmg.implicare.model.serviceImpl.CargoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.VagaManagementImpl;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,18 +20,27 @@ import javax.servlet.http.HttpServletRequest;
  * 
  */
 
-class ListarCargo {
+class PesquisarVaga {
 
     static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
 
+            int Seq_Vaga = (int) request.getSession().getAttribute("Seq_Vaga");
+
+            VagaManagement VagaManagement = new VagaManagementImpl();
+            Vaga Vag = new Vaga();
+            Vag = VagaManagement.pesquisar(Seq_Vaga);
+            
             CargoManagement CargoManagement = new CargoManagementImpl();
             ArrayList<Cargo> ListaCargo = new ArrayList();
             ListaCargo = CargoManagement.listar();
 
-            jsp = "/formVaga.jsp";
-            request.setAttribute("ListaCargo", ListaCargo); 
+            if (Vag != null) {
+                jsp = "EditarVaga.jsp";
+                request.setAttribute("Vaga", Vag);
+                request.setAttribute("ListaCargo", ListaCargo);
+            } 
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,5 +48,5 @@ class ListarCargo {
         }
         return jsp;
     }
-
+    
 }
