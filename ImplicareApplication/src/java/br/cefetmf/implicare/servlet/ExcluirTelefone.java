@@ -22,20 +22,11 @@ class ExcluirTelefone {
         String jsp = "";
         try {
 
-            Long CPF_CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            String Num_Telefone = request.getParameter("Num_Telefone");
-            String Tipo_Telefone = request.getParameter("Tipo_Telefone");
-            int DDD = Integer.parseInt(request.getParameter("DDD"));
-            int Ramal = Integer.parseInt(request.getParameter("Ramal"));
+            int Seq_Telefone = Integer.parseInt(request.getParameter("Seq_Telefone"));
 
             TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
             Telefone Tel = new Telefone();
-            
-            Tel.setCPF_CNPJ(CPF_CNPJ);
-            Tel.setNum_Telefone(Num_Telefone);
-            Tel.setTipo_Telefone(Tipo_Telefone);
-            Tel.setDDD(DDD);
-            Tel.setRamal(Ramal);
+            Tel = TelefoneManagement.pesquisar(Seq_Telefone);
             
             boolean Telefone = TelefoneManagement.delete(Tel);
 

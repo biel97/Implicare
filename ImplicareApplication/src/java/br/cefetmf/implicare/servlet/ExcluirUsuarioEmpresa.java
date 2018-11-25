@@ -22,34 +22,19 @@ class ExcluirUsuarioEmpresa {
         String jsp = "";
         try {
 
-            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            String Email = request.getParameter("Email");
-            String Foto = request.getParameter("Foto");
-            String Endereco = request.getParameter("Endereco");
-            Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
-            String Desc_Usuario = request.getParameter("Desc_Usuario");
-            String Nome_Fantasia = request.getParameter("Nome_Fantasia");
-            String Nom_Razao_Social = request.getParameter("Nom_Razao_Social");
+            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
 
             EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
             Empresa Empr = new Empresa();
-            
-            Empr.setCPF_CNPJ(CPF);
-            Empr.setEmail(Email);
-            Empr.setFoto(Foto);
-            Empr.setEndereco(Endereco);
-            Empr.setCod_CEP(Cod_CEP);
-            Empr.setDesc_Usuario(Desc_Usuario);
-            Empr.setNome_Fantasia(Nome_Fantasia);
-            Empr.setNom_Razao_Social(Nom_Razao_Social);
+            Empr = EmpresaManagement.pesquisar(CNPJ);
             
             boolean Empresa = EmpresaManagement.delete(Empr);
 
             if (Empresa =! false) {
                 jsp = "index.jsp";
-                request.setAttribute("FormacaoAcademica", Empr);
+                request.setAttribute("Empresa", Empr);
             } else {
-                String Erro = "Erro ao Excluir Formacao Academica";
+                String Erro = "Erro ao Excluir Empresa";
                 jsp = "/WEB-Pages/Erro.jsp";
                 request.setAttribute("Erro", Erro);
             }

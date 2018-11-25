@@ -25,34 +25,18 @@ class ExcluirUsuarioCandidato {
         try {
 
             Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            String Email = request.getParameter("Email");
-            String Foto = request.getParameter("Foto");
-            String Endereco = request.getParameter("Endereco");
-            Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
-            String Desc_Usuario = request.getParameter("Desc_Usuario");
-            String Nome = request.getParameter("Nome");
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date Data_Nascimento = (Date) formato.parse(request.getParameter("Data_Nascimento"));
 
             CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
             Candidato Cand = new Candidato();
-            
-            Cand.setCPF_CNPJ(CPF);
-            Cand.setEmail(Email);
-            Cand.setFoto(Foto);
-            Cand.setEndereco(Endereco);
-            Cand.setCod_CEP(Cod_CEP);
-            Cand.setDesc_Usuario(Desc_Usuario);
-            Cand.setNome(Nome);
-            Cand.setData_Nascimento(Data_Nascimento);
+            Cand = CandidatoManagement.pesquisar(CPF);
             
             boolean Candidato = CandidatoManagement.update(Cand);
 
             if (Candidato =! false) {
-                jsp = "index.jsp";
-                request.setAttribute("FormacaoAcademica", Cand);
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
+                request.setAttribute("Candidato", Cand);
             } else {
-                String Erro = "Erro ao Editar Formacao Academica";
+                String Erro = "Erro ao Excluir Candidato";
                 jsp = "/WEB-Pages/Erro.jsp";
                 request.setAttribute("Erro", Erro);
             }

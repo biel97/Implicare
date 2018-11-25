@@ -25,33 +25,15 @@ class ExcluirVaga {
         try {
             
             int Seq_Vaga = Integer.parseInt(request.getParameter("Seq_Vaga"));
-            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date Dat_Publicacao = (Date) formato.parse(request.getParameter("Dat_Publicacao"));
-            int Num_Vagas = Integer.parseInt(request.getParameter("Num_Vagas"));
-            int Carga_Horaria = Integer.parseInt(request.getParameter("Carga_Horaria"));
-            double Remuneracao = Double.parseDouble(request.getParameter("Remuneracao"));
-            String Desc_Vaga = request.getParameter("Desc_Vaga");
-            int Status_Vaga = Integer.parseInt(request.getParameter("Status_Vaga"));
             
             VagaManagement VagaManagement = new VagaManagementImpl();
             Vaga Vag = new Vaga();
-            
-            Vag.setSeq_Vaga(Seq_Vaga);
-            Vag.setCNPJ(CNPJ);
-            Vag.setCod_Cargo(Cod_Cargo);
-            Vag.setDat_Publicacao(Dat_Publicacao);
-            Vag.setNum_Vagas(Num_Vagas);
-            Vag.setCarga_Horaria(Carga_Horaria);
-            Vag.setRemuneracao(Remuneracao);
-            Vag.setDesc_Vaga(Desc_Vaga);
-            Vag.setStatus_Vaga(Status_Vaga);
+            Vag = VagaManagement.pesquisar(Seq_Vaga);
             
             boolean Vaga = VagaManagement.delete(Vag);
 
             if (Vaga =! false) {
-                jsp = "ImplicareServlet?acao=PerfilCandidato";
+                jsp = "ImplicareServlet?acao=ListarVagaEmpresa";
                 request.setAttribute("Vaga", Vag);
             } else {
                 String Erro = "Erro ao Excluir Vaga";
