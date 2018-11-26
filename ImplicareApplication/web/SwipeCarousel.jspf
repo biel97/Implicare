@@ -61,10 +61,13 @@
   
 
 <div class="botoes-swipe">
+    <div class="espacamentobotaoswipe"></div>
+    <div class="espacobotaoswipe">
     <button type="button" class="btn btn-primary1 js-left-trigger col-md-2">
       Não Gostei
     </button>
     <button type="button" class="btn btn-primary1 js-right-trigger col-md-2">
       Gostei
     </button>
+    </div>
   </div>

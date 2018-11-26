@@ -417,5 +417,13 @@ ul{
     width: 100%;
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
+.espacobotaoswipe{
+    margin-top: 60px;
+}
+
+.espacamentobotaoswipe {
+    padding: 60px;
+}

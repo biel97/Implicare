@@ -150,9 +150,9 @@ $('.js-right-trigger').on('click', function(event) {
   swipeEnded(event, 'right', $topCard);
 });
 
-$(".swipe-area").prepend("<div id='relativefix' style='position:relative;margin-top:"+($(".card").offset().top+$(".card").outerHeight()+30)+"px'></div>");
+//$(".swipe-area").prepend("<div id='relativefix' style='position:relative;margin-top:"+($(".card").offset().top+$(".card").outerHeight()+30)+"px'></div>");
 
 
-$(window).resize(function(){
-$("#relativefix").css("margin-top",($(".card").offset().top+$(".card").outerHeight()+30)+"px");
-            });
+//$(window).resize(function(){
+//$("#relativefix").css("margin-top",($(".card").offset().top+$(".card").outerHeight()+30)+"px");
+//            });
