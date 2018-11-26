@@ -23,7 +23,7 @@ class ExcluirCargoInteresse {
         try{
 
             Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
-            int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
+            int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo_Interesse"));
             
             CargoInteresseManagement CargoManagement = new CargoInteresseManagementImpl(); 
             CargoInteresse CargoInteresse = new CargoInteresse();

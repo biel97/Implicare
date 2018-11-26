@@ -25,7 +25,7 @@
 
         <div class="container emp-profile">
             
-            <form method="post">
+            <form method="POST">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img
@@ -353,23 +353,54 @@
                             <div class="tab-pane fade" id="Cargo_Interesse" role="tabpanel" aria-labelledby="Cargo_Interesse-tab">
                                 <div class="row">
                                         <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Area de Estudo</label>
-                                            <select class="form-control" id="AreaEstudo" name="AreaEstudo">
-                                                    <option value="1">Analista</option> 
-                                                    <option value="2">Gerente</option> 
-                                                    <option value="3">Desenvolvedor</option> 
-                                                    <option value="4">Tecnico</option> 
+                                            <label for="CargoInteresse">Cargo Interesse</label>
+                                            <select class="form-control" id="Cod_Cargo" name="Cod_Cargo_Interesse">
+                                                <%for(int i = 0; i < ListaCargoInt.size(); i++) { 
+                                                    for(int j = 0; j < ListaCargo.size(); j++) {
+                                                        if(ListaCargoInt.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
+                                                            <option value="<%=ListaCargoInt.get(i).getCod_Cargo()%>">
+                                                                <%=ListaCargo.get(j).getNom_Cargo()%>
+                                                            </option>
+                                                       <%}
+                                                    }
+                                                }%>
                                             </select>
                                         </div>
                                     </div>
-                                        <div class="row">
-                      
-                                            <div class="col-md-6">
-                                        <button type="button" class="btn-gerenciar-vaga btn btn-primary1">Editar</button>
-                                            </div>
-                                        
-                           
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                             <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirCargoInteresse">Excluir</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="AdicionarCargoInteresse">Adicionar Cargo Interesse</label>
+                                            <select class="form-control" id="Cod_Cargo" name="Cod_Cargo">
+                                                <%for(int i = 0; i < ListaCargoArea.size(); i++) { 
+                                                    int count = 0;
+                                                    for(;count < ListaCargoInt.size(); count++) {
+                                                        if(ListaCargoArea.get(i).getCod_Cargo() == ListaCargoInt.get(count).getCod_Cargo()){
+                                                            break;
+                                                        }
+                                                    }
+                                                    if(count == ListaCargoInt.size()) {
+                                                        for(int j = 0; j < ListaCargo.size(); j++) {
+                                                            if(ListaCargoArea.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
+                                                                <option value="<%=ListaCargoArea.get(i).getCod_Cargo()%>">
+                                                                    <%=ListaCargo.get(j).getNom_Cargo()%>
+                                                                </option>
+                                                           <%}
+                                                        }
+                                                    }
+                                                }%>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                             <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=InserirCargoInteresse">Adicionar</a>
+                                        </div>
+                                    </div>
                             </div>
                             
                         </div>

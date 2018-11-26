@@ -74,8 +74,10 @@
                                     <tbody>
                                 </table>
                                 <div class="little-container col-lg-3 col-md-12 col-sm-12">
-                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga" href="ImplicareServlet?acao=PesquisarVaga&Seq_Vaga=<%=ListaVaga.get(i).getSeq_Vaga()%>">Editar Vaga</button>
-                                    <button type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ExcluirVaga" href="ImplicareServlet?acao=ExcluirVaga&Seq_Vaga=<%=ListaVaga.get(i).getSeq_Vaga()%>">Excluir Vaga</button>
+                                    <a type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ResponderCandidatos" href="">Responder Candidatos</a>
+                                    <a type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="GerenciarCandidatos" href="">Gerenciar Candidatos</a>
+                                    <a type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="EditarVaga" href="ImplicareServlet?acao=PesquisarVaga&Seq_Vaga=<%=ListaVaga.get(i).getSeq_Vaga()%>">Editar Vaga</a>
+                                    <a type="submit" class="btn-gerenciar-vaga btn btn-primary1" id="ExcluirVaga" href="ImplicareServlet?acao=ExcluirVaga&Seq_Vaga=<%=ListaVaga.get(i).getSeq_Vaga()%>">Excluir Vaga</a>
                                 </div>
                             </div>
                         </div>
