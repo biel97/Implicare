@@ -29,7 +29,7 @@
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-img
+                        <div class="profile-">
                              <%
                                 Candidato Cand = (Candidato)request.getAttribute("Cand");
                                 ArrayList<FormacaoAcademica> ListaFormAcad = (ArrayList)request.getAttribute("ListaFormAcad");
