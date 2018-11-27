@@ -24,11 +24,9 @@ class InserirUsuarioCandidato {
         String jsp = "";
         try {
 
-<<<<<<< HEAD
-            String CPF = request.getParameter("CPF_CNPJ");
-=======
+
             Long CPF = Long.parseLong(request.getParameter("CPF_CNPJ"));
->>>>>>> e17be5e0a0ca6eb5a5cddaa1428fe4efeea894e9
+
             String Email = request.getParameter("Email");
             String Senha = request.getParameter("Senha");
             String Foto = request.getParameter("Foto");
@@ -36,9 +34,17 @@ class InserirUsuarioCandidato {
             Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
             String Desc_Usuario = request.getParameter("Desc_Usuario");
             String Nome = request.getParameter("Nome");
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date Data_Nascimento = (Date) formato.parse(request.getParameter("Data_Nascimento"));
+            
+            SimpleDateFormat formato = new SimpleDateFormat("YYYY-MM-dd");
+            java.util.Date Data_Nascimento = formato.parse(request.getParameter("Data_Nascimento"));
+ 
 
+            
+            java.sql.Date datacerta = convertUtilToSql(Data_Nascimento);
+
+            
+            
+            
             CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
             Candidato Cand = new Candidato();
             
@@ -50,7 +56,7 @@ class InserirUsuarioCandidato {
             Cand.setCod_CEP(Cod_CEP);
             Cand.setDesc_Usuario(Desc_Usuario);
             Cand.setNome(Nome);
-            Cand.setData_Nascimento(Data_Nascimento);
+            Cand.setData_Nascimento(datacerta);
             
             boolean Candidato = CandidatoManagement.insert(Cand);
 
@@ -67,5 +73,9 @@ class InserirUsuarioCandidato {
         }
         return jsp;
     }
-    
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+                java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+                return sDate;
+            }
 }
+
