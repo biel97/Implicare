@@ -32,22 +32,25 @@ class PerfilEmpresa {
             Empresa Empr = new Empresa();
             Empr = EmpresaManagement.pesquisar(CNPJ);
             
+            jsp = "/TelePerfilEmpresa.jsp";
+            
+            if(Empr == null) {
+                jsp = "/VisualizarEmpresa.jsp";
+                CNPJ = Long.parseLong(request.getParameter("CNPJ"));
+                Empr = EmpresaManagement.pesquisar(CNPJ);
+            }
+            
             TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
             ArrayList<Telefone> ListaTelefone = new ArrayList();
             ListaTelefone = TelefoneManagement.listar(CNPJ);
 
             if (Empr != null) {
-                jsp = "";
                 request.setAttribute("Empresa", Empr);
                 request.setAttribute("ListaTelefone", ListaTelefone);
-            } else {
-                String Erro = "Erro Empresa Não Existe";
-                jsp = "/WEB-Pages/Erro.jsp";
-                request.setAttribute("Erro", Erro);
             }
+            
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "TelePerfilEmpresa.jsp";
         }
         return jsp;
     }

@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
  * 
  */
 
-class ListarVagaCandidato {
+class ListarVagaCandidatoAceito {
 
     static String execute(HttpServletRequest request) {
         String jsp = "";
@@ -45,29 +45,16 @@ class ListarVagaCandidato {
             EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
             ArrayList<Empresa> ListaEmpresa = new ArrayList();
             
-            TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
-            ArrayList<Telefone> ListaTelefone = new ArrayList();
-            
             for(int i = 0; i < ListaVaga.size(); i++) {
                 Empresa Empr = new Empresa();
                 Empr = EmpresaManagement.pesquisar(ListaVaga.get(i).getCNPJ());
                 ListaEmpresa.add(Empr);
-                
-                Telefone Tel = new Telefone();
-                ArrayList<Telefone> tel1 = new ArrayList();
-                tel1 = TelefoneManagement.listar(ListaVaga.get(i).getCNPJ());
-                
-                for(int j = 0; j < tel1.size(); j++){
-                    Tel = TelefoneManagement.pesquisar(tel1.get(i).getSeq_Telefone());
-                    ListaTelefone.add(Tel);
-                }
             }
             
-            jsp = "/AvaliarVagas.jsp";
+            jsp = "/RespostaVaga.jsp";
             request.setAttribute("ListaVaga", ListaVaga); 
             request.setAttribute("ListaCargo", ListaCargo); 
             request.setAttribute("ListaEmpresa", ListaEmpresa); 
-            request.setAttribute("ListaTelefone", ListaTelefone); 
             
         } catch (Exception e) {
             e.printStackTrace();
