@@ -26,8 +26,8 @@ class PesquisarFormacaoAcademica {
         String jsp = "";
         try {
 
-            int Seq_Formacao = (int) request.getSession().getAttribute("Seq_Formacao");
-
+            int Seq_Formacao = Integer.parseInt(request.getParameter("Seq_Formacao"));
+            
             FormacaoAcademicaManagement FormacaoAcademicaManagement = new FormacaoAcademicaManagementImpl();
             FormacaoAcademica FormAcad = new FormacaoAcademica();
             FormAcad = FormacaoAcademicaManagement.pesquisar(Seq_Formacao);

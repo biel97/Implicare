@@ -26,7 +26,7 @@ class PesquisarExperienciaProfissional {
         String jsp = "";
         try {
 
-            int Seq_Experiencia = (int) request.getSession().getAttribute("Seq_Experiencia");
+            int Seq_Experiencia = Integer.parseInt(request.getParameter("Seq_Experiencia"));
 
             ExperienciaProfissionalManagement ExperienciaManagement = new ExperienciaProfissionalManagementImpl();
             ExperienciaProfissional ExpProf = new ExperienciaProfissional();
@@ -44,7 +44,6 @@ class PesquisarExperienciaProfissional {
             
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

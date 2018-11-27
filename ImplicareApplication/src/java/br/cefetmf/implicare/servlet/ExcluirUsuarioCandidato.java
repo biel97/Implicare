@@ -8,8 +8,6 @@ package br.cefetmf.implicare.servlet;
 import br.cefetmg.implicare.model.domain.Candidato;
 import br.cefetmg.implicare.model.service.CandidatoManagement;
 import br.cefetmg.implicare.model.serviceImpl.CandidatoManagementImpl;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -33,7 +31,7 @@ class ExcluirUsuarioCandidato {
             boolean Candidato = CandidatoManagement.update(Cand);
 
             if (Candidato =! false) {
-                jsp = "ImplicareServlet?acao=PerfilCandidato";
+                jsp = "/index.jsp";
                 request.setAttribute("Candidato", Cand);
             } else {
                 String Erro = "Erro ao Excluir Candidato";
@@ -42,7 +40,6 @@ class ExcluirUsuarioCandidato {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

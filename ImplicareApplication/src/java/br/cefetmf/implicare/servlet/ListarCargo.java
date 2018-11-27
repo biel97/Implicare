@@ -22,17 +22,22 @@ class ListarCargo {
     static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
-
+            String Tipo = (String) request.getSession().getAttribute("Tipo");
+            
+            if(Tipo == "E") {
+                jsp = "/formVaga.jsp";
+            } else {
+                jsp = "/formExperienciaProfissional.jsp";
+            }
             CargoManagement CargoManagement = new CargoManagementImpl();
             ArrayList<Cargo> ListaCargo = new ArrayList();
             ListaCargo = CargoManagement.listar();
 
-            jsp = "/formVaga.jsp";
             request.setAttribute("ListaCargo", ListaCargo); 
             
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
+
         }
         return jsp;
     }

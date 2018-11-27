@@ -42,7 +42,6 @@ class ExcluirVaga {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

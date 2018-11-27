@@ -31,7 +31,7 @@ class ExcluirUsuarioEmpresa {
             boolean Empresa = EmpresaManagement.delete(Empr);
 
             if (Empresa =! false) {
-                jsp = "index.jsp";
+                jsp = "/index.jsp";
                 request.setAttribute("Empresa", Empr);
             } else {
                 String Erro = "Erro ao Excluir Empresa";
@@ -40,7 +40,6 @@ class ExcluirUsuarioEmpresa {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

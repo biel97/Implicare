@@ -29,7 +29,7 @@ class PesquisarUsuarioCandidato {
             Cand = CandidatoManagement.pesquisar(CPF);
 
             if (Cand != null) {
-                jsp = "EditarPerfilCandidato.jsp";
+                jsp = "EditarUsuarioCandidato.jsp";
                 request.setAttribute("Candidato", Cand);
             } else {
                 String Erro = "Erro Candidato Não Existe";
@@ -38,7 +38,6 @@ class PesquisarUsuarioCandidato {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }
