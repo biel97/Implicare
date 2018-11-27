@@ -16,6 +16,9 @@
             <div class="form-group">
                 <input type="file" name="Foto">
             </div>
+             <div class="form-group">
+                <input type="text" class="form-control" id="Cod_CEP" placeholder="CEP">
+            </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="Senha" placeholder="Senha">
             </div>
@@ -25,7 +28,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="Desc_Usuario" placeholder="Descrição Usuário">
             </div>
-            <button type="submit" class="btn btn-primary1 col-md-8" id="CadastrarEmpresa">Cadastrar</button>
+            <button type="submit" class="btn btn-primary1 col-md-12" id="CadastrarEmpresa" style="margin-top:30px;">Cadastrar</button>
         </form>
    </div>
 </div>

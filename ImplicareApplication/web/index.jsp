@@ -54,11 +54,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Implicare</title>
 
     <!-- Bootstrap core CSS -->
 
-    
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="css/font.min.css" rel="stylesheet" type="text/css">
