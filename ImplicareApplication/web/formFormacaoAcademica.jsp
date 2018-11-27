@@ -18,7 +18,7 @@
             <div class="main-div">
                 <form action="ImplicareServlet?acao=InserirFormacaoAcademica" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Instituicao_Ensino" placeholder="Instituição de Ensino" requeried>
+                        <input type="text" class="form-control" name="Instituicao_Ensino" placeholder="Instituição de Ensino" requeried>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Area de Estudo</label>
@@ -35,16 +35,16 @@
 
 
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Atividades_Desenvolvidas" placeholder="Atividades desenvolvidas">
+                        <input type="text" class="form-control" name="Atividades_Desenvolvidas" placeholder="Atividades desenvolvidas">
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Inicio" requeried>
+                        <input type="date" class="form-control" name="Dat_Inicio" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Termino" requeried>
+                        <input type="date" class="form-control" name="Dat_Termino" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Formacao_Academica" placeholder="Descrição da formação acadêmica">
+                        <input type="text" class="form-control" name="Desc_Formacao_Academica" placeholder="Descrição da formação acadêmica">
                     </div>
                     <button type="submit" class="btn btn-primary" id="InserirFormacaoAcademica">Inserir Formação Acadêmica</button>
                 </form>

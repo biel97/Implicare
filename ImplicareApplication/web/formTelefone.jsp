@@ -16,7 +16,7 @@
             <div class="main-div">
                 <form action="ImplicareServlet?acao=InserirTelefone" method="POST">
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Num_Telefone" placeholder="Némero de Telefone" requeried>
+                        <input type="number" class="form-control" name="Num_Telefone" placeholder="Némero de Telefone" requeried>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Area de Estudo</label>
@@ -27,10 +27,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="DDD" placeholder="DDD" requeried>
+                        <input type="number" class="form-control" name="DDD" placeholder="DDD" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Ramal" >
+                        <input type="number" class="form-control" name="Ramal" >
                     </div>
                     <button type="submit" class="btn btn-primary" id="Inserir Telefone">Inserir Telefone</button>
                 </form>

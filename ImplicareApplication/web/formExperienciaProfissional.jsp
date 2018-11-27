@@ -18,7 +18,7 @@
             <div class="main-div">
                 <form action="ImplicareServlet?acao=InserirExperienciaProfissional" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nom_Empresa" placeholder="Nome da Empresa" required>
+                        <input type="text" class="form-control" name="Nom_Empresa" placeholder="Nome da Empresa" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cargo</label>
@@ -34,13 +34,13 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Data_Inicio" requeried>
+                        <input type="date" class="form-control" name="Data_Inicio" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Data_Termino" requeried>
+                        <input type="date" class="form-control" name="Data_Termino" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Experiencia_Profissional" placeholder="Descrição Experiência Profissional">
+                        <input type="text" class="form-control" name="Desc_Experiencia_Profissional" placeholder="Descrição Experiência Profissional">
                     </div>
                     <button type="submit" class="btn btn-primary" id="Inserir Experiência Profissional">Inserir Experiência Profissional</button>
                 </form>

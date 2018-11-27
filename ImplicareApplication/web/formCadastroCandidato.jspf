@@ -2,31 +2,31 @@
      <div class="main-div1">
          <form action="ImplicareServlet?acao=IserirUsuarioCandidato" method="POST">
             <div class="form-group">
-                <input type="text" class="form-control" id="Nome" placeholder="Nome" required>
+                <input type="text" class="form-control" name="Nome" placeholder="Nome" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="CPF_CNPJ" placeholder="CPF_CNPJ" required>
+                <input type="text" class="form-control" name="CPF_CNPJ" placeholder="CPF_CNPJ" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="Email" placeholder="Email">
+                <input type="text" class="form-control" name="Email" placeholder="Email">
             </div>
             <div class="form-group">
                 <input type="file" name="Foto">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="Cod_CEP" placeholder="CEP">
+                <input type="text" class="form-control" name="Cod_CEP" placeholder="CEP">
             </div>
             <div class="form-group">
-                 <input type="date" class="form-control" id="Data_Nascimento" requeried>
+                 <input type="date" class="form-control" name="Data_Nascimento" requeried>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="Senha" placeholder="Senha">
+                <input type="password" class="form-control" name="Senha" placeholder="Senha">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="Endereco" placeholder="Endereço">
+                <input type="text" class="form-control" name="Endereco" placeholder="Endereço">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="Desc_Usuario" placeholder="Descrição Usuário">
+                <input type="text" class="form-control" name="Desc_Usuario" placeholder="Descrição Usuário">
             </div>
             <button type="submit" class="btn btn-primary1 col-md-12" id="CadastrarCandidato" style="margin-top:30px;">Cadastrar</button>
         </form>

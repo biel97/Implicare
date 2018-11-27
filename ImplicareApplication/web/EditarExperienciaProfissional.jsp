@@ -20,7 +20,7 @@
                 <%ExperienciaProfissional ExperienciaProf = (ExperienciaProfissional)request.getAttribute("ExperienciaProfissional");%>
                 <form action="ImplicareServlet?acao=AlterarExperienciaProfissional&Seq_Experiencia=<%=ExperienciaProf.getSeq_Experiencia()%>" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nom_Empresa" value="<%=ExperienciaProf.getNom_Empresa()%>" required>
+                        <input type="text" class="form-control" id="Nom_Empresa" name="Nom_Empresa" value="<%=ExperienciaProf.getNom_Empresa()%>" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cargo</label>
@@ -41,13 +41,13 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Data_Inicio" value="<%=ExperienciaProf.getData_Inicio()%>" requeried>
+                        <input type="date" class="form-control" id="Data_Inicio" name="Data_Inicio" value="<%=ExperienciaProf.getData_Inicio()%>" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Data_Termino" value="<%=ExperienciaProf.getData_Termino()%>" requeried>
+                        <input type="date" class="form-control" id="Data_Termino" name="Data_Termino" value="<%=ExperienciaProf.getData_Termino()%>" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Experiencia_Profissional" value="<%ExperienciaProf.getDesc_Experiencia_Profissional();%>">
+                        <input type="text" class="form-control" id="Desc_Experiencia_Profissional" name="Desc_Experiencia_Profissional" value="<%ExperienciaProf.getDesc_Experiencia_Profissional();%>">
                     </div>
                     <button type="submit" class="btn btn-primary" id="EditarExperiênciaProfissional">Editar Experiência Profissional</button>
                 </form>

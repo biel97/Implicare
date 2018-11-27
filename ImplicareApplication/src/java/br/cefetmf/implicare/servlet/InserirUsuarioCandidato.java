@@ -26,6 +26,7 @@ class InserirUsuarioCandidato {
 
             Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
             String Email = request.getParameter("Email");
+            String Senha = request.getParameter("Senha");
             String Foto = request.getParameter("Foto");
             String Endereco = request.getParameter("Endereco");
             Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
@@ -38,6 +39,7 @@ class InserirUsuarioCandidato {
             Candidato Cand = new Candidato();
             
             Cand.setCPF_CNPJ(CPF);
+            Cand.setSenha(Senha);
             Cand.setEmail(Email);
             Cand.setFoto(Foto);
             Cand.setEndereco(Endereco);

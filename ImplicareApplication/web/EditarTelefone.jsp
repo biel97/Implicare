@@ -18,7 +18,7 @@
                 <%Telefone Tel = (Telefone)request.getAttribute("Tel");%>
                 <form action="ImplicareServlet?acao=AlterarTelefone&Seq_Telefone<%=Tel.getSeq_Telefone()%>" method="POST">
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Num_Telefone" value="<%=Tel.getNum_Telefone()%>" requeried>
+                        <input type="number" class="form-control" name="Num_Telefone" value="<%=Tel.getNum_Telefone()%>" requeried>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Area de Estudo</label>
@@ -41,10 +41,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="DDD" value="<%=Tel.getDDD()%>" requeried>
+                        <input type="number" class="form-control" name="DDD" value="<%=Tel.getDDD()%>" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Ramal" value="<%=Tel.getRamal()%>" >
+                        <input type="number" class="form-control" name="Ramal" value="<%=Tel.getRamal()%>" >
                     </div>
                     <button type="submit" class="btn btn-primary" id="EditarTelefone">Editar Telefone</button>
                 </form>

@@ -39,7 +39,7 @@ class Login {
             
             
             if (CPF_CNPJ == 0 || Senha.isEmpty()) {
-                jsp = "/erro.jsp";
+                jsp = "/login.jsp";
             } 
             else {
 

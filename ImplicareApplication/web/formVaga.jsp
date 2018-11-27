@@ -30,21 +30,21 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Publicacao" requeried>
+                        <input type="date" class="form-control" name="Dat_Publicacao" requeried>
                     </div>
 
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Num_Vagas" placeholder="Número de Vagas">
+                        <input type="number" class="form-control" name="Num_Vagas" placeholder="Número de Vagas">
                     </div>
                     
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Carga_Horaria" placeholder="Carga Horária">
+                        <input type="number" class="form-control" name="Carga_Horaria" placeholder="Carga Horária">
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Remuneracao" placeholder="Remuneração">
+                        <input type="number" class="form-control" name="Remuneracao" placeholder="Remuneração">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Vaga" placeholder="Descrição Vaga">
+                        <input type="text" class="form-control" name="Desc_Vaga" placeholder="Descrição Vaga">
                     </div>
                     <button type="submit" class="btn btn-primary" id="Inserir Vaga">Inserir Vaga</button>
                 </form>

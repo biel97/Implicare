@@ -18,25 +18,25 @@
                 <%Empresa Empr = (Empresa)request.getAttribute("Empresa");%>
                 <form action="ImplicareServlet?acao=AlterarUsuarioEmpresa" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nome_Fantasia" value="<%=Empr.getNome_Fantasia()%>" required>
+                        <input type="text" class="form-control" name="Nome_Fantasia" value="<%=Empr.getNome_Fantasia()%>" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nom_Razao_Social" value="<%=Empr.getNom_Razao_Social()%>" required>
+                        <input type="text" class="form-control" name="Nom_Razao_Social" value="<%=Empr.getNom_Razao_Social()%>" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Email" value="<%=Empr.getEmail()%>">
+                        <input type="text" class="form-control" name="Email" value="<%=Empr.getEmail()%>">
                     </div>
                     <div class="form-group">
                         <input type="file" name="Foto">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="Senha" value="<%=Empr.getSenha()%>">
+                        <input type="password" class="form-control" name="Senha" value="<%=Empr.getSenha()%>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Endereco" value="<%=Empr.getEndereco()%>">
+                        <input type="text" class="form-control" name="Endereco" value="<%=Empr.getEndereco()%>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Usuario" value="<%=Empr.getDesc_Usuario()%>">
+                        <input type="text" class="form-control" name="Desc_Usuario" value="<%=Empr.getDesc_Usuario()%>">
                     </div>
                     <button type="submit" class="btn btn-primary" id="EditarEmpresa">Editar Empresa</button>
                 </form>

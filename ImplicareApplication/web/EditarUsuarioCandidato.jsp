@@ -18,31 +18,31 @@
                 <%Candidato Cand = (Candidato)request.getAttribute("Candidato");%>
                 <form action="ImplicareServlet?acao=AlterarUsuarioEmpresa" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nome" value="<%=Cand.getNome()%>" required>
+                        <input type="text" class="form-control" name="Nome" value="<%=Cand.getNome()%>" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="CPF_CNPJ" value="<%=Cand.getCPF_CNPJ()%>" required>
+                        <input type="text" class="form-control" name="CPF_CNPJ" value="<%=Cand.getCPF_CNPJ()%>" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Email" value="<%=Cand.getEmail()%>">
+                        <input type="text" class="form-control" name="Email" value="<%=Cand.getEmail()%>">
                     </div>
                     <div class="form-group">
                         <input type="file" name="Foto">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Email" value="<%=Cand.getEmail()%>" requeried>
+                        <input type="text" class="form-control" name="Email" value="<%=Cand.getEmail()%>" requeried>
                     </div>
                     <div class="form-group">
-                         <input type="date" class="form-control" id="Data_Nascimento" value="<%=Cand.getData_Nascimento()%>" requeried>
+                         <input type="date" class="form-control" name="Data_Nascimento" value="<%=Cand.getData_Nascimento()%>" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="Senha" value="<%=Cand.getSenha()%>">
+                        <input type="password" class="form-control" name="Senha" value="<%=Cand.getSenha()%>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Endereco" value="<%=Cand.getEndereco()%>">
+                        <input type="text" class="form-control" name="Endereco" value="<%=Cand.getEndereco()%>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Usuario" value="<%=Cand.getDesc_Usuario()%>">
+                        <input type="text" class="form-control" name="Desc_Usuario" value="<%=Cand.getDesc_Usuario()%>">
                     </div>
                     <button type="submit" class="btn btn-primary" id="EditarCandidato">Editar</button>
                 </form>

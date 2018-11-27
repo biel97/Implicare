@@ -38,21 +38,21 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Publicacao" value="<%=Vaga.getDat_Publicacao()%>" requeried>
+                        <input type="date" class="form-control" name="Dat_Publicacao" value="<%=Vaga.getDat_Publicacao()%>" requeried>
                     </div>
 
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Num_Vagas" value="<%=Vaga.getNum_Vagas()%>">
+                        <input type="number" class="form-control" name="Num_Vagas" value="<%=Vaga.getNum_Vagas()%>">
                     </div>
                     
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Carga_Horaria" value="<%Vaga.getCarga_Horaria();%>">
+                        <input type="number" class="form-control" name="Carga_Horaria" value="<%Vaga.getCarga_Horaria();%>">
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" id="Remuneracao" value="<%=Vaga.getRemuneracao()%>">
+                        <input type="number" class="form-control" name="Remuneracao" value="<%=Vaga.getRemuneracao()%>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Vaga" value="<%=Vaga.getDesc_Vaga()%>">
+                        <input type="text" class="form-control" name="Desc_Vaga" value="<%=Vaga.getDesc_Vaga()%>">
                     </div>
                     <button type="submit" class="btn btn-primary" id="EditarVaga">Editar Vaga</button>
                 </form>

@@ -20,7 +20,7 @@
                 <%FormacaoAcademica FormAcad = (FormacaoAcademica)request.getAttribute("FormAcad");%>
                 <form action="ImplicareServlet?acao=AlterarFormacaoAcademica&Seq_Formacao=<%=FormAcad.getSeq_Formacao()%>" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Instituicao_Ensino" value="<%=FormAcad.getInstituicao_Ensino()%>" requeried>
+                        <input type="text" class="form-control" name="Instituicao_Ensino" value="<%=FormAcad.getInstituicao_Ensino()%>" requeried>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Area de Estudo</label>
@@ -44,16 +44,16 @@
 
 
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Atividades_Desenvolvidas" value="<%=FormAcad.getAtividades_Desenvolvidas()%>">
+                        <input type="text" class="form-control" name="Atividades_Desenvolvidas" value="<%=FormAcad.getAtividades_Desenvolvidas()%>">
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Inicio" value="<%=FormAcad.getData_Inicio()%>" requeried>
+                        <input type="date" class="form-control" name="Dat_Inicio" value="<%=FormAcad.getData_Inicio()%>" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="Dat_Termino" value="<%=FormAcad.getData_Termino()%>" requeried>
+                        <input type="date" class="form-control" name="Dat_Termino" value="<%=FormAcad.getData_Termino()%>" requeried>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Desc_Formacao_Academica" value="<%=FormAcad.getDesc_Formacao_Academica()%>">
+                        <input type="text" class="form-control" name="Desc_Formacao_Academica" value="<%=FormAcad.getDesc_Formacao_Academica()%>">
                     </div>
                     <button type="submit" class="btn btn-primary" id="EditarFormacaoAcademica">Editar Formação Acadêmica</button>
                 </form>
