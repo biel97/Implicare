@@ -24,7 +24,7 @@ class InserirUsuarioCandidato {
         String jsp = "";
         try {
 
-            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            String CPF = request.getParameter("CPF_CNPJ");
             String Email = request.getParameter("Email");
             String Senha = request.getParameter("Senha");
             String Foto = request.getParameter("Foto");

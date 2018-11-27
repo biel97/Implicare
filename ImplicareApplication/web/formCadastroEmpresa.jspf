@@ -1,6 +1,6 @@
  <div class="login-form">
      <div class="main-div1">
-         <form action="ImplicareServlet?acao=IserirUsuarioEmpresa" method="POST">
+         <form action="ImplicareServlet?acao=InserirUsuarioEmpresa" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control" name="Nome_Fantasia" placeholder="Nome Fantásia" required>
             </div>
