@@ -10,7 +10,6 @@ import br.cefetmg.implicare.model.domain.Vaga;
 import br.cefetmg.implicare.model.exception.PersistenceException;
 import br.cefetmg.inf.util.db.JDBCConnectionManager;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -151,7 +150,7 @@ public class VagaDaoImpl implements VagaDao{
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Vaga WHERE CNPJ = ? ORDER BY Cod_Cargo, Dat_Publicacao";
+            String sql = "SELECT * FROM Vaga WHERE CNPJ = ? AND Status_Vaga = 1 ORDER BY Cod_Cargo, Dat_Publicacao";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CNPJ);
@@ -197,9 +196,56 @@ public class VagaDaoImpl implements VagaDao{
             ArrayList<Vaga> lista = new ArrayList<>();
             
             String sql = "SELECT * FROM Vaga A "
-                    + "JOIN Cargo_Interesse B ON"
+                    + "JOIN Candidato_Vaga B ON"
                     + "A.Cod_Cargo = B.Cod_Cargo"
-                    + "WHERE B.CPF = ? ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
+                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'H' ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setLong(1, CPF);
+            ResultSet rs = ps.executeQuery();
+                
+            if (rs.next()) {
+                do{
+                    Vaga Vag = new Vaga();
+
+                    Vag.setCNPJ(rs.getLong("CNPJ"));
+                    Vag.setSeq_Vaga(rs.getInt("Seq_Vaga"));
+                    Vag.setCod_Cargo(rs.getInt("Cod_Cargo"));
+                    Vag.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
+                    Vag.setNum_Vagas(rs.getInt("Num_Vagas"));
+                    Vag.setCarga_Horaria(rs.getInt("Caraga_Horaria"));
+                    Vag.setRemuneracao(rs.getDouble("Remuneracao"));
+                    Vag.setDesc_Vaga(rs.getString("Desc_Vaga"));
+                    Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
+
+                    lista.add(Vag);
+                } while (rs.next());
+            }
+                
+            rs.close();
+            ps.close();
+            
+            connection.close();
+
+            return lista;
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<Vaga> listarVagaAceito(long CPF) throws PersistenceException {
+        try {
+            Connection connection = JDBCConnectionManager.getInstance().getConnection();
+
+            ArrayList<Vaga> lista = new ArrayList<>();
+            
+            String sql = "SELECT * FROM Vaga A "
+                    + "JOIN Candidato_Vaga B ON"
+                    + "A.Cod_Cargo = B.Cod_Cargo"
+                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'A' ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);

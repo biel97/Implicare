@@ -97,11 +97,17 @@ public class ImplicareServlet extends HttpServlet {
             case "ListarCandidatoVaga":
                 jsp = ListarCandidatoVaga.execute(request);
                 break;
+            case "ListarCandidatoVagaAceito":
+                jsp = ListarCandidatoVagaAceito.execute(request);
+                break;
             case "ListarCargo":
                 jsp = ListarCargo.execute(request);
                 break;
             case "ListarVagaCandidato":
                 jsp = ListarVagaCandidato.execute(request);
+                break;
+            case "ListarVagaCandidatoAceito":
+                jsp = ListarVagaCandidatoAceito.execute(request);
                 break;
             case "ListarVagaEmpresa":
                 jsp = ListarVagaEmpresa.execute(request);

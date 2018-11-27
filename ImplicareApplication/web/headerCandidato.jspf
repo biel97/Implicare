@@ -15,7 +15,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="ImplicareServlet?acao=PerfilCandidato">Perfil</a>
           <a class="dropdown-item" href="ImplicareServlet?acao=ListarVagaCandidato">Gerenciar Vagas</a>
-          <a class="dropdown-item" href="#">Acompanhar Respostas</a>
+          <a class="dropdown-item" href="ImplicareServlet?acao=ListarVagaCandidatoAceito">Acompanhar Respostas</a>
         </div>
 
       </li>

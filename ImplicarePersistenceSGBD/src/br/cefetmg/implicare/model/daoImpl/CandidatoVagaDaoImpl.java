@@ -84,7 +84,46 @@ public class CandidatoVagaDaoImpl implements CandidatoVagaDao {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "SELECT * FROM Candidato_Vaga"
-                    + "WHERE Seq_Vaga = ?";
+                    + "WHERE Seq_Vaga = ? AND Status_Candidato = 'E';";
+            
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            
+            ps.setInt(1, Seq_Vaga);
+            
+            ResultSet rs = ps.executeQuery(SQL);
+            
+            ArrayList<CandidatoVaga> lista = new ArrayList();
+            CandidatoVaga Cand = new CandidatoVaga();
+            
+            while (rs.next()) {
+                Cand.setCPF(rs.getLong("CPF"));
+                Cand.setSeq_Vaga(rs.getInt("Seq_Vaga"));
+                Cand.setCod_Cargo(rs.getInt("Cod_Cargo"));
+                Cand.setCNPJ(rs.getLong("CNPJ"));
+                Cand.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
+                Cand.setStatus_Candidato(rs.getString("Status_Candidato"));
+                lista.add(Cand);
+            }
+
+            rs.close();
+            ps.close();
+            connection.close();
+            
+            return lista; 
+           
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<CandidatoVaga> listarAceitos(int Seq_Vaga) throws PersistenceException {
+        try {
+            Connection connection = JDBCConnectionManager.getInstance().getConnection();
+            
+            String SQL = "SELECT * FROM Candidato_Vaga"
+                    + "WHERE Seq_Vaga = ? AND Status_Candidato = 'A';";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             

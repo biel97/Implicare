@@ -26,8 +26,6 @@
         ArrayList<ExperienciaProfissional> ListaExpProfissional = (ArrayList)request.getAttribute("ListaExpProfissional");
         ArrayList<Cargo> ListaCargo = (ArrayList)request.getAttribute("ListaCargo");
         ArrayList<Telefone> ListaTelefone = (ArrayList)request.getAttribute("ListaTelefone");
-        ArrayList<CargoInteresse> ListaCargoInt = (ArrayList)request.getAttribute("ListaCargoInt");
-        ArrayList<Cargo> ListaCargoArea = (ArrayList)request.getAttribute("ListaCargoArea");
         %>
         <div class="container">
             <div class="swipe">
@@ -65,9 +63,6 @@
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
-                                                                    </li>
-                                                                    <li class="nav-item">
-                                                                        <a class="nav-link" id="Cargo_Interesse-tab" data-toggle="tab" href="#Cargo_Interesse" role="tab" aria-controls="Cargo_Interesse" aria-selected="false">Cargo Interesse</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -305,27 +300,6 @@
                                                                             </div>
                                                                     <%} 
                                                                 }%>
-                                                            </div>
-
-                                                            <div class="tab-pane fade" id="Cargo_Interesse" role="tabpanel" aria-labelledby="Cargo_Interesse-tab">
-                                                                <div class="row">
-                                                                        <div class="form-group">
-                                                                            <label for="CargoInteresse">Cargo Interesse</label>
-                                                                            <select class="form-control" id="Cod_Cargo" name="Cod_Cargo">
-                                                                                <%for(int i = 0; i < ListaCargoInt.size(); i++) {
-                                                                                    if(ListaCargoInt.get(i).getCPF() == ListaCandidato.get(x).getCPF_CNPJ()) {
-                                                                                        for(int j = 0; j < ListaCargo.size(); j++) {
-                                                                                            if(ListaCargoInt.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
-                                                                                                <option value="<%=ListaCargoInt.get(i).getCod_Cargo()%>">
-                                                                                                    <%=ListaCargo.get(j).getNom_Cargo()%>
-                                                                                                </option>
-                                                                                           <%}
-                                                                                        }
-                                                                                    }
-                                                                                }%>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
                                                             </div>
                                                         </div>
                                                     </div>

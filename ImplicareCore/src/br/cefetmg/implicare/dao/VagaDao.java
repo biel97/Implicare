@@ -22,4 +22,6 @@ public interface VagaDao {
     public Vaga pesquisar(int Seq_Vaga) throws PersistenceException;
     public ArrayList<Vaga> listarVagaEmpresa(long CNPJ) throws PersistenceException;
     public ArrayList<Vaga> listarVagaCandidato(long CPF) throws PersistenceException;
+    public ArrayList<Vaga> listarVagaAceito(long CPF) throws PersistenceException;
+
 }
