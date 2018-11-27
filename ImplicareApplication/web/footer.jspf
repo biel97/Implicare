@@ -1,3 +1,26 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<h2>Hello World!</h2>
+<section id="footer">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				</hr>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p><u><a href="index.jsp">Implicare Project</a></u> é um sistema inovador que procura ganhar espaço no mercado de forma ambiciosa e inteligente, tornando objetiva a dinâmica de admissão em empresas</p>
+					<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="index.jsp" target="_blank">Implicare</a></p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</section>

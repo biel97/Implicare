@@ -8,10 +8,10 @@ and open the template in the editor.
     Author     : ADM
 */
 
-body#LoginForm{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
-body#pagPrincipal{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
-body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
-body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#LoginForm{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:0px;}
+body#pagPrincipal{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:0px;}
+body#cadastro{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:0px;}
+body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:0px;}
 
 
 
@@ -32,6 +32,14 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
   margin: 10px auto 30px;
   max-width: 38%;
   padding: 50px 70px 70px 71px;
+}
+
+.main-div1 {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 100%;
+  padding: 1px;
 }
 
 .login-form .form-group {
@@ -182,9 +190,25 @@ body#gerenciar-vaga{ background-image:url("../img/FundoLogin.jpg"); background-r
     border: none;
     color: #e38d13;
 }
+
+.nav-link{
+    font-weight:600;
+
+    color: #e38d13;
+}
+
+.nav-link.active{
+
+    border-bottom:2px solid  #e38d13;
+}
+
 .profile-head .nav-tabs .nav-link.active{
     border: none;
     border-bottom:2px solid  #e38d13;
+}
+
+.nav-item{
+    color: #e38d13;
 }
 .profile-work{
     padding: 14%;
@@ -426,4 +450,8 @@ ul{
 
 .espacamentobotaoswipe {
     padding: 60px;
+}
+
+.footer{
+    background-color: #d4d4d4;
 }

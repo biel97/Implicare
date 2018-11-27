@@ -1,5 +1,5 @@
 <div class="login-form">
-     <div class="main-div">
+     <div class="main-div1">
          <form action="ImplicareServlet?acao=IserirUsuarioCandidato" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control" id="Nome" placeholder="Nome" required>
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="Desc_Usuario" placeholder="Descrição Usuário">
             </div>
-            <button type="submit" class="btn btn-primary" id="CadastrarCandidato">Cadastrar</button>
+            <button type="submit" class="btn btn-primary1 col-md-8" id="CadastrarCandidato">Cadastrar</button>
         </form>
    </div>
 </div>
