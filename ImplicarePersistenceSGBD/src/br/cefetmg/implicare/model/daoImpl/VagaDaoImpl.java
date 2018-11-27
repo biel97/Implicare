@@ -151,7 +151,7 @@ public class VagaDaoImpl implements VagaDao{
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Vaga WHERE CNPJ = ? ORDER BY Cod_Cargo, Dat_Publicacao";
+            String sql = "SELECT * FROM Vaga WHERE CNPJ = ? AND Status_Vaga = 1 ORDER BY Cod_Cargo, Dat_Publicacao";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CNPJ);
@@ -197,9 +197,9 @@ public class VagaDaoImpl implements VagaDao{
             ArrayList<Vaga> lista = new ArrayList<>();
             
             String sql = "SELECT * FROM Vaga A "
-                    + "JOIN Cargo_Interesse B ON"
+                    + "JOIN Candidato_Vaga B ON"
                     + "A.Cod_Cargo = B.Cod_Cargo"
-                    + "WHERE B.CPF = ? ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
+                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'H' ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);

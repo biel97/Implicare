@@ -47,10 +47,10 @@ class PerfilCandidato {
             Candidato Cand = new Candidato();
             Cand = CandidatoManagement.pesquisar(CPF);
             
-            jsp = "TelaPerfilCandidato.jsp";
+            jsp = "/TelaPerfilCandidato.jsp";
             
             if(Cand == null) {
-                jsp = "";
+                jsp = "/VisualizarCandidato.jsp";
                 CPF = Long.parseLong(request.getParameter("CPF"));
                 Cand = CandidatoManagement.pesquisar(CPF);
             }
@@ -98,7 +98,6 @@ class PerfilCandidato {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

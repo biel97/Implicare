@@ -18,5 +18,6 @@ import java.util.ArrayList;
 public interface CandidatoVagaDao {
     public boolean insert(CandidatoVaga CandidatoVaga) throws PersistenceException;
     public boolean update(CandidatoVaga CandidatoVaga) throws PersistenceException;
+    public ArrayList<CandidatoVaga> listarAceitos(int Seq_Vaga) throws PersistenceException;
     public ArrayList<CandidatoVaga> listar(int Seq_Vaga) throws PersistenceException;
 }

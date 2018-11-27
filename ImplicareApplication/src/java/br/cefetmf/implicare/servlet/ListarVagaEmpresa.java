@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 class ListarVagaEmpresa {
 
     static String execute(HttpServletRequest request) {
-         String jsp = "";
+        String jsp = "";
         try {
             
             Long CNPJ = (Long) request.getSession().getAttribute("CNPJ");
@@ -42,7 +42,6 @@ class ListarVagaEmpresa {
             
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }
