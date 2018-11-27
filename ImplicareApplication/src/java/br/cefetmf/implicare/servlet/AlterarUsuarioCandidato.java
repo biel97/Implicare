@@ -58,7 +58,6 @@ class AlterarUsuarioCandidato {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

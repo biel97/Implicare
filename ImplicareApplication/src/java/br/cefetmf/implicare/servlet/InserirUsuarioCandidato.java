@@ -24,7 +24,11 @@ class InserirUsuarioCandidato {
         String jsp = "";
         try {
 
+<<<<<<< HEAD
             String CPF = request.getParameter("CPF_CNPJ");
+=======
+            Long CPF = Long.parseLong(request.getParameter("CPF_CNPJ"));
+>>>>>>> e17be5e0a0ca6eb5a5cddaa1428fe4efeea894e9
             String Email = request.getParameter("Email");
             String Senha = request.getParameter("Senha");
             String Foto = request.getParameter("Foto");
@@ -51,7 +55,7 @@ class InserirUsuarioCandidato {
             boolean Candidato = CandidatoManagement.insert(Cand);
 
             if (Candidato =! false) {
-                jsp = "";
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
                 request.setAttribute("FormacaoAcademica", Cand);
             } else {
                 String Erro = "Erro ao Inserir Formacao Academica";
@@ -60,7 +64,6 @@ class InserirUsuarioCandidato {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

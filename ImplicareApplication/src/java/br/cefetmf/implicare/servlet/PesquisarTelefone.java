@@ -22,8 +22,8 @@ class PesquisarTelefone {
         String jsp = "";
         try {
 
-            int Seq_Telefone = (int) request.getSession().getAttribute("Seq_Telefone");
-
+            int Seq_Telefone = Integer.parseInt(request.getParameter("Seq_Telefone"));
+            
             TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
             Telefone Tel = new Telefone();
             Tel = TelefoneManagement.pesquisar(Seq_Telefone);

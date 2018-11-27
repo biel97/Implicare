@@ -7,15 +7,12 @@ package br.cefetmf.implicare.servlet;
 
 import br.cefetmg.implicare.model.domain.Cargo;
 import br.cefetmg.implicare.model.domain.Empresa;
-import br.cefetmg.implicare.model.domain.Telefone;
 import br.cefetmg.implicare.model.domain.Vaga;
 import br.cefetmg.implicare.model.service.CargoManagement;
 import br.cefetmg.implicare.model.service.EmpresaManagement;
-import br.cefetmg.implicare.model.service.TelefoneManagement;
 import br.cefetmg.implicare.model.service.VagaManagement;
 import br.cefetmg.implicare.model.serviceImpl.CargoManagementImpl;
 import br.cefetmg.implicare.model.serviceImpl.EmpresaManagementImpl;
-import br.cefetmg.implicare.model.serviceImpl.TelefoneManagementImpl;
 import br.cefetmg.implicare.model.serviceImpl.VagaManagementImpl;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;

@@ -5,8 +5,11 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.Candidato;
 import br.cefetmg.implicare.model.domain.Usuario;
+import br.cefetmg.implicare.model.service.CandidatoManagement;
 import br.cefetmg.implicare.model.service.UsuarioManagement;
+import br.cefetmg.implicare.model.serviceImpl.CandidatoManagementImpl;
 import br.cefetmg.implicare.model.serviceImpl.UsuarioManagementImpl;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -42,8 +45,18 @@ class Login {
                 jsp = "/login.jsp";
             } 
             else {
-
+                
                 HttpSession session = request.getSession();
+                CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
+                Candidato Cand = new Candidato();
+                Cand = CandidatoManagement.pesquisar(CPF_CNPJ);
+                if(Cand == null) {
+                    request.getSession().setAttribute("Tipo","E");
+                    jsp = "ImplicareServlet?acao=ListarVagaEmpresa";
+                } else {
+                    request.getSession().setAttribute("Tipo","C");
+                    jsp = "ImplicareServlet?acao=ListarVagaCandidato";
+                }
                 request.getSession().setAttribute("CPF_CNPJ",user.getCPF_CNPJ());
                 request.getSession().setAttribute("Email", user.getEmail());
                 request.getSession().setAttribute("Foto",user.getFoto());
@@ -51,7 +64,7 @@ class Login {
                 request.getSession().setAttribute("Cod_CEP",user.getCod_CEP());
                 request.getSession().setAttribute("Desc_Usuario", user.getDesc_Usuario());
                 
-                jsp = "/index.jsp";
+                
             }
         } catch (Exception e) {
             e.printStackTrace();

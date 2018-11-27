@@ -40,20 +40,19 @@ class PerfilCandidato {
     static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
-
-            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
-
+            String Tipo = (String) request.getSession().getAttribute("Tipo");
+            Long CPF = null;
+            if(Tipo == "E") {
+                jsp = "/VisualizarCandidato.jsp";
+                CPF = Long.parseLong(request.getParameter("CPF_CNPJ"));
+            } else {
+                jsp = "/TelaPerfilCandidato.jsp";
+                CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            }
+            
             CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
             Candidato Cand = new Candidato();
             Cand = CandidatoManagement.pesquisar(CPF);
-            
-            jsp = "/TelaPerfilCandidato.jsp";
-            
-            if(Cand == null) {
-                jsp = "/VisualizarCandidato.jsp";
-                CPF = Long.parseLong(request.getParameter("CPF"));
-                Cand = CandidatoManagement.pesquisar(CPF);
-            }
             
             FormacaoAcademicaManagement ForAcadManagement = new FormacaoAcademicaManagementImpl();
             ArrayList<FormacaoAcademica> ListaFormAcad = new ArrayList();

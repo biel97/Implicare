@@ -29,7 +29,7 @@ class PesquisarUsuarioEmpresa {
             Empr = EmpresaManagement.pesquisar(CNPJ);
 
             if (Empr != null) {
-                jsp = "";
+                jsp = "/EditarUsuarioEmpresa.jsp";
                 request.setAttribute("Empresa", Empr);
             } else {
                 String Erro = "Erro Empresa Não Existe";
@@ -38,7 +38,6 @@ class PesquisarUsuarioEmpresa {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "EditarPerfilEmpresa.jsp";
         }
         return jsp;
     }

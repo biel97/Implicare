@@ -21,7 +21,14 @@ class ExcluirTelefone {
     static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
-
+            String Tipo = (String) request.getSession().getAttribute("Tipo");
+            
+            if(Tipo == "E") {
+                jsp = "ImplicareServlet?acao=PerfilEmpresa";
+            } else {
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
+            }
+            
             int Seq_Telefone = Integer.parseInt(request.getParameter("Seq_Telefone"));
 
             TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
@@ -31,7 +38,6 @@ class ExcluirTelefone {
             boolean Telefone = TelefoneManagement.delete(Tel);
 
             if (Telefone =! false) {
-                jsp = "";
                 request.setAttribute("Telefone", Tel);
             } else {
                 String Erro = "Erro ao Excluir Telefone";
@@ -40,7 +46,6 @@ class ExcluirTelefone {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

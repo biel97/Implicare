@@ -21,7 +21,14 @@ class InserirTelefone {
     static String execute(HttpServletRequest request) {
         String jsp = "";
         try {
-
+            String Tipo = (String) request.getSession().getAttribute("Tipo");
+            
+            if(Tipo == "E") {
+                jsp = "ImplicareServlet?acao=PerfilEmpresa";
+            } else {
+                jsp = "ImplicareServlet?acao=PerfilCandidato";
+            }
+            
             Long CPF_CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
             String Num_Telefone = request.getParameter("Num_Telefone");
             String Tipo_Telefone = request.getParameter("Tipo_Telefone");
@@ -40,7 +47,6 @@ class InserirTelefone {
             boolean Telefone = TelefoneManagement.insert(Tel);
 
             if (Telefone =! false) {
-                jsp = "";
                 request.setAttribute("Telefone", Tel);
             } else {
                 String Erro = "Erro ao Inserir Telefone";
@@ -49,7 +55,6 @@ class InserirTelefone {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
         }
         return jsp;
     }

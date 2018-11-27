@@ -26,7 +26,7 @@ class PesquisarVaga {
         String jsp = "";
         try {
 
-            int Seq_Vaga = (int) request.getSession().getAttribute("Seq_Vaga");
+            int Seq_Vaga = Integer.parseInt(request.getParameter("Seq_Vaga"));
 
             VagaManagement VagaManagement = new VagaManagementImpl();
             Vaga Vag = new Vaga();

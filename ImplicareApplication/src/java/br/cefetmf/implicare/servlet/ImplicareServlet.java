@@ -28,9 +28,6 @@ public class ImplicareServlet extends HttpServlet {
         String acao = request.getParameter("acao");
 
         switch (acao) {
-            case "AlterarCandidatoVaga":
-                jsp = AlterarCandidatoVaga.execute(request);
-                break;
             case "AlterarExperienciaProfissional":
                 jsp = AlterarExperienciaProfissional.execute(request);
                 break;
