@@ -158,8 +158,7 @@ public class VagaDaoImpl implements VagaDao{
 
             ArrayList<Vaga> lista = new ArrayList<>();
             
-            if (rs.next()) {
-                do {
+                while (rs.next()) {
                     Vaga Vag = new Vaga();
                     
                     Vag.setCNPJ(rs.getLong("CNPJ"));
@@ -173,8 +172,7 @@ public class VagaDaoImpl implements VagaDao{
                     Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
                     
                     lista.add(Vag);
-                } while (rs.next());
-            }
+                }
 
             rs.close();
             ps.close();

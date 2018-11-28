@@ -27,11 +27,13 @@
         ArrayList<Telefone> ListaTelefone = (ArrayList<Telefone>)request.getAttribute("ListaTelefone");
         %>
         <div class="container">
-            <div class="swipe">
+            <%if(ListaVaga != null) {%>
                 <div class="stack col-md-6">
                     <div class="swipe-area">
+                        <div class="final-message"><b>Sem correspondências</b></div>
                         <ul>
-                            <%for(int x=0; x<ListaVaga.size(); x++) {%> 
+                            
+                                <%for(int x=0; x<ListaVaga.size(); x++) {%> 
                                 <li>
                                     <div class="emp-profile">
                                         <form method="post">
@@ -226,7 +228,7 @@
                                                                             </div>
                                                                         </div>
                                                                     <%}
-                                                                  }%> 
+                                                                }%>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -234,11 +236,24 @@
                                         </form>           
                                     </div>
                                 </li>
-                             <%}%>
+                            <%}%>
                         </ul>
+                    </div>
+                <div class="botoes-swipe">
+                    <div class="espacamentobotaoswipe"></div>
+                    <div class="espacobotaoswipe">
+                        <button type="button" class="btn btn-primary1 js-left-trigger col-md-2">
+                            Não Gostei
+                        </button>
+                        <button type="button" class="btn btn-primary1 js-right-trigger col-md-2">
+                            Gostei
+                        </button>
                     </div>
                 </div>
             </div>
+            <%} else {%>
+                  <%@include file="SwipeCarousel.jspf"%>
+            <%}%>
         </div>
     </body>
 </html>

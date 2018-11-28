@@ -35,15 +35,14 @@ public class CargoDaoImpl implements CargoDao{
             ResultSet rs = ps.executeQuery();
 
             ArrayList<Cargo> lista = new ArrayList<>();
-            
-            if (rs.next()) {
-                do {
+
+                while (rs.next()) {
                     Cargo Car = new Cargo();
                     Car.setCod_Cargo(rs.getInt("Cod_Cargo"));
                     Car.setNom_Cargo(rs.getString("Nom_Cargo"));
                     lista.add(Car);
-                } while (rs.next());
-            }
+                }
+
 
             rs.close();
             ps.close();

@@ -6,12 +6,25 @@
 package br.cefetmf.implicare.servlet;
 
 import br.cefetmg.implicare.model.domain.Candidato;
+import br.cefetmg.implicare.model.domain.Cargo;
+import br.cefetmg.implicare.model.domain.Empresa;
+import br.cefetmg.implicare.model.domain.Telefone;
 import br.cefetmg.implicare.model.domain.Usuario;
+import br.cefetmg.implicare.model.domain.Vaga;
 import br.cefetmg.implicare.model.service.CandidatoManagement;
+import br.cefetmg.implicare.model.service.CargoManagement;
+import br.cefetmg.implicare.model.service.EmpresaManagement;
+import br.cefetmg.implicare.model.service.TelefoneManagement;
 import br.cefetmg.implicare.model.service.UsuarioManagement;
+import br.cefetmg.implicare.model.service.VagaManagement;
 import br.cefetmg.implicare.model.serviceImpl.CandidatoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.CargoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.EmpresaManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.TelefoneManagementImpl;
 import br.cefetmg.implicare.model.serviceImpl.UsuarioManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.VagaManagementImpl;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -52,10 +65,53 @@ class Login {
                 Cand = CandidatoManagement.pesquisar(CPF_CNPJ);
                 if(Cand == null) {
                     request.getSession().setAttribute("Tipo","E");
-                    jsp = "ImplicareServlet?acao=ListarVagaEmpresa";
+                    VagaManagement VagaManagement = new VagaManagementImpl();
+                    ArrayList<Vaga> ListaVaga = new ArrayList();
+                    ListaVaga = VagaManagement.listarVagaEmpresa(CPF_CNPJ);
+
+                    CargoManagement CargoManagement = new CargoManagementImpl();
+                    ArrayList<Cargo> ListaCargo = new ArrayList();
+                    ListaCargo = CargoManagement.listar();
+
+                    jsp = "/GerenciarVaga.jsp";
+                    request.setAttribute("ListaVaga", ListaVaga); 
+                    request.setAttribute("ListaCargo", ListaCargo);
                 } else {
                     request.getSession().setAttribute("Tipo","C");
-                    jsp = "ImplicareServlet?acao=ListarVagaCandidato";
+                    VagaManagement VagaManagement = new VagaManagementImpl();
+                    ArrayList<Vaga> ListaVaga = new ArrayList();
+                    ListaVaga = VagaManagement.listarVagaCandidato(CPF_CNPJ);
+
+                    CargoManagement CargoManagement = new CargoManagementImpl();
+                    ArrayList<Cargo> ListaCargo = new ArrayList();
+                    ListaCargo = CargoManagement.listar();
+
+                    EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
+                    ArrayList<Empresa> ListaEmpresa = new ArrayList();
+
+                    TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
+                    ArrayList<Telefone> ListaTelefone = new ArrayList();
+                    if(ListaVaga != null) {
+                        for(int i = 0; i < ListaVaga.size(); i++) {
+                            Empresa Empr = new Empresa();
+                            Empr = EmpresaManagement.pesquisar(ListaVaga.get(i).getCNPJ());
+                            ListaEmpresa.add(Empr);
+
+                            Telefone Tel = new Telefone();
+                            ArrayList<Telefone> tel1 = new ArrayList();
+                            tel1 = TelefoneManagement.listar(ListaVaga.get(i).getCNPJ());
+
+                            for(int j = 0; j < tel1.size(); j++){
+                                Tel = TelefoneManagement.pesquisar(tel1.get(i).getSeq_Telefone());
+                                ListaTelefone.add(Tel);
+                            }
+                        }
+                    }
+                    jsp = "/AvaliarVagas.jsp";
+                    request.setAttribute("ListaVaga", ListaVaga); 
+                    request.setAttribute("ListaCargo", ListaCargo); 
+                    request.setAttribute("ListaEmpresa", ListaEmpresa); 
+                    request.setAttribute("ListaTelefone", ListaTelefone);
                 }
                 request.getSession().setAttribute("CPF_CNPJ",user.getCPF_CNPJ());
                 request.getSession().setAttribute("Email", user.getEmail());
