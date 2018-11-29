@@ -20,6 +20,7 @@
     </head>
     <body>
         <div class="container">
+            <%@include file="headerEmpresa.jspf" %>
             <%ArrayList<Candidato> ListaCandidato = (ArrayList<Candidato>)request.getAttribute("ListaCandidato");
             ArrayList<CandidatoVaga> ListaCandidatoVaga = (ArrayList<CandidatoVaga>)request.getAttribute("ListaCandidatoVaga");
             for(int i = 0; i < ListaCandidato.size(); i++) { 
@@ -73,6 +74,7 @@
                 <%}
             }%>
         </div>
+        <%@include file="footer.jspf" %>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>

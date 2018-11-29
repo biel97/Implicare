@@ -14,6 +14,7 @@
     </head>
 <body id="LoginForm">
     <div class="container">
+        <%@include file="headerCandidato.jspf" %>
         <div class="login-form">
             <div class="main-div">
                 <form action="ImplicareServlet?acao=InserirExperienciaProfissional" method="POST">
@@ -47,5 +48,6 @@
             </div>
         </div>
     </div>
+    <%@include file="footer.jspf" %>
 </body>
 </html>

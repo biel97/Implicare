@@ -15,6 +15,7 @@
     </head>
 <body id="LoginForm">
     <div class="container">
+        <%@include file="headerCandidato.jspf" %>
         <div class="login-form">
             <div class="main-div">
                 <%ExperienciaProfissional ExperienciaProf = (ExperienciaProfissional)request.getAttribute("ExperienciaProfissional");%>
@@ -54,5 +55,6 @@
             </div>
         </div>
     </div>
+    <%@include file="footer.jspf" %>
 </body>
 </html>

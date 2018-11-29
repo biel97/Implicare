@@ -25,6 +25,7 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
     <body id="gerenciar-vaga">
+        <%@include file="headerCandidato.jspf" %>   
             <%ArrayList<Empresa> ListaEmpresa = (ArrayList<Empresa>)request.getAttribute("ListaEmpresa");
             ArrayList<Vaga> ListaVaga = (ArrayList<Vaga>)request.getAttribute("ListaVaga");
             ArrayList<Cargo> ListaCargo = (ArrayList<Cargo>)request.getAttribute("ListaCargo");%>

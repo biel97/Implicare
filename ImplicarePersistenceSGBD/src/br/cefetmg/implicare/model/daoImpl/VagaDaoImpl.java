@@ -30,8 +30,8 @@ public class VagaDaoImpl implements VagaDao{
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
             String sql = "INSERT INTO Vaga (CNPJ, Cod_Cargo, Dat_Publicacao, Num_Vagas,"
-                    + "Carga_Horaria, Remuneracao, Desc_Vaga, Status_Vaga) "
-                    + "VALUES(?,?,?,?,?,?,?,?)";
+                    + "Carga_Horaria, Remuneracao, Desc_Vaga, Status_Vaga = '1') "
+                    + "VALUES(?,?,?,?,?,?,?)";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -201,24 +201,22 @@ public class VagaDaoImpl implements VagaDao{
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);
             ResultSet rs = ps.executeQuery();
-                
-            if (rs.next()) {
-                do{
-                    Vaga Vag = new Vaga();
 
-                    Vag.setCNPJ(rs.getLong("CNPJ"));
-                    Vag.setSeq_Vaga(rs.getInt("Seq_Vaga"));
-                    Vag.setCod_Cargo(rs.getInt("Cod_Cargo"));
-                    Vag.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
-                    Vag.setNum_Vagas(rs.getInt("Num_Vagas"));
-                    Vag.setCarga_Horaria(rs.getInt("Caraga_Horaria"));
-                    Vag.setRemuneracao(rs.getDouble("Remuneracao"));
-                    Vag.setDesc_Vaga(rs.getString("Desc_Vaga"));
-                    Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
+            while (rs.next()) {
+                Vaga Vag = new Vaga();
 
-                    lista.add(Vag);
-                } while (rs.next());
-            }
+                Vag.setCNPJ(rs.getLong("CNPJ"));
+                Vag.setSeq_Vaga(rs.getInt("Seq_Vaga"));
+                Vag.setCod_Cargo(rs.getInt("Cod_Cargo"));
+                Vag.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
+                Vag.setNum_Vagas(rs.getInt("Num_Vagas"));
+                Vag.setCarga_Horaria(rs.getInt("Caraga_Horaria"));
+                Vag.setRemuneracao(rs.getDouble("Remuneracao"));
+                Vag.setDesc_Vaga(rs.getString("Desc_Vaga"));
+                Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
+
+                lista.add(Vag);
+            } while (rs.next());
                 
             rs.close();
             ps.close();

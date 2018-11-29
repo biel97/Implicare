@@ -8,7 +8,6 @@ package br.cefetmf.implicare.servlet;
 import br.cefetmg.implicare.model.domain.Candidato;
 import br.cefetmg.implicare.model.service.CandidatoManagement;
 import br.cefetmg.implicare.model.serviceImpl.CandidatoManagementImpl;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
@@ -37,14 +36,8 @@ class InserirUsuarioCandidato {
             
             SimpleDateFormat formato = new SimpleDateFormat("YYYY-MM-dd");
             java.util.Date Data_Nascimento = formato.parse(request.getParameter("Data_Nascimento"));
- 
-
-            
             java.sql.Date datacerta = convertUtilToSql(Data_Nascimento);
 
-            
-            
-            
             CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
             Candidato Cand = new Candidato();
             
@@ -76,6 +69,6 @@ class InserirUsuarioCandidato {
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
                 java.sql.Date sDate = new java.sql.Date(uDate.getTime());
                 return sDate;
-            }
+    }
 }
 

@@ -28,6 +28,7 @@
         ArrayList<Telefone> ListaTelefone = (ArrayList)request.getAttribute("ListaTelefone");
         %>
         <div class="container">
+            <%@include file="headerEmpresa.jspf" %>
             <div class="swipe">
                 <div class="stack col-md-6">
                     <div class="swipe-area">
@@ -331,6 +332,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        <%@include file="footer.jspf" %>
     </body>
 </html>
 

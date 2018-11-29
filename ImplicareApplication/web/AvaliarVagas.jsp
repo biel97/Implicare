@@ -27,6 +27,7 @@
         ArrayList<Telefone> ListaTelefone = (ArrayList<Telefone>)request.getAttribute("ListaTelefone");
         %>
         <div class="container">
+            <%@include file="headerCandidato.jspf" %>
             <%if(ListaVaga != null) {%>
                 <div class="stack col-md-6">
                     <div class="swipe-area">
@@ -255,5 +256,6 @@
                   <%@include file="SwipeCarousel.jspf"%>
             <%}%>
         </div>
+        <%@include file="footer.jspf" %>
     </body>
 </html>
