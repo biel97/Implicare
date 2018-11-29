@@ -127,61 +127,63 @@
                             </div>
 
                             <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
-                                  <%for(int j = 0; j < ListaTelefone.size(); j++) {%> 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Tipo de Telefone</label>
+                                  <%if(ListaTelefone != null) {
+                                        for(int j = 0; j < ListaTelefone.size(); j++) {%> 
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Tipo de Telefone</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
+                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
+                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
-                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
-                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Número de Telefone</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Número de Telefone</label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>DDD</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaTelefone.get(j).getDDD()%></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Ramal</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaTelefone.get(j).getRamal()%></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>DDD</label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Editar</a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Excluir</a>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaTelefone.get(j).getDDD()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Ramal</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaTelefone.get(j).getRamal()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Editar</a>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Excluir</a>
-                                            </div>
-                                        </div>
-                                <%}%> 
-                                      <div class="row">
+                                        <%}
+                                    }%> 
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="formTelefone.jsp">Adicionar Telefone</a>
                                         </div>
-                                      </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-            </form>           
-        </div>
+                    </div>
+                </form>           
+            </div>
         </div>
         <%@include file="footer.jspf" %>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

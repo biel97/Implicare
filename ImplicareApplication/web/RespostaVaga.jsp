@@ -29,7 +29,8 @@
             <%ArrayList<Empresa> ListaEmpresa = (ArrayList<Empresa>)request.getAttribute("ListaEmpresa");
             ArrayList<Vaga> ListaVaga = (ArrayList<Vaga>)request.getAttribute("ListaVaga");
             ArrayList<Cargo> ListaCargo = (ArrayList<Cargo>)request.getAttribute("ListaCargo");%>
-            <%for(int i = 0; i < ListaVaga.size(); i++) { 
+            <%if(ListaVaga != null) {
+                for(int i = 0; i < ListaVaga.size(); i++) { 
                 int x = 0;
                 for(;x < ListaEmpresa.size(); x++){
                     if(ListaVaga.get(i).getCNPJ() == ListaEmpresa.get(x).getCPF_CNPJ()){
@@ -86,10 +87,11 @@
                             </div>
                         </div>
                     </div>
-                if(i%2 == 0){%>
+                <%if(i%2 == 0){%>
                     </div>
                 <%}%>                           
-            <% } %>
+            <% } 
+        }%>
         </div>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>

@@ -54,15 +54,21 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#Perfil" role="tab" aria-controls="Perfil" aria-selected="true">Perfil</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="Formacao_Academica-tab" data-toggle="tab" href="#Formacao_Academica" role="Formacao_Academica" aria-controls="profile" aria-selected="false">Formação</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="Experiencia_Profissional-tab" data-toggle="tab" href="#Experiencia_Profissional" role="tab" aria-controls="profile" aria-selected="false">Experiência Profissional</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
-                                    </li>
+                                    <%if(ListaFormAcad != null) {%>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Formacao_Academica-tab" data-toggle="tab" href="#Formacao_Academica" role="Formacao_Academica" aria-controls="profile" aria-selected="false">Formação</a>
+                                        </li>
+                                    <%}
+                                    if (ListaExpProfissional != null) {%>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Experiencia_Profissional-tab" data-toggle="tab" href="#Experiencia_Profissional" role="tab" aria-controls="profile" aria-selected="false">Experiência Profissional</a>
+                                        </li>
+                                    <%}
+                                    if(ListaTelefone != null) {%>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
+                                        </li>
+                                    <%}%>
                                 </ul>
                             </div>
                         </div>
@@ -73,18 +79,22 @@
                     <div class="col-md-4">
                         <div class="profile-work">
                             <p>Experiências Profissional</p>
-                            <%for(int i = 0; i < ListaExpProfissional.size(); i++) { %>
+                            <%if(ListaExpProfissional != null) {
+                                for(int i = 0; i < ListaExpProfissional.size(); i++) { %>
                                 <a href=""><%=ListaExpProfissional.get(i).getNom_Empresa()%></a><br/>
-                            <% } %>
+                                <%} 
+                            }%>
                             <p>Formações</p>
-                            <%for(int i = 0; i < ListaFormAcad.size(); i++) { %>
+                            <%if(ListaFormAcad != null) {
+                                for(int i = 0; i < ListaFormAcad.size(); i++) { %>
                                 
-                                <%for(int j = 0; j < ListaArea.size(); j++) {
-                                    if(ListaFormAcad.get(i).getCod_Area_Estudo() == ListaArea.get(j).getCod_Area_Estudo()) {%>
-                                        <a href=""><%=ListaArea.get(j).getNom_Area_Estudo()%></a><br/>
+                                    <%for(int j = 0; j < ListaArea.size(); j++) {
+                                        if(ListaFormAcad.get(i).getCod_Area_Estudo() == ListaArea.get(j).getCod_Area_Estudo()) {%>
+                                            <a href=""><%=ListaArea.get(j).getNom_Area_Estudo()%></a><br/>
+                                        <%}%>
                                     <%}%>
-                                <%}%>
-                            <% } %>
+                                <%} 
+                            }%>
                         </div>
                         <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="">Voltar</a>
                     </div>
@@ -142,7 +152,8 @@
                                         </div>
                             </div>
                             
-                            <div class="tab-pane fade" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
+                            <%if(ListaFormAcad != null) {%>                
+                                <div class="tab-pane fade" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
                                     <%for(int j = 0; j < ListaFormAcad.size(); j++) {%>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -198,9 +209,11 @@
                                         </div>
                                 
                                 <% } %>
-                            </div>
+                                </div>
+                            <%}%>
                             
-                            <div class="tab-pane fade" id="Experiencia_Profissional" role="tabpanel" aria-labelledby="Experiencia_Profissional-tab">
+                            <%if(ListaExpProfissional != null) {%>
+                                <div class="tab-pane fade" id="Experiencia_Profissional" role="tabpanel" aria-labelledby="Experiencia_Profissional-tab">
                                     <%for(int j = 0; j < ListaExpProfissional.size(); j++) {%>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -251,9 +264,11 @@
                                             </div>
                                         </div>
                                     <% } %>
-                            </div>
+                                </div>
+                            <%}%>
                             
-                            <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
+                            <%if(ListaTelefone != null) {%>
+                                <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
                                     <%for(int j = 0; j < ListaTelefone.size(); j++) {%>   
                                         <div class="row">
                                             <div class="col-md-6">
@@ -290,7 +305,8 @@
                                             </div>
                                         </div>
                                 <% } %>
-                            </div>
+                                </div>
+                            <%}%>
                         </div>
                     </div>
                 </div>

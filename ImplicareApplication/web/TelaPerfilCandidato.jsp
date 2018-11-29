@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img
-                             <%
+                            <%
                                 Candidato Cand = (Candidato)request.getAttribute("Cand");
                                 ArrayList<FormacaoAcademica> ListaFormAcad = (ArrayList)request.getAttribute("ListaFormAcad");
                                 ArrayList<AreaEstudo> ListaArea = (ArrayList)request.getAttribute("ListaArea");
@@ -80,18 +80,22 @@
                     <div class="col-md-4">
                         <div class="profile-work">
                             <p>Experiências Profissional</p>
-                            <%for(int i = 0; i < ListaExpProfissional.size(); i++) { %>
-                                <a href=""><%=ListaExpProfissional.get(i).getNom_Empresa()%></a><br/>
-                            <% } %>
+                            <%if(ListaExpProfissional != null) {
+                                for(int i = 0; i < ListaExpProfissional.size(); i++) { %>
+                                    <a href=""><%=ListaExpProfissional.get(i).getNom_Empresa()%></a><br/>
+                                <%} 
+                            }%>
                             <p>Formações</p>
-                            <%for(int i = 0; i < ListaFormAcad.size(); i++) { %>
-                                
-                                <%for(int j = 0; j < ListaArea.size(); j++) {
-                                    if(ListaFormAcad.get(i).getCod_Area_Estudo() == ListaArea.get(j).getCod_Area_Estudo()) {%>
-                                        <a href=""><%=ListaArea.get(j).getNom_Area_Estudo()%></a><br/>
+                            <%if (ListaFormAcad != null) {
+                                for(int i = 0; i < ListaFormAcad.size(); i++) { %>
+
+                                    <%for(int j = 0; j < ListaArea.size(); j++) {
+                                        if(ListaFormAcad.get(i).getCod_Area_Estudo() == ListaArea.get(j).getCod_Area_Estudo()) {%>
+                                            <a href=""><%=ListaArea.get(j).getNom_Area_Estudo()%></a><br/>
+                                        <%}%>
                                     <%}%>
-                                <%}%>
-                            <% } %>
+                                <%} 
+                            }%>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -159,70 +163,72 @@
                             </div>
                             
                             <div class="tab-pane fade" id="Formacao_Academica" role="tabpanel" aria-labelledby="Formacao_Academica-tab">
-                                    <%for(int j = 0; j < ListaFormAcad.size(); j++) {%>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Nome da Instituição</label>
+                                    <%if(ListaFormAcad != null) {
+                                        for(int j = 0; j < ListaFormAcad.size(); j++) {%>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Nome da Instituição</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaFormAcad.get(j).getInstituicao_Ensino()%></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaFormAcad.get(j).getInstituicao_Ensino()%></p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Formação</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <%for(int i = 0; i < ListaArea.size(); i++) {
+                                                        if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaArea.get(i).getCod_Area_Estudo()) {%>
+                                                            <p><%=ListaArea.get(i).getNom_Area_Estudo()%></p>
+                                                        <% } 
+                                                    } %>
+                                                </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Atividades Desenvolvidas</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaFormAcad.get(j).getAtividades_Desenvolvidas()%></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Data de Ingresso</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaFormAcad.get(j).getData_Inicio()%></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Data de Termino</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaFormAcad.get(j).getData_Termino()%></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Descrição Formação</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaFormAcad.get(j).getDesc_Formacao_Academica()%></p>
+                                                </div>
+                                            </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarFormacaoAcademica&Seq_Formacao=<%=ListaFormAcad.get(j).getSeq_Formacao()%>">Editar</a>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Formação</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <%for(int i = 0; i < ListaArea.size(); i++) {
-                                                    if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaArea.get(i).getCod_Area_Estudo()) {%>
-                                                        <p><%=ListaArea.get(i).getNom_Area_Estudo()%></p>
-                                                    <% } 
-                                                } %>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirFormacaoAcademica&Seq_Formacao=<%=ListaFormAcad.get(j).getSeq_Formacao()%>">Excluir</a>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Atividades Desenvolvidas</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaFormAcad.get(j).getAtividades_Desenvolvidas()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Data de Ingresso</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaFormAcad.get(j).getData_Inicio()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Data de Termino</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaFormAcad.get(j).getData_Termino()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Descrição Formação</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaFormAcad.get(j).getDesc_Formacao_Academica()%></p>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                 
-                                    <div class="col-md-6">
-                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarFormacaoAcademica&Seq_Formacao=<%=ListaFormAcad.get(j).getSeq_Formacao()%>">Editar</a>
+
                                     </div>
-                                    <div class="col-md-6">
-                                        <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirFormacaoAcademica&Seq_Formacao=<%=ListaFormAcad.get(j).getSeq_Formacao()%>">Excluir</a>
-                                    </div>
-                         
-                                </div>
-                                <% } %>
+                                    <%} 
+                                }%>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ListarAreaEstudo">Adicionar Formação Acadêmica</a>
@@ -232,65 +238,67 @@
                             </div>
                             
                             <div class="tab-pane fade" id="Experiencia_Profissional" role="tabpanel" aria-labelledby="Experiencia_Profissional-tab">
-                                    <%for(int j = 0; j < ListaExpProfissional.size(); j++) {%>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Nome da Empresa</label>
+                                    <%if(ListaExpProfissional != null) {
+                                        for(int j = 0; j < ListaExpProfissional.size(); j++) {%>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Nome da Empresa</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaExpProfissional.get(j).getNom_Empresa()%></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaExpProfissional.get(j).getNom_Empresa()%></p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Cargo</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>
+                                                    <%for(int i = 0; i < ListaCargo.size(); i++) {
+                                                        if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaCargo.get(i).getCod_Cargo()) {%>
+                                                            <p><%=ListaCargo.get(i).getNom_Cargo()%></p>
+                                                    <% } 
+                                                    } %>
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Cargo</label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Data de Ingresso</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaExpProfissional.get(j).getData_Inicio()%></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p>
-                                                <%for(int i = 0; i < ListaCargo.size(); i++) {
-                                                    if(ListaFormAcad.get(j).getCod_Area_Estudo() == ListaCargo.get(i).getCod_Cargo()) {%>
-                                                        <p><%=ListaCargo.get(i).getNom_Cargo()%></p>
-                                                <% } 
-                                                } %>
-                                                </p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Data de Termino</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <%if(ListaExpProfissional.get(j).getData_Termino() == null){ %>
+                                                        <p>Atual</p>
+                                                        <% } else { %> <p><%=ListaExpProfissional.get(j).getData_Termino()%></p><%}%>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Data de Ingresso</label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Descrição Experiencia</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaExpProfissional.get(j).getDesc_Experiencia_Profissional()%></p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaExpProfissional.get(j).getData_Inicio()%></p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarExperienciaProfissional&Seq_Experiencia=<%=ListaExpProfissional.get(j).getSeq_Experiencia()%>">Editar</a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirExperienciaProfissional&Seq_Experiencia=<%=ListaExpProfissional.get(j).getSeq_Experiencia()%>">Excluir</a>
+                                                </div>
+
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Data de Termino</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <%if(ListaExpProfissional.get(j).getData_Termino() == null){ %>
-                                                    <p>Atual</p>
-                                                    <% } else { %> <p><%=ListaExpProfissional.get(j).getData_Termino()%></p><%}%>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Descrição Experiencia</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaExpProfissional.get(j).getDesc_Experiencia_Profissional()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarExperienciaProfissional&Seq_Experiencia=<%=ListaExpProfissional.get(j).getSeq_Experiencia()%>">Editar</a>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirExperienciaProfissional&Seq_Experiencia=<%=ListaExpProfissional.get(j).getSeq_Experiencia()%>">Excluir</a>
-                                            </div>
-  
-                                        </div>
-                                    <% } %>
+                                        <%} 
+                                    }%>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ListarCargo">Adicionar Experiência Profissional</a>
@@ -299,50 +307,52 @@
                             </div>
                             
                             <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
-                                    <%for(int j = 0; j < ListaTelefone.size(); j++) {%>   
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Tipo de Telefone</label>
+                                    <%if(ListaTelefone != null) {
+                                        for(int j = 0; j < ListaTelefone.size(); j++) {%>   
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Tipo de Telefone</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
+                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
+                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
-                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
-                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Número de Telefone</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
+                                                </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>DDD</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaTelefone.get(j).getDDD()%></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Ramal</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%=ListaTelefone.get(j).getRamal()%></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Editar</a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Excluir</a>
+                                                </div>      
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Número de Telefone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>DDD</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaTelefone.get(j).getDDD()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Ramal</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=ListaTelefone.get(j).getRamal()%></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=PesquisarTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Editar</a>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="ImplicareServlet?acao=ExcluirTelefone&Seq_Telefone=<%=ListaTelefone.get(j).getSeq_Telefone()%>">Excluir</a>
-                                            </div>      
-                                    </div>
-                                <% } %>
+                                    <%} 
+                                }%>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a type="button" class="btn-gerenciar-vaga btn btn-primary1" href="formTelefone.jsp">Adicionar Telefone</a>
@@ -355,13 +365,15 @@
                                         <div class="form-group">
                                             <label for="CargoInteresse">Cargo Interesse</label>
                                             <select class="form-control" id="Cod_Cargo" name="Cod_Cargo_Interesse">
-                                                <%for(int i = 0; i < ListaCargoInt.size(); i++) { 
-                                                    for(int j = 0; j < ListaCargo.size(); j++) {
-                                                        if(ListaCargoInt.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
-                                                            <option value="<%=ListaCargoInt.get(i).getCod_Cargo()%>">
-                                                                <%=ListaCargo.get(j).getNom_Cargo()%>
-                                                            </option>
-                                                       <%}
+                                                <%if(ListaCargoInt != null) {
+                                                    for(int i = 0; i < ListaCargoInt.size(); i++) { 
+                                                        for(int j = 0; j < ListaCargo.size(); j++) {
+                                                            if(ListaCargoInt.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
+                                                                <option value="<%=ListaCargoInt.get(i).getCod_Cargo()%>">
+                                                                    <%=ListaCargo.get(j).getNom_Cargo()%>
+                                                                </option>
+                                                           <%}
+                                                        }
                                                     }
                                                 }%>
                                             </select>
@@ -376,20 +388,22 @@
                                         <div class="form-group">
                                             <label for="AdicionarCargoInteresse">Adicionar Cargo Interesse</label>
                                             <select class="form-control" id="Cod_Cargo" name="Cod_Cargo">
-                                                <%for(int i = 0; i < ListaCargoArea.size(); i++) { 
-                                                    int count = 0;
-                                                    for(;count < ListaCargoInt.size(); count++) {
-                                                        if(ListaCargoArea.get(i).getCod_Cargo() == ListaCargoInt.get(count).getCod_Cargo()){
-                                                            break;
+                                                <%if (ListaCargoArea != null) {
+                                                    for(int i = 0; i < ListaCargoArea.size(); i++) { 
+                                                        int count = 0;
+                                                        for(;count < ListaCargoInt.size(); count++) {
+                                                            if(ListaCargoArea.get(i).getCod_Cargo() == ListaCargoInt.get(count).getCod_Cargo()){
+                                                                break;
+                                                            }
                                                         }
-                                                    }
-                                                    if(count == ListaCargoInt.size()) {
-                                                        for(int j = 0; j < ListaCargo.size(); j++) {
-                                                            if(ListaCargoArea.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
-                                                                <option value="<%=ListaCargoArea.get(i).getCod_Cargo()%>">
-                                                                    <%=ListaCargo.get(j).getNom_Cargo()%>
-                                                                </option>
-                                                           <%}
+                                                        if(count == ListaCargoInt.size()) {
+                                                            for(int j = 0; j < ListaCargo.size(); j++) {
+                                                                if(ListaCargoArea.get(i).getCod_Cargo() == ListaCargo.get(j).getCod_Cargo()) {%>
+                                                                    <option value="<%=ListaCargoArea.get(i).getCod_Cargo()%>">
+                                                                        <%=ListaCargo.get(j).getNom_Cargo()%>
+                                                                    </option>
+                                                               <%}
+                                                            }
                                                         }
                                                     }
                                                 }%>

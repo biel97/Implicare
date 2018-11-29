@@ -16,9 +16,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Avaliar Vagas</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-       
-        <link href="css\style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="css/font.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="css/blog.min.css" rel="stylesheet">
+  
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/footer.css" rel="stylesheet">
     </head>
     <body id="pagPrincipal">
         <%ArrayList<Vaga> ListaVaga = (ArrayList<Vaga>)request.getAttribute("ListaVaga");
@@ -65,7 +70,7 @@
                                                                         }
                                                                     }%>
                                                                            
-                                                                    <b><%=ListaCargo.get(count).getNom_Cargo()%><%=ListaEmpresa.get(count1).getNome_Fantasia()%></b>
+                                                                    <b><%=ListaCargo.get(count).getNom_Cargo()%> - <%=ListaEmpresa.get(count1).getNome_Fantasia()%></b>
                                                                 </h5>
                                                         </div>
                                                         <div class="row">
@@ -76,9 +81,11 @@
                                                                 <li class="nav-item">
                                                                     <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#Perfil" role="tab" aria-controls="Perfil" aria-selected="true">Perfil</a>
                                                                 </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
-                                                                </li>
+                                                                <%if(ListaTelefone != null) {%>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
+                                                                    </li>
+                                                                <%}%>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -190,50 +197,51 @@
                                                                         </div>
                                                                     </div>
                                                         </div>
-
-                                                        <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
-                                                              <%for(int j = 0; j < ListaTelefone.size(); j++) {
-                                                                    if(ListaEmpresa.get(count1).getCPF_CNPJ() == ListaTelefone.get(j).getCPF_CNPJ()) {%>
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label>Tipo de Telefone</label>
+                                                        <%if(ListaTelefone != null) {%>
+                                                            <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
+                                                                    <%for(int j = 0; j < ListaTelefone.size(); j++) {
+                                                                        if(ListaEmpresa.get(count1).getCPF_CNPJ() == ListaTelefone.get(j).getCPF_CNPJ()) {%>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Tipo de Telefone</label>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
+                                                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
+                                                                                    <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-md-6">
-                                                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "C"){%>Telefone Comercial<%}%>
-                                                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "F"){%>Telefone Fixo<%}%>
-                                                                                <%if(ListaTelefone.get(j).getTipo_Telefone() == "M"){%>Telefone Móvel<%}%>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Número de Telefone</label>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label>Número de Telefone</label>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>DDD</label>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <p><%=ListaTelefone.get(j).getDDD()%></p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-md-6">
-                                                                                <p><%=ListaTelefone.get(j).getNum_Telefone()%></p>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Ramal</label>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <p><%=ListaTelefone.get(j).getRamal()%></p>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label>DDD</label>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <p><%=ListaTelefone.get(j).getDDD()%></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label>Ramal</label>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <p><%=ListaTelefone.get(j).getRamal()%></p>
-                                                                            </div>
-                                                                        </div>
                                                                     <%}
                                                                 }%>
-                                                                </div>
                                                             </div>
+                                                        <%}%>
                                                         </div>
                                                     </div>
+                                                </div>
                                         </form>           
                                     </div>
                                 </li>
@@ -257,5 +265,6 @@
             <%}%>
         </div>
         <%@include file="footer.jspf" %>
+        <script src="js/clean-blog.min.js"></script>
     </body>
 </html>

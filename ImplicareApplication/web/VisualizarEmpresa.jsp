@@ -58,9 +58,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#Perfil" role="tab" aria-controls="Perfil" aria-selected="true">Perfil</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
-                                    </li>
+                                    <%if(ListaTelefone != null) {%>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Telefone-tab" data-toggle="tab" href="#Telefone" role="tab" aria-controls="profile" aria-selected="false">Telefones</a>
+                                        </li>
+                                    <%}%>
                                 </ul>
                             </div>
                         </div>
@@ -173,8 +175,9 @@
                                         </div>
                             </div>
 
-                            <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
-                                  <%for(int j = 0; j < ListaTelefone.size(); j++) {%> 
+                            <%if(ListaTelefone) {%>           
+                                <div class="tab-pane fade" id="Telefone" role="tabpanel" aria-labelledby="Telefone-tab">
+                                    <%for(int j = 0; j < ListaTelefone.size(); j++) {%> 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Tipo de Telefone</label>
@@ -210,12 +213,13 @@
                                             </div>
                                         </div>
                                 <%}%> 
-                                    </div>
                                 </div>
+                            <%}%>
                             </div>
                         </div>
-            </form>           
-        </div>
+                    </div>
+                </form>           
+            </div>
         </div>
         <%@include file="footer.jspf" %>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -90,9 +90,11 @@
                                 </div>
                             </div>
                         </div>
-                    if(i%2 == 0){%>
+                    <%if(i%2 == 0){%>
                         </div>
-                    <%}}%>                           
+                    <%}
+                }
+            }%>                           
             <div class="row ">
                 <div class="col-md-3">
                     <a type="submit" class="btn btn-primary1 btn-gerenciar-vaga" id="CriarVaga" href="ImplicareServlet?acao=ListarCargo">Criar Vaga</a>
