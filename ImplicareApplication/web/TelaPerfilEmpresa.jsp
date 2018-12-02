@@ -30,7 +30,7 @@
         <%Empresa Empr = (Empresa)request.getAttribute("Empresa");
           ArrayList<Telefone> ListaTelefone = (ArrayList<Telefone>)request.getAttribute("ListaTelefone");
           %>
-        <div class="container ">
+        <div class="container emp-profile">
             <%@include file="headerEmpresa.jspf" %>
             <div class="emp-profile">
             <form method="post">

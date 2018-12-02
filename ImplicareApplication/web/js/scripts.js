@@ -50,11 +50,6 @@ Dependencies:
 */
 
 //Lazyload
-$('.js-lazyload').lazyload({
-  effect: 'fadeIn',
-  threshold: 50,
-});
-
 
 
 
