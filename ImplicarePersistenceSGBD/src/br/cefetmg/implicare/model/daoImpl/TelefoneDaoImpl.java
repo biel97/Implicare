@@ -29,7 +29,7 @@ public class TelefoneDaoImpl implements TelefoneDao{
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
             String sql = "INSERT INTO Telefone (CPF_CNPJ, Num_Telefone, Tipo_Telefone, DDD,"
-                    + "Ramal) VALUES(?,?,?,?,?)";
+                    + "Ramal) VALUES(?,?,?,?,?);";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, Telefone.getCPF_CNPJ());
@@ -59,7 +59,7 @@ public class TelefoneDaoImpl implements TelefoneDao{
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "UPDATE Telefone SET Num_Telefone = ?, Tipo_Telefone = ?, DDD = ?, Ramal = ? "
-                    + "WHERE Seq_Telefone = ?";
+                    + "WHERE Seq_Telefone = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -86,7 +86,7 @@ public class TelefoneDaoImpl implements TelefoneDao{
         try {
            Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
-            String SQL = "DELETE FROM Telefone WHERE Seq_Telefone = ?";
+            String SQL = "DELETE FROM Telefone WHERE Seq_Telefone = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -109,7 +109,7 @@ public class TelefoneDaoImpl implements TelefoneDao{
            Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "SELECT * FROM Telefone"
-                    + "WHERE Seq_Telefone = ?";
+                    + "WHERE Seq_Telefone = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -143,7 +143,7 @@ public class TelefoneDaoImpl implements TelefoneDao{
            Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "SELECT * FROM Telefone"
-                    + "WHERE CPF_CNPJ = ?";
+                    + " WHERE CPF_CNPJ = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             

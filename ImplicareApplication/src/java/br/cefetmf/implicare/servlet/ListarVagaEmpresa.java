@@ -26,7 +26,7 @@ class ListarVagaEmpresa {
         String jsp = "";
         try {
             
-            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
             
             VagaManagement VagaManagement = new VagaManagementImpl();
             ArrayList<Vaga> ListaVaga = new ArrayList();

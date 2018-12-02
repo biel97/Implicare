@@ -35,14 +35,14 @@ public class AreaEstudoDaoImpl implements AreaEstudoDao {
 
             ArrayList<AreaEstudo> lista = new ArrayList<>();
             
-            if (rs.next()) {
-                do {
-                    AreaEstudo Area = new AreaEstudo();
-                    Area.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
-                    Area.setNom_Area_Estudo(rs.getString("Nom_Area_Estudo"));
-                    lista.add(Area);
-                } while (rs.next());
-            }
+
+            while (rs.next()) {
+                AreaEstudo Area = new AreaEstudo();
+                Area.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
+                Area.setNom_Area_Estudo(rs.getString("Nom_Area_Estudo"));
+                lista.add(Area);
+            } 
+
 
             rs.close();
             ps.close();
@@ -60,18 +60,16 @@ public class AreaEstudoDaoImpl implements AreaEstudoDao {
         try {
            Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Area_Estudo WHERE Cod_Area_Estudo = ?";
+            String sql = "SELECT * FROM Area_Estudo WHERE Cod_Area_Estudo = ?;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, Cod_Area_Estudo);
             ResultSet rs = ps.executeQuery();
 
             AreaEstudo Area = new AreaEstudo();
-            
-            if (rs.next()) {
-                Area.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
-                Area.setNom_Area_Estudo(rs.getString("Nom_Area_Estudo"));
-            }
+          
+            Area.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
+            Area.setNom_Area_Estudo(rs.getString("Nom_Area_Estudo"));
 
             rs.close();
             ps.close();

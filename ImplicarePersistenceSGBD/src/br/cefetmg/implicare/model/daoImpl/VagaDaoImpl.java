@@ -31,7 +31,7 @@ public class VagaDaoImpl implements VagaDao{
 
             String sql = "INSERT INTO Vaga (CNPJ, Cod_Cargo, Dat_Publicacao, Num_Vagas,"
                     + "Carga_Horaria, Remuneracao, Desc_Vaga, Status_Vaga = '1') "
-                    + "VALUES(?,?,?,?,?,?,?)";
+                    + "VALUES(?,?,?,?,?,?,?);";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -65,7 +65,7 @@ public class VagaDaoImpl implements VagaDao{
             
             String SQL = "UPDATE Vaga SET Cod_Cargo = ?, Num_Vagas = ?, Carga_Horaria = ?,"
                     + "Remuneracao = ?, Desc_Vaga = ?, Status_Vaga = ?"
-                    + " WHERE Seq_Vaga = ?";
+                    + " WHERE Seq_Vaga = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
        
@@ -94,7 +94,7 @@ public class VagaDaoImpl implements VagaDao{
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "DELETE FROM Vaga"
-                    + "WHERE Seq_Vaga";
+                    + "WHERE Seq_Vaga;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -150,7 +150,7 @@ public class VagaDaoImpl implements VagaDao{
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Vaga WHERE CNPJ = ? AND Status_Vaga = 1 ORDER BY Cod_Cargo, Dat_Publicacao";
+            String sql = "SELECT * FROM Vaga WHERE CNPJ = ? AND Status_Vaga = 1 ORDER BY Cod_Cargo, Dat_Publicacao;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CNPJ);
@@ -196,7 +196,7 @@ public class VagaDaoImpl implements VagaDao{
             String sql = "SELECT * FROM Vaga A "
                     + "JOIN Candidato_Vaga B ON"
                     + "A.Cod_Cargo = B.Cod_Cargo"
-                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'H' ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
+                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'H' ORDER BY A.Cod_Cargo, A.Dat_Publicacao;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);
@@ -216,7 +216,7 @@ public class VagaDaoImpl implements VagaDao{
                 Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
 
                 lista.add(Vag);
-            } while (rs.next());
+            };
                 
             rs.close();
             ps.close();
@@ -241,28 +241,26 @@ public class VagaDaoImpl implements VagaDao{
             String sql = "SELECT * FROM Vaga A "
                     + "JOIN Candidato_Vaga B ON"
                     + "A.Cod_Cargo = B.Cod_Cargo"
-                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'A' ORDER BY A.Cod_Cargo, A.Dat_Publicacao";
+                    + "WHERE B.CPF = ? AND B.Status_Candidato = 'A' ORDER BY A.Cod_Cargo, A.Dat_Publicacao;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);
             ResultSet rs = ps.executeQuery();
                 
-            if (rs.next()) {
-                do{
-                    Vaga Vag = new Vaga();
+            while (rs.next()){
+                Vaga Vag = new Vaga();
 
-                    Vag.setCNPJ(rs.getLong("CNPJ"));
-                    Vag.setSeq_Vaga(rs.getInt("Seq_Vaga"));
-                    Vag.setCod_Cargo(rs.getInt("Cod_Cargo"));
-                    Vag.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
-                    Vag.setNum_Vagas(rs.getInt("Num_Vagas"));
-                    Vag.setCarga_Horaria(rs.getInt("Caraga_Horaria"));
-                    Vag.setRemuneracao(rs.getDouble("Remuneracao"));
-                    Vag.setDesc_Vaga(rs.getString("Desc_Vaga"));
-                    Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
+                Vag.setCNPJ(rs.getLong("CNPJ"));
+                Vag.setSeq_Vaga(rs.getInt("Seq_Vaga"));
+                Vag.setCod_Cargo(rs.getInt("Cod_Cargo"));
+                Vag.setDat_Publicacao(rs.getDate("Dat_Publicacao"));
+                Vag.setNum_Vagas(rs.getInt("Num_Vagas"));
+                Vag.setCarga_Horaria(rs.getInt("Caraga_Horaria"));
+                Vag.setRemuneracao(rs.getDouble("Remuneracao"));
+                Vag.setDesc_Vaga(rs.getString("Desc_Vaga"));
+                Vag.setStatus_Vaga(rs.getInt("Status_Vaga"));
 
-                    lista.add(Vag);
-                } while (rs.next());
+                lista.add(Vag);
             }
                 
             rs.close();

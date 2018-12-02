@@ -30,7 +30,7 @@ public class CandidatoVagaDaoImpl implements CandidatoVagaDao {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
             String sql = "INSERT INTO Candidato_Vaga (CPF, Cod_Cargo, CNPJ,"
-                    + "Dat_Publicacao, Status_Candidato) VALUES(?,?,?,?,?)";
+                    + "Dat_Publicacao, Status_Candidato) VALUES(?,?,?,?,?);";
 
             PreparedStatement ps = connection.prepareStatement(sql);
            
@@ -59,7 +59,7 @@ public class CandidatoVagaDaoImpl implements CandidatoVagaDao {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "UPDATE Candidato_Vaga SET Status_Candidato = ? "
-                    + "WHERE CPF = ? , Seq_Vaga = ?";
+                    + "WHERE CPF = ? , Seq_Vaga = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             

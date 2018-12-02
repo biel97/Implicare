@@ -30,7 +30,7 @@ public class EmpresaDaoImpl implements EmpresaDao{
 
             String sql = "INSERT INTO Empresa (CNPJ, Nom_Razao_Social = ?, Nome_Fantasia, "
                     + "Data_Nascimento, Email, Senha, Foto,"
-                    + "Cod_Cep, Endereco, Desc_Usuario) VALUES(?,?,?,?,?,?,?,?,?) ";
+                    + "Cod_Cep, Endereco, Desc_Usuario) VALUES(?,?,?,?,?,?,?,?,?); ";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -67,7 +67,7 @@ public class EmpresaDaoImpl implements EmpresaDao{
             String SQL = "UPDATE Empresa SET Nom_Razao_Social = ?, Nome_Fantasia = ?, Email = ?,"
                     + "Data_Nascimento = ?, Senha = ?, Foto = ?, "
                     + "Cod_CEP, Endereco = ?, Desc_Usuario = ? "
-                    + "WHERE CNPJ = ?";
+                    + "WHERE CNPJ = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
        
@@ -97,7 +97,7 @@ public class EmpresaDaoImpl implements EmpresaDao{
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
-            String SQL = "DELETE FROM Empresa WHERE CNPJ = ?";
+            String SQL = "DELETE FROM Empresa WHERE CNPJ = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
 
@@ -120,7 +120,7 @@ public class EmpresaDaoImpl implements EmpresaDao{
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Empresa WHERE CNPJ = ?";
+            String sql = "SELECT * FROM Empresa WHERE CNPJ = ?;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CNPJ);
@@ -128,15 +128,23 @@ public class EmpresaDaoImpl implements EmpresaDao{
 
             Empresa Empr = new Empresa();
             
-            if (rs.next()) {
-                Empr.setCPF_CNPJ(rs.getLong("CNPJ"));
-                Empr.setNom_Razao_Social(rs.getString("Nom_Razao_Social"));
-                Empr.setNome_Fantasia(rs.getString("Nom_Fantasia"));
-                Empr.setEmail(rs.getString("Email"));
-                Empr.setFoto(rs.getString("Foto"));
-                Empr.setEndereco(rs.getString("Endereco"));
-                Empr.setDesc_Usuario(rs.getString("Desc_Usuario"));
-            }
+            Empr.setCPF_CNPJ(rs.getLong("CNPJ"));
+            Empr.setNom_Razao_Social(rs.getString("Nom_Razao_Social"));
+            Empr.setNome_Fantasia(rs.getString("Nome_Fantasia"));
+            
+            rs.close();
+            ps.close();
+            
+            sql = "SELECT * FROM Usuario WHERE CPF_CNPJ = ?;";
+
+            ps = connection.prepareStatement(sql);
+            ps.setLong(1, CNPJ);
+            rs = ps.executeQuery();
+            
+            Empr.setEmail(rs.getString("Email"));
+            Empr.setFoto(rs.getString("Foto"));
+            Empr.setEndereco(rs.getString("Endereco"));
+            Empr.setDesc_Usuario(rs.getString("Desc_Usuario"));
 
             rs.close();
             ps.close();

@@ -5,11 +5,15 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.Cargo;
 import br.cefetmg.implicare.model.domain.Vaga;
+import br.cefetmg.implicare.model.service.CargoManagement;
 import br.cefetmg.implicare.model.service.VagaManagement;
+import br.cefetmg.implicare.model.serviceImpl.CargoManagementImpl;
 import br.cefetmg.implicare.model.serviceImpl.VagaManagementImpl;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -25,7 +29,7 @@ class AlterarVaga {
         try {
             
             int Seq_Vaga = Integer.parseInt(request.getParameter("Seq_Vaga"));
-            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
             int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             Date Dat_Publicacao = (Date) formato.parse(request.getParameter("Dat_Publicacao"));
@@ -51,8 +55,16 @@ class AlterarVaga {
             boolean Vaga = VagaManagement.update(Vag);
 
             if (Vaga =! false) {
-                jsp = "ImplicareServlet?acao=ListarVagaEmpresa";
-                request.setAttribute("Vaga", Vag);
+                ArrayList<Vaga> ListaVaga = new ArrayList();
+                ListaVaga = VagaManagement.listarVagaEmpresa(CNPJ);
+
+                CargoManagement CargoManagement = new CargoManagementImpl();
+                ArrayList<Cargo> ListaCargo = new ArrayList();
+                ListaCargo = CargoManagement.listar();
+
+                jsp = "/GerenciarVaga.jsp";
+                request.setAttribute("ListaVaga", ListaVaga); 
+                request.setAttribute("ListaCargo", ListaCargo);
             } else {
                 String Erro = "Erro ao Editar Vaga";
                 jsp = "/WEB-Pages/Erro.jsp";

@@ -37,7 +37,7 @@ class PesquisarVaga {
             ListaCargo = CargoManagement.listar();
 
             if (Vag != null) {
-                jsp = "EditarVaga.jsp";
+                jsp = "/EditarVaga.jsp";
                 request.setAttribute("Vaga", Vag);
                 request.setAttribute("ListaCargo", ListaCargo);
             } 

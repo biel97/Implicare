@@ -6,8 +6,12 @@
 package br.cefetmf.implicare.servlet;
 
 import br.cefetmg.implicare.model.domain.Empresa;
+import br.cefetmg.implicare.model.domain.Telefone;
 import br.cefetmg.implicare.model.service.EmpresaManagement;
+import br.cefetmg.implicare.model.service.TelefoneManagement;
 import br.cefetmg.implicare.model.serviceImpl.EmpresaManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.TelefoneManagementImpl;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -22,11 +26,11 @@ class AlterarUsuarioEmpresa {
         String jsp = "";
         try {
 
-            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
             String Email = request.getParameter("Email");
             String Foto = request.getParameter("Foto");
             String Endereco = request.getParameter("Endereco");
-            Long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
+            long Cod_CEP = Long.parseLong(request.getParameter("Cod_CEP"));
             String Desc_Usuario = request.getParameter("Desc_Usuario");
             String Nome_Fantasia = request.getParameter("Nome_Fantasia");
             String Nom_Razao_Social = request.getParameter("Nom_Razao_Social");
@@ -34,7 +38,7 @@ class AlterarUsuarioEmpresa {
             EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
             Empresa Empr = new Empresa();
             
-            Empr.setCPF_CNPJ(CPF);
+            Empr.setCPF_CNPJ(CNPJ);
             Empr.setEmail(Email);
             Empr.setFoto(Foto);
             Empr.setEndereco(Endereco);
@@ -46,8 +50,16 @@ class AlterarUsuarioEmpresa {
             boolean Empresa = EmpresaManagement.update(Empr);
 
             if (Empresa =! false) {
-                jsp = "ImplicareServlet?acao=PerfilEmpresa";
+                Empr = EmpresaManagement.pesquisar(CNPJ);
+
+                TelefoneManagement TelefoneManagement = new TelefoneManagementImpl();
+                ArrayList<Telefone> ListaTelefone = new ArrayList();
+                ListaTelefone = TelefoneManagement.listar(CNPJ);
+
                 request.setAttribute("Empresa", Empr);
+                request.setAttribute("ListaTelefone", ListaTelefone);
+                jsp = "/TelaPerfilEmpresa.jsp";
+
             } else {
                 String Erro = "Erro ao Editar Usuario Empresa";
                 jsp = "/WEB-Pages/Erro.jsp";

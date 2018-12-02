@@ -63,7 +63,7 @@ class Login {
                 CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
                 Candidato Cand = new Candidato();
                 Cand = CandidatoManagement.pesquisar(CPF_CNPJ);
-                if(Cand == null) {
+                if(Cand != null) {
                     request.getSession().setAttribute("Tipo","E");
                     VagaManagement VagaManagement = new VagaManagementImpl();
                     ArrayList<Vaga> ListaVaga = new ArrayList();

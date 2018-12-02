@@ -5,9 +5,31 @@
  */
 package br.cefetmf.implicare.servlet;
 
+import br.cefetmg.implicare.model.domain.AreaEstudo;
+import br.cefetmg.implicare.model.domain.Candidato;
+import br.cefetmg.implicare.model.domain.Cargo;
+import br.cefetmg.implicare.model.domain.CargoInteresse;
+import br.cefetmg.implicare.model.domain.Empresa;
+import br.cefetmg.implicare.model.domain.ExperienciaProfissional;
+import br.cefetmg.implicare.model.domain.FormacaoAcademica;
 import br.cefetmg.implicare.model.domain.Telefone;
+import br.cefetmg.implicare.model.service.AreaEstudoManagement;
+import br.cefetmg.implicare.model.service.CandidatoManagement;
+import br.cefetmg.implicare.model.service.CargoInteresseManagement;
+import br.cefetmg.implicare.model.service.CargoManagement;
+import br.cefetmg.implicare.model.service.EmpresaManagement;
+import br.cefetmg.implicare.model.service.ExperienciaProfissionalManagement;
+import br.cefetmg.implicare.model.service.FormacaoAcademicaManagement;
 import br.cefetmg.implicare.model.service.TelefoneManagement;
+import br.cefetmg.implicare.model.serviceImpl.AreaEstudoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.CandidatoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.CargoInteresseManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.CargoManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.EmpresaManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.ExperienciaProfissionalManagementImpl;
+import br.cefetmg.implicare.model.serviceImpl.FormacaoAcademicaManagementImpl;
 import br.cefetmg.implicare.model.serviceImpl.TelefoneManagementImpl;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -23,13 +45,7 @@ class AlterarTelefone {
         try {
             String Tipo = (String) request.getSession().getAttribute("Tipo");
             
-            if(Tipo == "E") {
-                jsp = "ImplicareServlet?acao=PerfilEmpresa";
-            } else {
-                jsp = "ImplicareServlet?acao=PerfilCandidato";
-            }
-            
-            Long CPF_CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CPF_CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
             int Seq_Telefone = Integer.parseInt(request.getParameter("Seq_Telefone"));
             String Num_Telefone = request.getParameter("Num_Telefone");
             String Tipo_Telefone = request.getParameter("Tipo_Telefone");
@@ -49,7 +65,61 @@ class AlterarTelefone {
             boolean Telefone = TelefoneManagement.update(Tel);
 
             if (Telefone =! false) {
-                request.setAttribute("Telefone", Tel);
+                if(Tipo == "E") {
+                    EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
+                    Empresa Empr = new Empresa();
+                    Empr = EmpresaManagement.pesquisar(CPF_CNPJ);
+
+                    ArrayList<Telefone> ListaTelefone = new ArrayList();
+                    ListaTelefone = TelefoneManagement.listar(CPF_CNPJ);
+
+                    request.setAttribute("Empresa", Empr);
+                    request.setAttribute("ListaTelefone", ListaTelefone);
+                    jsp = "/TelaPerfilEmpresa.jsp";
+                } else {
+                    CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
+                    Candidato Cand = new Candidato();
+                    Cand = CandidatoManagement.pesquisar(CPF_CNPJ);
+
+                    FormacaoAcademicaManagement ForAcadManagement = new FormacaoAcademicaManagementImpl();
+                    ArrayList<FormacaoAcademica> ListaFormAcad = new ArrayList();
+                    ListaFormAcad = ForAcadManagement.listar(CPF_CNPJ);
+
+                    AreaEstudoManagement AreaManagement = new AreaEstudoManagementImpl();
+                    ArrayList<AreaEstudo> ListaArea = new ArrayList();
+                    ListaArea = AreaManagement.listar();
+
+                    ExperienciaProfissionalManagement ExperienciaManagement = new ExperienciaProfissionalManagementImpl();
+                    ArrayList<ExperienciaProfissional> ListaExpProfissional = new ArrayList();
+                    ListaExpProfissional = ExperienciaManagement.listar(CPF_CNPJ);
+
+                    CargoManagement CargoManagement = new CargoManagementImpl();
+                    ArrayList<Cargo> ListaCargo = new ArrayList();
+                    ListaCargo = CargoManagement.listar();
+
+                    ArrayList<Telefone> ListaTelefone = new ArrayList();
+                    ListaTelefone = TelefoneManagement.listar(CPF_CNPJ);
+
+                    CargoInteresseManagement CargoInteresseManagement = new CargoInteresseManagementImpl();
+                    ArrayList<CargoInteresse> ListaCargoInt = new ArrayList();
+                    ListaCargoInt = CargoInteresseManagement.listar(CPF_CNPJ);
+
+                    ArrayList<Cargo> ListaCargoArea = new ArrayList();
+                    ListaCargoArea = CargoManagement.listarCargoAreaEstudo(CPF_CNPJ);
+
+                    if (Cand != null) {
+                        request.setAttribute("Candidato", Cand);
+                        request.setAttribute("ListaFormacaoAcademica", ListaFormAcad);
+                        request.setAttribute("ListaAreaEstudo", ListaArea);
+                        request.setAttribute("ListaExperienciaProfissional", ListaExpProfissional);
+                        request.setAttribute("ListaCargo", ListaCargo);
+                        request.setAttribute("ListaTelefone", ListaTelefone);
+                        request.setAttribute("ListaCargoInteresse", ListaCargoInt);
+                        request.setAttribute("ListaCargoAreaEstudo", ListaCargoArea);
+                    }
+                    jsp = "/TelaPerfilCandidato.jsp";
+
+                }
             } else {
                 String Erro = "Erro ao Editar Telefone";
                 jsp = "/WEB-Pages/Erro.jsp";
