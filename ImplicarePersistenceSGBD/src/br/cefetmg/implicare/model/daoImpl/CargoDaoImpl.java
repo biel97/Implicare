@@ -36,12 +36,12 @@ public class CargoDaoImpl implements CargoDao{
 
             ArrayList<Cargo> lista = new ArrayList<>();
 
-                while (rs.next()) {
-                    Cargo Car = new Cargo();
-                    Car.setCod_Cargo(rs.getInt("Cod_Cargo"));
-                    Car.setNom_Cargo(rs.getString("Nom_Cargo"));
-                    lista.add(Car);
-                }
+            while (rs.next()) {
+                Cargo Car = new Cargo();
+                Car.setCod_Cargo(rs.getInt("Cod_Cargo"));
+                Car.setNom_Cargo(rs.getString("Nom_Cargo"));
+                lista.add(Car);
+            }
 
 
             rs.close();
@@ -68,23 +68,20 @@ public class CargoDaoImpl implements CargoDao{
                     + "A.Cod_Cargo = B.Cod_Cargo"
                     + "JOIN Formacao_Academica C"
                     + "B.Cod_Area_Estudo = C.Cod_Area_Estudo"
-                    + "WHERE C.CPF = ?";
+                    + "WHERE C.CPF = ?;";
                 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);
             ResultSet rs = ps.executeQuery();
             
-             if (rs.next()) {
-                do {
-                    Cargo Car = new Cargo();
+            while (rs.next()) {
+                Cargo Car = new Cargo();
 
-                    Car.setCod_Cargo(rs.getInt("A.Cod_Cargo"));
-                    Car.setNom_Cargo(rs.getString("A.Nom_Cargo"));
-                    lista.add(Car);
+                Car.setCod_Cargo(rs.getInt("A.Cod_Cargo"));
+                Car.setNom_Cargo(rs.getString("A.Nom_Cargo"));
+                lista.add(Car);
                     
-                }while (rs.next());
             }
-
                 
             rs.close();
             ps.close();
@@ -103,7 +100,7 @@ public class CargoDaoImpl implements CargoDao{
         try {
            Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Cargo WHERE Cod_Cargo = ?";
+            String sql = "SELECT * FROM Cargo WHERE Cod_Cargo = ?;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, Cod_Cargo);
@@ -111,10 +108,8 @@ public class CargoDaoImpl implements CargoDao{
 
             Cargo Car = new Cargo();
             
-            if (rs.next()) {
-                Car.setCod_Cargo(rs.getInt("Cod_Cargo"));
-                Car.setNom_Cargo(rs.getString("Nom_Cargo"));
-            }
+            Car.setCod_Cargo(rs.getInt("Cod_Cargo"));
+            Car.setNom_Cargo(rs.getString("Nom_Cargo"));
 
             rs.close();
             ps.close();

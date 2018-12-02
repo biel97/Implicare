@@ -22,7 +22,7 @@ class PesquisarUsuarioCandidato {
         String jsp = "";
         try {
 
-            Long CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CPF = (long) request.getSession().getAttribute("CPF_CNPJ");
 
             CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();
             Candidato Cand = new Candidato();

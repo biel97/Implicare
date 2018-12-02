@@ -29,7 +29,7 @@ public class CandidatoDaoImpl implements CandidatoDao {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
             String sql = "INSERT INTO Candidato (CPF, Nome, Data_Nascimento, Email, Senha, Foto,"
-                    + "Cod_Cep, Endereco, Desc_Usuario) VALUES(?,?,?,?,?,?,?,?,?) ";
+                    + "Cod_Cep, Endereco, Desc_Usuario) VALUES(?,?,?,?,?,?,?,?,?);";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -65,7 +65,7 @@ public class CandidatoDaoImpl implements CandidatoDao {
             
             String SQL = "UPDATE Candidato SET Email = ?, Nome = ?, Data_Nascimento = ?,"
                     + "Senha = ?, Foto = ?, Cod_CEP, Endereco = ?, Desc_Usuario = ? "
-                    + "WHERE CPF = ?";
+                    + "WHERE CPF = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
        
@@ -95,7 +95,7 @@ public class CandidatoDaoImpl implements CandidatoDao {
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
-            String SQL = "DELETE FROM Candidato WHERE CPF = ?";
+            String SQL = "DELETE FROM Candidato WHERE CPF = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
 
@@ -118,7 +118,7 @@ public class CandidatoDaoImpl implements CandidatoDao {
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM Candidato WHERE CPF = ?";
+            String sql = "SELECT * FROM Candidato WHERE CPF = ?;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, CPF);
@@ -126,15 +126,14 @@ public class CandidatoDaoImpl implements CandidatoDao {
 
             Candidato Cand = new Candidato();
             
-            if (rs.next()) {
-                Cand.setCPF_CNPJ(rs.getLong("CPF_CNPJ"));
-                Cand.setNome(rs.getString("Nome"));
-                Cand.setData_Nascimento(rs.getDate("Data_Nascimento"));
-                Cand.setEmail(rs.getString("Email"));
-                Cand.setFoto(rs.getString("Foto"));
-                Cand.setEndereco(rs.getString("Endereco"));
-                Cand.setDesc_Usuario(rs.getString("Desc_Usuario"));
-            }
+
+            Cand.setCPF_CNPJ(rs.getLong("CPF_CNPJ"));
+            Cand.setNome(rs.getString("Nome"));
+            Cand.setData_Nascimento(rs.getDate("Data_Nascimento"));
+            Cand.setEmail(rs.getString("Email"));
+            Cand.setFoto(rs.getString("Foto"));
+            Cand.setEndereco(rs.getString("Endereco"));
+            Cand.setDesc_Usuario(rs.getString("Desc_Usuario"));
 
             rs.close();
             ps.close();

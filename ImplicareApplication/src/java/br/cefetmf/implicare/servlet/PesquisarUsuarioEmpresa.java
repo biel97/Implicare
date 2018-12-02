@@ -22,7 +22,7 @@ class PesquisarUsuarioEmpresa {
         String jsp = "";
         try {
 
-            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
 
             EmpresaManagement EmpresaManagement = new EmpresaManagementImpl();
             Empresa Empr = new Empresa();

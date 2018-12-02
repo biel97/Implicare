@@ -41,13 +41,13 @@ class PerfilCandidato {
         String jsp = "";
         try {
             String Tipo = (String) request.getSession().getAttribute("Tipo");
-            Long CPF = null;
+            long CPF ;
             if(Tipo == "E") {
                 jsp = "/VisualizarCandidato.jsp";
                 CPF = Long.parseLong(request.getParameter("CPF_CNPJ"));
             } else {
                 jsp = "/TelaPerfilCandidato.jsp";
-                CPF = (Long) request.getSession().getAttribute("CPF_CNPJ");
+                CPF = (long) request.getSession().getAttribute("CPF_CNPJ");
             }
             
             CandidatoManagement CandidatoManagement = new CandidatoManagementImpl();

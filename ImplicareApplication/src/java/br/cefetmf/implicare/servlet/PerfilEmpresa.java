@@ -26,10 +26,10 @@ class PerfilEmpresa {
         String jsp = "";
         try {
             String Tipo = (String) request.getSession().getAttribute("Tipo");
-            Long CNPJ = null;
+            long CNPJ;
             if(Tipo == "E") {
-                jsp = "/TelePerfilEmpresa.jsp";
-                CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+                jsp = "/TelaPerfilEmpresa.jsp";
+                CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
             } else {
                 jsp = "/VisualizarEmpresa.jsp";
                 CNPJ = Long.parseLong(request.getParameter("CPF_CNPJ"));
@@ -43,11 +43,9 @@ class PerfilEmpresa {
             ArrayList<Telefone> ListaTelefone = new ArrayList();
             ListaTelefone = TelefoneManagement.listar(CNPJ);
 
-            if (Empr != null) {
-                request.setAttribute("Empresa", Empr);
-                request.setAttribute("ListaTelefone", ListaTelefone);
-            }
-            
+            request.setAttribute("Empresa", Empr);
+            request.setAttribute("ListaTelefone", ListaTelefone);
+   
         } catch (Exception e) {
             e.printStackTrace();
         }

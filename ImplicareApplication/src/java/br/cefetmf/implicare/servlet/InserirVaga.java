@@ -27,7 +27,7 @@ class InserirVaga {
         String jsp = "";
         try {
             
-            Long CNPJ = (Long) request.getSession().getAttribute("CPF_CNPJ");
+            long CNPJ = (long) request.getSession().getAttribute("CPF_CNPJ");
             int Cod_Cargo = Integer.parseInt(request.getParameter("Cod_Cargo"));
             SimpleDateFormat formato = new SimpleDateFormat("YYYY-MM-dd");
             java.util.Date Dat_Publicacao = formato.parse(request.getParameter("Dat_Publicacao"));

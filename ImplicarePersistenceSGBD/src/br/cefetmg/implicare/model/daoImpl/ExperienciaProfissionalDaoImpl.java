@@ -31,7 +31,7 @@ public class ExperienciaProfissionalDaoImpl implements ExperienciaProfissionalDa
 
             String sql = "INSERT INTO Experiencia_Profissional (CPF, Seq_Experiencia, Nom_Empresa, Cod_Cargo, "
                     + "Data_Inicio, Data_Termino, Desc_Experiencia_Profissional) "
-                    + "VALUES(?,?,?,?,?,?,?)";
+                    + "VALUES(?,?,?,?,?,?,?);";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -64,7 +64,7 @@ public class ExperienciaProfissionalDaoImpl implements ExperienciaProfissionalDa
             
             String SQL = "UPDATE Experiencia_Profissional SET Nom_Empresa = ?, Cod_Cargo = ?, "
                     + "Data_Inicio = ?, Data_Termino = ?, Desc_Experiencia_Profissional = ?"
-                    + "WHERE Seq_Experiencia = ?";
+                    + "WHERE Seq_Experiencia = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
 
@@ -92,7 +92,7 @@ public class ExperienciaProfissionalDaoImpl implements ExperienciaProfissionalDa
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
             String SQL = "DELETE FROM Experiencia_Profissional"
-                    + "WHERE Seq_Experiencia = ?";
+                    + "WHERE Seq_Experiencia = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -154,20 +154,18 @@ public class ExperienciaProfissionalDaoImpl implements ExperienciaProfissionalDa
 
             ArrayList<ExperienciaProfissional> lista = new ArrayList<>();
             
-            if (rs.next()) {
-                do {
-                    ExperienciaProfissional Exp = new ExperienciaProfissional();
+            while (rs.next()) {
+                ExperienciaProfissional Exp = new ExperienciaProfissional();
                     
-                    Exp.setCPF(rs.getLong("CPF"));
-                    Exp.setSeq_Experiencia(rs.getInt("Seq_Experiencia"));
-                    Exp.setNom_Empresa(rs.getString("Nom_Empresa"));
-                    Exp.setCod_Cargo(rs.getInt("Cod_Cargo"));
-                    Exp.setData_Inicio(rs.getDate("Data_Inicio"));
-                    Exp.setData_Termino(rs.getDate("Data_Termino"));
-                    Exp.setDesc_Experiencia_Profissional(rs.getString("Desc_Experiencia_Profissional"));
+                Exp.setCPF(rs.getLong("CPF"));
+                Exp.setSeq_Experiencia(rs.getInt("Seq_Experiencia"));
+                Exp.setNom_Empresa(rs.getString("Nom_Empresa"));
+                Exp.setCod_Cargo(rs.getInt("Cod_Cargo"));
+                Exp.setData_Inicio(rs.getDate("Data_Inicio"));
+                Exp.setData_Termino(rs.getDate("Data_Termino"));
+                Exp.setDesc_Experiencia_Profissional(rs.getString("Desc_Experiencia_Profissional"));
                    
-                    lista.add(Exp);
-                } while (rs.next());
+                lista.add(Exp);
             }
 
             rs.close();

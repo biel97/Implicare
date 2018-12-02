@@ -31,7 +31,7 @@ public class FormacaoAcademicaDaoImpl implements FormacaoAcademicaDao {
 
             String sql = "INSERT INTO Formacao_Academica (CPF, Seq_Formacao, Instituicao_Ensino, Cod_Area_Estudo,"
                     + "Atividades_Desenvolvidas, Data_Inicio, Data_Termino, Desc_Formacao_Academica) "
-                    + "VALUES(?,?,?,?,?,?,?,?)";
+                    + "VALUES(?,?,?,?,?,?,?,?);";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -66,7 +66,7 @@ public class FormacaoAcademicaDaoImpl implements FormacaoAcademicaDao {
             String SQL = "UPDATE Formacao_Academica SET Seq_Formacao = ?, Instituicao_Ensino = ?, "
                     + "Cod_Area_Estudo = ? , Atividades_Desenvolvidas = ?, Data_Inicio = ?, "
                     + "Data_Termino = ?, Desc_Formacao_Academica = ?"
-                    + "WHERE Seq_Formacao = ?";
+                    + "WHERE Seq_Formacao = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
 
@@ -95,7 +95,7 @@ public class FormacaoAcademicaDaoImpl implements FormacaoAcademicaDao {
         try {
             Connection connection = JDBCConnectionManager.getInstance().getConnection();
             
-            String SQL = "DELETE FROM Formacao_Academica WHERE Seq_Formacao = ?";
+            String SQL = "DELETE FROM Formacao_Academica WHERE Seq_Formacao = ?;";
             
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -157,19 +157,17 @@ public class FormacaoAcademicaDaoImpl implements FormacaoAcademicaDao {
 
             ArrayList<FormacaoAcademica> lista = new ArrayList<>();
             
-            if (rs.next()) {
-                do {
-                    FormacaoAcademica Acad = new FormacaoAcademica();
-                    Acad.setCPF(rs.getLong("CPF"));
-                    Acad.setSeq_Formacao(rs.getInt("Seq_Formacao"));
-                    Acad.setInstituicao_Ensino(rs.getString("Instituicao_Ensino"));
-                    Acad.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
-                    Acad.setAtividades_Desenvolvidas(rs.getString("Atividades_Desenvolvidas"));
-                    Acad.setData_Inicio(rs.getDate("Data_Inicio"));
-                    Acad.setData_Termino(rs.getDate("Data_Termino"));
-                    Acad.setDesc_Formacao_Academica(rs.getString("Desc_Formacao_Academica"));
-                    lista.add(Acad);
-                } while (rs.next());
+            while (rs.next()) {
+                FormacaoAcademica Acad = new FormacaoAcademica();
+                Acad.setCPF(rs.getLong("CPF"));
+                Acad.setSeq_Formacao(rs.getInt("Seq_Formacao"));
+                Acad.setInstituicao_Ensino(rs.getString("Instituicao_Ensino"));
+                Acad.setCod_Area_Estudo(rs.getInt("Cod_Area_Estudo"));
+                Acad.setAtividades_Desenvolvidas(rs.getString("Atividades_Desenvolvidas"));
+                Acad.setData_Inicio(rs.getDate("Data_Inicio"));
+                Acad.setData_Termino(rs.getDate("Data_Termino"));
+                Acad.setDesc_Formacao_Academica(rs.getString("Desc_Formacao_Academica"));
+                lista.add(Acad);
             }
 
             rs.close();
