@@ -1,5 +1,6 @@
 <%-- para adicionar em outra página basta usar o import --%>
 <%@ page pageEncoding="UTF-8" %>
+<div class="container" style="margin-bottom: 0px;">
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark cor d-flex justify-content-between">
     <a class="navbar-brand cabEmp" href="#"><b>Implicare</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,3 +22,4 @@
   
   </ul>
 </nav>
+</div>
